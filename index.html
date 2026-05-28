@@ -508,10 +508,13 @@
 
         <!-- 
           【本番用お問い合わせフォーム】
-          送信先をconsul.will.next@gmail.comに紐づいたFormspreeエンドポイントに設定しています。
-          Ajax(非同期通信)での送信処理に移行したため、美しく画面上で処理が完結します。
+          登録不要で安全・確実にメール送信ができる「FormSubmit」のAjaxエンドポイントを使用。
+          送信先：consul.will.next@gmail.com
         -->
-        <form id="contact-form" action="https://formspree.io/f/consul.will.next@gmail.com" method="POST" class="space-y-6" onsubmit="handleFormSubmit(event)">
+        <form id="contact-form" action="https://formsubmit.co/ajax/consul.will.next@gmail.com" method="POST" class="space-y-6" onsubmit="handleFormSubmit(event)">
+            
+            <!-- フォーム送信後のロボット確認画面(画像認証)をスキップする設定（Ajax送信をスムーズにするため必須） -->
+            <input type="hidden" name="_captcha" value="false">
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="space-y-1.5">
