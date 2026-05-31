@@ -1,602 +1,760 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 【編集可能箇所：サイトのタイトル】 -->
     <!-- サイトのタイトル -->
-    <title>ウィルネクスト合同会社 | 美容サロン専門コンサルティング</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter & Noto Serif JP (上品な明朝体) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;600;700&family=Noto+Serif+JP:wght=400;700;900&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Noto Serif JP', 'serif'],
-                    },
-                    colors: {
-                        brand: {
-                            navy: '#1A3050',      /* 信頼を表現するネイビー */
-                            gold: '#C5A880',      /* 上品なゴールド */
-                            darkGold: '#A3845B',  /* ホバー用の濃いゴールド */
-                            beige: '#F9F6F0',     /* 背景用の極薄いベージュ */
-                            accent: '#E6DCD0',    /* 仕切り・枠線用のベージュ */
-                            dark: '#2A2A2A'       /* メインテキスト色 */
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+<title>ウィルネクスト合同会社 | 美容サロン専門コンサルティング</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Google Fonts: Inter & Noto Serif JP (上品な明朝体) -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Serif+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+theme: {
+extend: {
+fontFamily: {
+sans: ['Inter', 'sans-serif'],
+serif: ['Noto Serif JP', 'serif'],
+},
+colors: {
+brand: {
+navy: '#1A3050',      /* 信頼を表現するネイビー */
+gold: '#C5A880',      /* 上品なゴールド */
+darkGold: '#A3845B',  /* ホバー用の濃いゴールド */
+beige: '#F9F6F0',     /* 背景用の極薄いベージュ */
+accent: '#E6DCD0',    /* 仕切り・枠線用のベージュ */
+dark: '#2A2A2A'       /* メインテキスト色 */
+}
+}
+}
+}
+}
+</script>
+<style>
+html {
+scroll-behavior: smooth;
+}
+</style>
 </head>
 <body class="bg-brand-beige text-brand-dark font-sans antialiased">
 
 <!-- =================================================================
-     ヘッダー・ナビゲーション
+    ヘッダー・ナビゲーション
 ================================================================== -->
 <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-brand-accent shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        <div class="flex items-center space-x-2">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<div class="flex items-center space-x-2">
+            <!-- 【編集可能箇所：ロゴ画像・会社名】 -->
             <!-- ロゴ画像・会社名 -->
-            <img src="ChatGPT Image 2026年5月22日 14_09_52_2.png" alt="ウィルネクスト合同会社 ロゴ" class="h-12 w-auto object-contain" onerror="this.style.display='none'">
-            <span class="font-serif text-xl sm:text-2xl font-black tracking-wider text-brand-navy">
-                WILL NEXT
-            </span>
-            <span class="text-xs bg-brand-gold text-white px-2 py-1 rounded font-bold tracking-tight">
-                ウィルネクスト合同会社
-            </span>
-        </div>
-        <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wide">
-            <a href="#strengths" class="text-brand-dark hover:text-brand-gold transition">強み・事業</a>
-            <a href="#profile" class="text-brand-dark hover:text-brand-gold transition">代表メッセージ</a>
-            <a href="#pricing" class="text-brand-dark hover:text-brand-gold transition">コンサル料金</a>
-            <a href="#access" class="text-brand-dark hover:text-brand-gold transition">会社情報</a>
-        </nav>
-        <div class="flex items-center space-x-4">
+<img src="ChatGPT Image 2026年5月22日 14_09_52_2.png" alt="ウィルネクスト合同会社 ロゴ" class="h-12 w-auto object-contain" onerror="this.style.display='none'">
+<span class="font-serif text-xl sm:text-2xl font-black tracking-wider text-brand-navy">
+WILL NEXT
+</span>
+<span class="text-xs bg-brand-gold text-white px-2 py-1 rounded font-bold tracking-tight">
+ウィルネクスト合同会社
+</span>
+</div>
+<nav class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wide">
+<a href="#strengths" class="text-brand-dark hover:text-brand-gold transition">強み・事業</a>
+<a href="#profile" class="text-brand-dark hover:text-brand-gold transition">代表メッセージ</a>
+<a href="#pricing" class="text-brand-dark hover:text-brand-gold transition">コンサル料金</a>
+<a href="#access" class="text-brand-dark hover:text-brand-gold transition">会社情報</a>
+</nav>
+<div class="flex items-center space-x-4">
+            <!-- 【編集可能箇所：ヘッダー電話番号】 -->
             <!-- ヘッダー電話番号 -->
-            <a href="tel:090-6188-1722" class="hidden lg:flex items-center text-brand-navy hover:text-brand-gold font-bold text-sm transition">
-                <svg class="w-4 h-4 mr-1.5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
-                </svg>
-                090-6188-1722
-            </a>
-            <a href="#contact" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-brand-navy hover:bg-brand-gold transition duration-300 shadow-md">
-                お問い合わせ
-            </a>
-        </div>
-    </div>
+<a href="tel:090-6188-1722" class="hidden lg:flex items-center text-brand-navy hover:text-brand-gold font-bold text-sm transition">
+<svg class="w-4 h-4 mr-1.5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
+<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+</svg>
+090-6188-1722
+</a>
+<a href="#contact" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-brand-navy hover:bg-brand-gold transition duration-300 shadow-md">
+お問い合わせ
+</a>
+</div>
+</div>
 </header>
 
 <!-- =================================================================
-     メインビジュアル (Hero Section)
+    メインビジュアル (Hero Section)
 ================================================================== -->
 <section class="relative bg-gradient-to-r from-brand-beige via-[#F2EDE2] to-brand-beige py-16 md:py-28 overflow-hidden border-b border-brand-accent">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <!-- テキスト情報 -->
-            <div class="lg:col-span-7 space-y-6">
-                <div class="inline-block bg-white border border-brand-gold/40 text-brand-gold font-bold text-xs px-4 py-1.5 rounded-full shadow-sm tracking-widest">
-                    BEAUTY SALON CONSULTING
-                </div>
-                <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-black text-brand-navy leading-tight tracking-wide">
-                    サロンの魅力が、<br class="hidden sm:inline">きちんと伝わる仕組みづくり
-                </h1>
-                <p class="text-base sm:text-lg text-brand-dark/80 leading-relaxed font-medium">
-                    お店の強みや想いを整理し、運営・集客・WEB・販促の力から、美容サロンの成幸を力強く伴走支援いたします。現場の実務に落とし込める実践的な手法をご提供。
-                </p>
-                
-                <!-- 実績アピールバッジ -->
-                <div class="grid grid-cols-2 gap-4 pt-4">
-                    <div class="bg-white p-4 rounded-xl border border-brand-accent shadow-sm">
-                        <span class="text-xs text-brand-gold font-bold block mb-1">実店舗運営実績</span>
-                        <span class="text-xl sm:text-2xl font-serif font-black text-brand-navy">2店舗経営</span>
-                    </div>
-                    <div class="bg-white p-4 rounded-xl border border-brand-accent shadow-sm">
-                        <span class="text-xs text-brand-gold font-bold block mb-1">実績売上高</span>
-                        <span class="text-xl sm:text-2xl font-serif font-black text-brand-navy">年商6,000万円超</span>
-                    </div>
-                </div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
-                <div class="pt-6">
-                    <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 rounded-full text-sm font-bold tracking-wider text-white bg-brand-gold hover:bg-brand-navy transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-                        まずは初回相談（60分）を予約する
-                    </a>
-                </div>
-            </div>
+<!-- テキスト情報 -->
+<div class="lg:col-span-7 space-y-6">
+                <!-- 【編集可能箇所：ヒーローキャッチフレーズ】 -->
+<div class="inline-block bg-white border border-brand-gold/40 text-brand-gold font-bold text-xs px-4 py-1.5 rounded-full shadow-sm tracking-widest">
+BEAUTY SALON CONSULTING
+</div>
+<h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-black text-brand-navy leading-tight tracking-wide">
+サロンの魅力が、<br class="hidden sm:inline">きちんと伝わる仕組みづくり
+</h1>
+<p class="text-base sm:text-lg text-brand-dark/80 leading-relaxed font-medium">
+お店の強みや想いを整理し、運営・集客・WEB・販促の力から、美容サロンの成幸を力強く伴走支援いたします。現場の実務に落とし込める実践的な手法をご提供。
+</p>
 
-            <!-- メインビジュアルイメージ -->
-            <div class="lg:col-span-5 relative">
-                <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-white flex items-center justify-center p-6">
-                    <img src="ChatGPT Image 2026年5月22日 14_09_52_2.png" alt="ウィルネクスト合同会社 ロゴ" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/600x450/e8e3d9/1a3050?text=WILL+NEXT+CONSULTING'">
-                </div>
-                <!-- 装飾用のアウトラインゴールド -->
-                <div class="absolute -bottom-4 -right-4 w-full h-full border-2 border-brand-gold/30 rounded-2xl -z-10"></div>
-            </div>
+<!-- 実績アピールバッジ -->
+<div class="grid grid-cols-2 gap-4 pt-4">
+<div class="bg-white p-4 rounded-xl border border-brand-accent shadow-sm">
+<span class="text-xs text-brand-gold font-bold block mb-1">実店舗運営実績</span>
+                        <!-- 【編集可能箇所：運営店舗数実績】 -->
+<span class="text-xl sm:text-2xl font-serif font-black text-brand-navy">2店舗経営</span>
+</div>
+<div class="bg-white p-4 rounded-xl border border-brand-accent shadow-sm">
+<span class="text-xs text-brand-gold font-bold block mb-1">実績売上高</span>
+<span class="text-xl sm:text-2xl font-serif font-black text-brand-navy">年商6,000万円超</span>
+</div>
+</div>
 
-        </div>
-    </div>
+<div class="pt-6">
+<a href="#contact" class="inline-flex items-center justify-center px-8 py-4 rounded-full text-sm font-bold tracking-wider text-white bg-brand-gold hover:bg-brand-navy transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+まずは初回相談（60分）を予約する
+</a>
+</div>
+</div>
+
+<!-- メインビジュアルイメージ -->
+<div class="lg:col-span-5 relative">
+<div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-white flex items-center justify-center p-6">
+                    <!-- 【編集可能箇所：メインイメージ（ロゴ画像）】 -->
+<img src="ChatGPT Image 2026年5月22日 14_09_52_2.png" alt="ウィルネクスト合同会社 ロゴ" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/600x450/e8e3d9/1a3050?text=WILL+NEXT+CONSULTING'">
+</div>
+<!-- 装飾用のアウトラインゴールド -->
+<div class="absolute -bottom-4 -right-4 w-full h-full border-2 border-brand-gold/30 rounded-2xl -z-10"></div>
+</div>
+
+</div>
+</div>
 </section>
 
 <!-- =================================================================
-     サロンの強み・事業内容 (Strengths)
+    サロンの強み・事業内容 (Strengths)
 ================================================================== -->
 <section id="strengths" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <span class="text-brand-gold font-bold tracking-widest text-xs uppercase block">WILL NEXT STRENGTH</span>
-            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-navy tracking-wider">
-                サロンの価値を最大化する4つの柱
-            </h2>
-            <p class="text-sm text-brand-dark/70">
-                実現場を知り尽くしたオーナーだからこそできる、売上とリピート率を同時に高める現実的なソリューションをご用意しています。
-            </p>
-        </div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-            
-            <!-- カード1: 経営・運営支援 -->
-            <div class="bg-brand-beige p-8 rounded-2xl border border-brand-accent/50 hover:shadow-lg transition duration-300 flex flex-col justify-between">
-                <div class="space-y-4">
-                    <div class="w-12 h-12 rounded-xl bg-brand-navy flex items-center justify-center text-white">
-                        <svg class="w-6 h-6 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                    </div>
-                    <h3 class="font-serif text-xl font-bold text-brand-navy">経営・運営支援</h3>
-                    <p class="text-sm text-brand-dark/80 leading-relaxed">
-                        美容サロンの現場に寄り添い、メニュー設計・予約導線・日々の運営改善まで、実務に落とし込める具体的なアプローチでサポートします。
-                    </p>
-                </div>
-            </div>
+<div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+<span class="text-brand-gold font-bold tracking-widest text-xs uppercase block">WILL NEXT STRENGTH</span>
+<h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-navy tracking-wider">
+サロンの価値を最大化する4つの柱
+</h2>
+<p class="text-sm text-brand-dark/70">
+実現場を知り尽くしたオーナーだからこそできる、売上とリピート率を同時に高める現実的なソリューションをご用意しています。
+</p>
+</div>
 
-            <!-- カード2: 選ばれる集客支援 -->
-            <div class="bg-brand-beige p-8 rounded-2xl border border-brand-accent/50 hover:shadow-lg transition duration-300 flex flex-col justify-between">
-                <div class="space-y-4">
-                    <div class="w-12 h-12 rounded-xl bg-brand-navy flex items-center justify-center text-white">
-                        <svg class="w-6 h-6 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                    </div>
-                    <h3 class="font-serif text-xl font-bold text-brand-navy">選ばれる集客支援</h3>
-                    <p class="text-sm text-brand-dark/80 leading-relaxed">
-                        Hot Pepper Beautyや店頭販促、内装から接客オペレーションまで、お店の本来の魅力が新規顧客に届く「集客動線」を構築します。
-                    </p>
-                </div>
-            </div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
 
-            <!-- カード3: 伝わるWEB制作 -->
-            <div class="bg-brand-beige p-8 rounded-2xl border border-brand-accent/50 hover:shadow-lg transition duration-300 flex flex-col justify-between">
-                <div class="space-y-4">
-                    <div class="w-12 h-12 rounded-xl bg-brand-navy flex items-center justify-center text-white">
-                        <svg class="w-6 h-6 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                    </div>
-                    <h3 class="font-serif text-xl font-bold text-brand-navy">伝わるWEB制作</h3>
-                    <p class="text-sm text-brand-dark/80 leading-relaxed">
-                        ホームページやSNS用デザイン画像、広告バナーなど、サロンの空気感やらしさが直感的に伝わる、美しいデジタル制作を行います。
-                    </p>
-                </div>
-            </div>
+<!-- カード1: 経営・運営支援 -->
+<div class="bg-brand-beige p-8 rounded-2xl border border-brand-accent/50 hover:shadow-lg transition duration-300 flex flex-col justify-between">
+<div class="space-y-4">
+<div class="w-12 h-12 rounded-xl bg-brand-navy flex items-center justify-center text-white">
+<svg class="w-6 h-6 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+</div>
+                    <!-- 【編集可能箇所：強み1 タイトル＆テキスト】 -->
+<h3 class="font-serif text-xl font-bold text-brand-navy">経営・運営支援</h3>
+<p class="text-sm text-brand-dark/80 leading-relaxed">
+美容サロンの現場に寄り添い、メニュー設計・予約導線・日々の運営改善まで、実務に落とし込める具体的なアプローチでサポートします。
+</p>
+</div>
+</div>
 
-            <!-- カード4: キャラクター販促支援 -->
-            <div class="bg-brand-beige p-8 rounded-2xl border border-brand-accent/50 hover:shadow-lg transition duration-300 flex flex-col justify-between">
-                <div class="space-y-4">
-                    <div class="w-12 h-12 rounded-xl bg-brand-navy flex items-center justify-center text-white">
-                        <svg class="w-6 h-6 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
-                    <h3 class="font-serif text-xl font-bold text-brand-navy">キャラクター販促支援</h3>
-                    <p class="text-sm text-brand-dark/80 leading-relaxed">
-                        サロンの個性を体現するオリジナルキャラクターやイラスト、マンガ等を活用し、お客様に愛着を持ってもらうための仕掛けを構築します。
-                    </p>
-                </div>
-            </div>
+<!-- カード2: 選ばれる集客支援 -->
+<div class="bg-brand-beige p-8 rounded-2xl border border-brand-accent/50 hover:shadow-lg transition duration-300 flex flex-col justify-between">
+<div class="space-y-4">
+<div class="w-12 h-12 rounded-xl bg-brand-navy flex items-center justify-center text-white">
+<svg class="w-6 h-6 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+</div>
+                    <!-- 【編集可能箇所：強み2 タイトル＆テキスト】 -->
+<h3 class="font-serif text-xl font-bold text-brand-navy">選ばれる集客支援</h3>
+<p class="text-sm text-brand-dark/80 leading-relaxed">
+Hot Pepper Beautyや店頭販促、内装から接客オペレーションまで、お店の本来の魅力が新規顧客に届く「集客動線」を構築します。
+</p>
+</div>
+</div>
 
-        </div>
-    </div>
+<!-- カード3: 伝わるWEB制作 -->
+<div class="bg-brand-beige p-8 rounded-2xl border border-brand-accent/50 hover:shadow-lg transition duration-300 flex flex-col justify-between">
+<div class="space-y-4">
+<div class="w-12 h-12 rounded-xl bg-brand-navy flex items-center justify-center text-white">
+<svg class="w-6 h-6 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+</div>
+                    <!-- 【編集可能箇所：強み3 タイトル＆テキスト】 -->
+<h3 class="font-serif text-xl font-bold text-brand-navy">伝わるWEB制作</h3>
+<p class="text-sm text-brand-dark/80 leading-relaxed">
+ホームページやSNS用デザイン画像、広告バナーなど、サロンの空気感やらしさが直感的に伝わる、美しいデジタル制作を行います。
+</p>
+</div>
+</div>
+
+<!-- カード4: キャラクター販促支援 -->
+<div class="bg-brand-beige p-8 rounded-2xl border border-brand-accent/50 hover:shadow-lg transition duration-300 flex flex-col justify-between">
+<div class="space-y-4">
+<div class="w-12 h-12 rounded-xl bg-brand-navy flex items-center justify-center text-white">
+<svg class="w-6 h-6 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+</div>
+                    <!-- 【編集可能箇所：強み4 タイトル＆テキスト】 -->
+<h3 class="font-serif text-xl font-bold text-brand-navy">キャラクター販促支援</h3>
+<p class="text-sm text-brand-dark/80 leading-relaxed">
+サロンの個性を体現するオリジナルキャラクターやイラスト、マンガ等を活用し、お客様に愛着を持ってもらうための仕掛けを構築します。
+</p>
+</div>
+</div>
+
+</div>
+</div>
 </section>
 
 <!-- =================================================================
-     代表者紹介 (Profile Section)
+    代表者紹介 (Profile Section)
 ================================================================== -->
 <section id="profile" class="py-20 bg-brand-beige border-t border-b border-brand-accent">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
-            <!-- 代表者画像 -->
-            <div class="lg:col-span-5 flex justify-center">
-                <div class="relative w-full max-w-sm sm:max-w-md">
-                    <div class="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-gray-200">
-                        <img src="ChatGPT Image 2026年5月11日 21_01_50.png" alt="ウィルネクスト代表 高崎弘之" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x533/e8e3d9/1a3050?text=Representative'">
-                    </div>
-                    <div class="absolute -top-4 -left-4 w-16 h-16 bg-brand-gold text-white font-serif flex items-center justify-center rounded-2xl shadow-lg font-black text-xl">
-                        実績
-                    </div>
-                </div>
-            </div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <!-- 代表メッセージ・実績詳細 -->
-            <div class="lg:col-span-7 space-y-6">
-                <span class="text-brand-gold font-bold tracking-widest text-xs uppercase block">REPRESENTATIVE PROFILE</span>
-                
-                <div class="space-y-2">
-                    <span class="text-sm font-semibold text-brand-gold">代表紹介</span>
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-navy leading-tight">
-                        高崎 弘之 <span class="text-sm font-normal text-brand-dark/70 ml-2">(タカサキ ヒロユキ)</span>
-                    </h2>
-                </div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-                <div class="prose max-w-none text-brand-dark/90 text-sm sm:text-base leading-relaxed space-y-4 font-medium">
-                    <p class="font-bold text-brand-navy text-lg leading-snug">
+<!-- 代表者画像 -->
+<div class="lg:col-span-5 flex justify-center">
+<div class="relative w-full max-w-sm sm:max-w-md">
+<div class="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-gray-200">
+                        <!-- 【編集可能箇所：代表画像（ChatGPT Image 2026年5月11日 21_01_50.png）】 -->
+<img src="ChatGPT Image 2026年5月11日 21_01_50.png" alt="ウィルネクスト代表 高崎弘之" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x533/e8e3d9/1a3050?text=Representative'">
+</div>
+<div class="absolute -top-4 -left-4 w-16 h-16 bg-brand-gold text-white font-serif flex items-center justify-center rounded-2xl shadow-lg font-black text-xl">
+実績
+</div>
+</div>
+</div>
+
+<!-- 代表メッセージ・実績詳細 -->
+<div class="lg:col-span-7 space-y-6">
+<span class="text-brand-gold font-bold tracking-widest text-xs uppercase block">REPRESENTATIVE PROFILE</span>
+
+<div class="space-y-2">
+<span class="text-sm font-semibold text-brand-gold">代表紹介</span>
+                    <!-- 【編集可能箇所：代表者名】 -->
+<h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-navy leading-tight">
+高崎 弘之 <span class="text-sm font-normal text-brand-dark/70 ml-2">(タカサキ ヒロユキ)</span>
+</h2>
+</div>
+
+                <!-- 【編集可能箇所：代表プロフィールメッセージ本文】 -->
+<div class="prose max-w-none text-brand-dark/90 text-sm sm:text-base leading-relaxed space-y-4 font-medium">
+<p class="font-bold text-brand-navy text-lg leading-snug">
                         4席規模の美容サロン2店舗を運営し、年商6,000万円以上を達成した経験をもとに、美容サロン向けの経営支援・集客支援・運営改善を行っています。
-                    </p>
-                    <p>
-                        これまでに、資本金300万円でスタートしたサロンの年商4,500万円達成、1人サロンの資本金150万円から初年度売上900万円達成など、サロンの規模や現在の状況に応じたきめ細やかなサポートを行ってきました。
-                    </p>
-                    <p>
-                        月額プランでは、毎月分かりやすいレポートにまとめた具体的な改善提案を行います。スタンダードプラン以上では、近隣の競合店との徹底比較データを踏まえた改善案を、プレミアムプランでは多店舗展開まで見据えた一歩進んだ伴走型支援を継続して行います。
-                    </p>
-                    <p class="text-brand-gold font-bold">
-                        難しい専門用語などは使わず、オーナー様やスタッフの皆様が「現場で今すぐ実行に移せるかたち」で徹底してご提案いたします。まずはどんな小さなお悩みでもお気軽にご相談ください。
-                    </p>
-                </div>
-            </div>
+                        4席規模 of 美容サロン2店舗を運営し、年商6,000万円以上を達成した経験をもとに、美容サロン向けの経営支援・集客支援・運営改善を行っています。
+</p>
+<p>
+これまでに、資本金300万円でスタートしたサロンの年商4,500万円達成、1人サロンの資本金150万円から初年度売上900万円達成など、サロンの規模や現在の状況に応じたきめ細やかなサポートを行ってきました。
+</p>
+<p>
+月額プランでは、毎月分かりやすいレポートにまとめた具体的な改善提案を行います。スタンダードプラン以上では、近隣の競合店との徹底比較データを踏まえた改善案を、プレミアムプランでは多店舗展開まで見据えた一歩進んだ伴走型支援を継続して行います。
+</p>
+<p class="text-brand-gold font-bold">
+難しい専門用語などは使わず、オーナー様やスタッフの皆様が「現場で今すぐ実行に移せるかたち」で徹底してご提案いたします。まずはどんな小さなお悩みでもお気軽にご相談ください。
+</p>
+</div>
+</div>
 
-        </div>
+</div>
 
-    </div>
+</div>
 </section>
 
 <!-- =================================================================
-     料金プラン（料金表）
+    料金プラン（料金表）
 ================================================================== -->
 <section id="pricing" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <span class="text-brand-gold font-bold tracking-widest text-xs uppercase block">PRICE LIST</span>
-            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-navy tracking-wider">
-                美容サロン向けコンサルティング料金
-            </h2>
-            <p class="text-sm text-brand-dark/70">
-                お悩みやお好みの支援範囲に合わせた、シンプルで明確な料金体系をご提示しています。
-            </p>
-        </div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <!-- 料金表グリッド -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            <!-- 初回相談 -->
-            <div class="bg-brand-beige p-8 rounded-2xl border-2 border-brand-accent/60 flex flex-col justify-between shadow-sm hover:shadow-md transition">
-                <div>
-                    <h3 class="text-lg font-bold text-brand-navy mb-2">初回相談</h3>
-                    <div class="mb-4">
-                        <span class="text-3xl font-serif font-black text-brand-dark">11,000</span>
-                        <span class="text-sm font-semibold text-brand-dark">円 (税込)</span>
-                        <span class="block text-xs text-brand-gold mt-1">※ 60分 / お一人様1回限り</span>
-                    </div>
-                    <p class="text-xs text-brand-dark/80 leading-relaxed border-t border-brand-accent/50 pt-4">
-                        現状のお悩み、集客の悩み、スタッフ育成等についてお話を伺い、今後とるべき改善の方向性を整理してプロの視点からお伝えいたします。
-                    </p>
-                </div>
-                <div class="pt-6">
-                    <a href="#contact" class="block text-center w-full py-2.5 rounded-lg text-xs font-bold bg-brand-navy text-white hover:bg-brand-gold transition duration-200">
-                        このプランに申し込む
-                    </a>
-                </div>
-            </div>
+<div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+<span class="text-brand-gold font-bold tracking-widest text-xs uppercase block">PRICE LIST</span>
+<h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-navy tracking-wider">
+美容サロン向けコンサルティング料金
+</h2>
+<p class="text-sm text-brand-dark/70">
+お悩みやお好みの支援範囲に合わせた、シンプルで明確な料金体系をご提示しています。
+</p>
+</div>
 
-            <!-- サロン診断 -->
-            <div class="bg-brand-beige p-8 rounded-2xl border-2 border-brand-accent/60 flex flex-col justify-between shadow-sm hover:shadow-md transition">
-                <div>
-                    <h3 class="text-lg font-bold text-brand-navy mb-2">サロン診断</h3>
-                    <div class="mb-4">
-                        <span class="text-3xl font-serif font-black text-brand-dark">55,000</span>
-                        <span class="text-sm font-semibold text-brand-dark">円 (税込)</span>
-                        <span class="block text-xs text-brand-gold mt-1">※ 現状分析・戦略作成</span>
-                    </div>
-                    <p class="text-xs text-brand-dark/80 leading-relaxed border-t border-brand-accent/50 pt-4">
-                        現在の集客経路、提供メニュー、ネット予約動線、WEB/SNSの運営方法を細かく分析。今抱えている問題点を浮き彫りにし、改善案を提出します。
-                    </p>
-                </div>
-                <div class="pt-6">
-                    <a href="#contact" class="block text-center w-full py-2.5 rounded-lg text-xs font-bold bg-brand-navy text-white hover:bg-brand-gold transition duration-200">
-                        このプランに申し込む
-                    </a>
-                </div>
-            </div>
+<!-- 料金表グリッド -->
+        <!-- 【編集可能箇所：料金プラン（価格やプラン内容は画像4を参考にしています）】 -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <!-- 月額ライト -->
-            <div class="bg-brand-beige p-8 rounded-2xl border-2 border-brand-accent/60 flex flex-col justify-between shadow-sm hover:shadow-md transition">
-                <div>
-                    <h3 class="text-lg font-bold text-brand-navy mb-2">月額ライト</h3>
-                    <div class="mb-4">
-                        <span class="text-3xl font-serif font-black text-brand-dark">27,500</span>
-                        <span class="text-sm font-semibold text-brand-dark">円 (税込) / 月</span>
-                        <span class="block text-xs text-brand-gold mt-1">※ 月1回定期面談相談</span>
-                    </div>
-                    <p class="text-xs text-brand-dark/80 leading-relaxed border-t border-brand-accent/50 pt-4">
-                        月1回の直接相談（その他、電話相談可）に加え、毎月の店舗数値や取り組み状況に対する簡易な改善ロードマップをご提示します。
-                    </p>
-                </div>
-                <div class="pt-6">
-                    <a href="#contact" class="block text-center w-full py-2.5 rounded-lg text-xs font-bold bg-brand-navy text-white hover:bg-brand-gold transition duration-200">
-                        このプランに申し込む
-                    </a>
-                </div>
-            </div>
+<!-- 初回相談 -->
+<div class="bg-brand-beige p-8 rounded-2xl border-2 border-brand-accent/60 flex flex-col justify-between shadow-sm hover:shadow-md transition">
+<div>
+<h3 class="text-lg font-bold text-brand-navy mb-2">初回相談</h3>
+<div class="mb-4">
+<span class="text-3xl font-serif font-black text-brand-dark">11,000</span>
+<span class="text-sm font-semibold text-brand-dark">円 (税込)</span>
+<span class="block text-xs text-brand-gold mt-1">※ 60分 / お一人様1回限り</span>
+</div>
+<p class="text-xs text-brand-dark/80 leading-relaxed border-t border-brand-accent/50 pt-4">
+現状のお悩み、集客の悩み、スタッフ育成等についてお話を伺い、今後とるべき改善の方向性を整理してプロの視点からお伝えいたします。
+</p>
+</div>
+<div class="pt-6">
+<a href="#contact" class="block text-center w-full py-2.5 rounded-lg text-xs font-bold bg-brand-navy text-white hover:bg-brand-gold transition duration-200">
+このプランに申し込む
+</a>
+</div>
+</div>
 
-            <!-- 月額スタンダード -->
-            <div class="bg-[#F3EFE6] p-8 rounded-2xl border-2 border-brand-gold flex flex-col justify-between shadow-md relative">
-                <div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-brand-gold text-white text-[10px] font-bold tracking-widest px-4 py-1 rounded-full uppercase">
-                    RECOMMEND / おすすめ
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold text-brand-navy mb-2 pt-2">月額スタンダード</h3>
-                    <div class="mb-4">
-                        <span class="text-3xl font-serif font-black text-brand-dark">55,000</span>
-                        <span class="text-sm font-semibold text-brand-dark">円 (税込) / 月</span>
-                        <span class="block text-xs text-brand-gold mt-1">※ 月2回面談＋包括支援</span>
-                    </div>
-                    <p class="text-xs text-brand-dark/80 leading-relaxed border-t border-brand-gold/30 pt-4">
-                        月2回の直接相談（他、電話相談可）と、集客施策の改善・実運営面のアドバイスをフルサポート。PDCAを確実に回して成果を実感させます。
-                    </p>
-                </div>
-                <div class="pt-6">
-                    <a href="#contact" class="block text-center w-full py-2.5 rounded-lg text-xs font-bold bg-brand-gold text-white hover:bg-brand-navy transition duration-200 shadow">
-                        このプランに申し込む
-                    </a>
-                </div>
-            </div>
+<!-- サロン診断 -->
+<div class="bg-brand-beige p-8 rounded-2xl border-2 border-brand-accent/60 flex flex-col justify-between shadow-sm hover:shadow-md transition">
+<div>
+<h3 class="text-lg font-bold text-brand-navy mb-2">サロン診断</h3>
+<div class="mb-4">
+<span class="text-3xl font-serif font-black text-brand-dark">55,000</span>
+<span class="text-sm font-semibold text-brand-dark">円 (税込)</span>
+<span class="block text-xs text-brand-gold mt-1">※ 現状分析・戦略作成</span>
+</div>
+<p class="text-xs text-brand-dark/80 leading-relaxed border-t border-brand-accent/50 pt-4">
+現在の集客経路、提供メニュー、ネット予約動線、WEB/SNSの運営方法を細かく分析。今抱えている問題点を浮き彫りにし、改善案を提出します。
+</p>
+</div>
+<div class="pt-6">
+<a href="#contact" class="block text-center w-full py-2.5 rounded-lg text-xs font-bold bg-brand-navy text-white hover:bg-brand-gold transition duration-200">
+このプランに申し込む
+</a>
+</div>
+</div>
 
-            <!-- 月額プレミアム -->
-            <div class="bg-brand-beige p-8 rounded-2xl border-2 border-brand-accent/60 flex flex-col justify-between shadow-sm hover:shadow-md transition">
-                <div>
-                    <h3 class="text-lg font-bold text-brand-navy mb-2">月額プレミアム</h3>
-                    <div class="mb-4">
-                        <span class="text-3xl font-serif font-black text-brand-dark">110,000</span>
-                        <span class="text-sm font-semibold text-brand-dark">円 (税込) / 月</span>
-                        <span class="block text-xs text-brand-gold mt-1">※ 多店舗展開・本格的伴走</span>
-                    </div>
-                    <p class="text-xs text-brand-dark/80 leading-relaxed border-t border-brand-accent/50 pt-4">
-                        多店舗展開や売上スケールを見据えた本格的な伴走プラン。経営戦略から求人・育成・チームビルディングまで含めたトータルコンサル。
-                    </p>
-                </div>
-                <div class="pt-6">
-                    <a href="#contact" class="block text-center w-full py-2.5 rounded-lg text-xs font-bold bg-brand-navy text-white hover:bg-brand-gold transition duration-200">
-                        このプランに申し込む
-                    </a>
-                </div>
-            </div>
+<!-- 月額ライト -->
+<div class="bg-brand-beige p-8 rounded-2xl border-2 border-brand-accent/60 flex flex-col justify-between shadow-sm hover:shadow-md transition">
+<div>
+<h3 class="text-lg font-bold text-brand-navy mb-2">月額ライト</h3>
+<div class="mb-4">
+<span class="text-3xl font-serif font-black text-brand-dark">27,500</span>
+<span class="text-sm font-semibold text-brand-dark">円 (税込) / 月</span>
+<span class="block text-xs text-brand-gold mt-1">※ 月1回定期面談相談</span>
+</div>
+<p class="text-xs text-brand-dark/80 leading-relaxed border-t border-brand-accent/50 pt-4">
+月1回の直接相談（その他、電話相談可）に加え、毎月の店舗数値や取り組み状況に対する簡易な改善ロードマップをご提示します。
+</p>
+</div>
+<div class="pt-6">
+<a href="#contact" class="block text-center w-full py-2.5 rounded-lg text-xs font-bold bg-brand-navy text-white hover:bg-brand-gold transition duration-200">
+このプランに申し込む
+</a>
+</div>
+</div>
 
-            <!-- 開業伴走プラン -->
-            <div class="bg-brand-beige p-8 rounded-2xl border-2 border-brand-accent/60 flex flex-col justify-between shadow-sm hover:shadow-md transition">
-                <div>
-                    <h3 class="text-lg font-bold text-brand-navy mb-2">開業伴走プラン</h3>
-                    <div class="mb-4">
-                        <span class="text-3xl font-serif font-black text-brand-dark">330,000</span>
-                        <span class="text-sm font-semibold text-brand-dark">円 (税込)</span>
-                        <span class="block text-xs text-brand-gold mt-1">※ 準備から開店まで包括サポート</span>
-                    </div>
-                    <p class="text-xs text-brand-dark/80 leading-relaxed border-t border-brand-accent/50 pt-4">
-                        物件選びのアドバイスから内装計画、コンセプトメイク、導入メニュー設定、求人対策、プレオープン支援など、開店準備を全方位で伴走します。
-                    </p>
-                </div>
-                <div class="pt-6">
-                    <a href="#contact" class="block text-center w-full py-2.5 rounded-lg text-xs font-bold bg-brand-navy text-white hover:bg-brand-gold transition duration-200">
-                        このプランに申し込む
-                    </a>
-                </div>
-            </div>
+<!-- 月額スタンダード -->
+<div class="bg-[#F3EFE6] p-8 rounded-2xl border-2 border-brand-gold flex flex-col justify-between shadow-md relative">
+<div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-brand-gold text-white text-[10px] font-bold tracking-widest px-4 py-1 rounded-full uppercase">
+RECOMMEND / おすすめ
+</div>
+<div>
+<h3 class="text-lg font-bold text-brand-navy mb-2 pt-2">月額スタンダード</h3>
+<div class="mb-4">
+<span class="text-3xl font-serif font-black text-brand-dark">55,000</span>
+<span class="text-sm font-semibold text-brand-dark">円 (税込) / 月</span>
+<span class="block text-xs text-brand-gold mt-1">※ 月2回面談＋包括支援</span>
+</div>
+<p class="text-xs text-brand-dark/80 leading-relaxed border-t border-brand-gold/30 pt-4">
+月2回の直接相談（他、電話相談可）と、集客施策の改善・実運営面のアドバイスをフルサポート。PDCAを確実に回して成果を実感させます。
+</p>
+</div>
+<div class="pt-6">
+<a href="#contact" class="block text-center w-full py-2.5 rounded-lg text-xs font-bold bg-brand-gold text-white hover:bg-brand-navy transition duration-200 shadow">
+このプランに申し込む
+</a>
+</div>
+</div>
 
-        </div>
+<!-- 月額プレミアム -->
+<div class="bg-brand-beige p-8 rounded-2xl border-2 border-brand-accent/60 flex flex-col justify-between shadow-sm hover:shadow-md transition">
+<div>
+<h3 class="text-lg font-bold text-brand-navy mb-2">月額プレミアム</h3>
+<div class="mb-4">
+<span class="text-3xl font-serif font-black text-brand-dark">110,000</span>
+<span class="text-sm font-semibold text-brand-dark">円 (税込) / 月</span>
+<span class="block text-xs text-brand-gold mt-1">※ 多店舗展開・本格的伴走</span>
+</div>
+<p class="text-xs text-brand-dark/80 leading-relaxed border-t border-brand-accent/50 pt-4">
+多店舗展開や売上スケールを見据えた本格的な伴走プラン。経営戦略から求人・育成・チームビルディングまで含めたトータルコンサル。
+</p>
+</div>
+<div class="pt-6">
+<a href="#contact" class="block text-center w-full py-2.5 rounded-lg text-xs font-bold bg-brand-navy text-white hover:bg-brand-gold transition duration-200">
+このプランに申し込む
+</a>
+</div>
+</div>
 
-        <!-- 補足・お見積り情報 -->
-        <div class="mt-12 bg-brand-beige p-6 sm:p-8 rounded-2xl border border-brand-accent max-w-4xl mx-auto">
-            <h4 class="font-bold text-brand-navy text-sm mb-4">お見積り・制作メニューについて</h4>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-brand-dark/80 leading-relaxed">
-                <div>
-                    <span class="font-semibold block text-brand-navy mb-1">■ WEB・販促物制作：個別お見積り</span>
-                    <p>ホームページのフル制作、SNS投稿用画像テンプレート、各種バナー、店頭POP、キャラクター等のクリエイティブも個別予算に合わせて制作可能です。</p>
-                </div>
-                <div class="space-y-1">
-                    <p>※ サロンの規模、ご支援の希望範囲、各種制作物の有無により、お見積りは変動します。</p>
-                    <p>※ 広告費、撮影費、印刷費、各種ツールの実費利用料は別途オーナー様負担（実費）となります。</p>
-                    <p>※ 売上・予約数・集客の成果そのものを物理的に保証するものではありません。</p>
-                    <p>※ ご契約前に必ず細かな支援内容と業務範囲をすり合わせの上、最適なプランを再提示いたします。</p>
-                </div>
-            </div>
-        </div>
+<!-- 開業伴走プラン -->
+<div class="bg-brand-beige p-8 rounded-2xl border-2 border-brand-accent/60 flex flex-col justify-between shadow-sm hover:shadow-md transition">
+<div>
+<h3 class="text-lg font-bold text-brand-navy mb-2">開業伴走プラン</h3>
+<div class="mb-4">
+<span class="text-3xl font-serif font-black text-brand-dark">330,000</span>
+<span class="text-sm font-semibold text-brand-dark">円 (税込)</span>
+<span class="block text-xs text-brand-gold mt-1">※ 準備から開店まで包括サポート</span>
+</div>
+<p class="text-xs text-brand-dark/80 leading-relaxed border-t border-brand-accent/50 pt-4">
+物件選びのアドバイスから内装計画、コンセプトメイク、導入メニュー設定、求人対策、プレオープン支援など、開店準備を全方位で伴走します。
+</p>
+</div>
+<div class="pt-6">
+<a href="#contact" class="block text-center w-full py-2.5 rounded-lg text-xs font-bold bg-brand-navy text-white hover:bg-brand-gold transition duration-200">
+このプランに申し込む
+</a>
+</div>
+</div>
 
-    </div>
+</div>
+
+<!-- 補足・お見積り情報 -->
+        <!-- 【編集可能箇所：価格の補足条件テキスト】 -->
+<div class="mt-12 bg-brand-beige p-6 sm:p-8 rounded-2xl border border-brand-accent max-w-4xl mx-auto">
+<h4 class="font-bold text-brand-navy text-sm mb-4">お見積り・制作メニューについて</h4>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-brand-dark/80 leading-relaxed">
+<div>
+<span class="font-semibold block text-brand-navy mb-1">■ WEB・販促物制作：個別お見積り</span>
+<p>ホームページのフル制作、SNS投稿用画像テンプレート、各種バナー、店頭POP、キャラクター等のクリエイティブも個別予算に合わせて制作可能です。</p>
+</div>
+<div class="space-y-1">
+<p>※ サロンの規模、ご支援の希望範囲、各種制作物の有無により、お見積りは変動します。</p>
+<p>※ 広告費、撮影費、印刷費、各種ツールの実費利用料は別途オーナー様負担（実費）となります。</p>
+<p>※ 売上・予約数・集客の成果そのものを物理的に保証するものではありません。</p>
+<p>※ ご契約前に必ず細かな支援内容と業務範囲をすり合わせの上、最適なプランを再提示いたします。</p>
+</div>
+</div>
+</div>
+
+</div>
 </section>
 
 <!-- =================================================================
-     アクセス・会社情報 (Access & Info)
+    アクセス・会社情報 (Access & Info)
 ================================================================== -->
 <section id="access" class="py-20 bg-brand-beige border-t border-brand-accent">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <!-- 会社案内テーブル -->
-            <div class="lg:col-span-6 space-y-6">
-                <span class="text-brand-gold font-bold tracking-widest text-xs uppercase block">COMPANY INFO</span>
-                <h2 class="font-serif text-3xl font-bold text-brand-navy">
-                    ウィルネクスト合同会社
-                </h2>
-                <p class="text-sm text-brand-dark/80">
-                    千葉県鎌ケ谷市を拠点に、関東一円およびオンラインを介して全国 of 美容サロンオーナー様をご支援しております。
-                </p>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-                <div class="border-t border-brand-accent/80 divide-y divide-brand-accent/60 text-sm">
-                    <div class="py-3.5 grid grid-cols-12 gap-4">
-                        <span class="col-span-4 font-bold text-brand-navy">会社名</span>
-                        <span class="col-span-8 font-medium">ウィルネクスト合同会社</span>
-                    </div>
-                    <div class="py-3.5 grid grid-cols-12 gap-4">
-                        <span class="col-span-4 font-bold text-brand-navy">所在地</span>
-                        <span class="col-span-8 font-medium">〒273-0125 千葉県鎌ケ谷市東中沢1-11-36</span>
-                    </div>
-                    <div class="py-3.5 grid grid-cols-12 gap-4">
-                        <span class="col-span-4 font-bold text-brand-navy">電話番号</span>
-                        <span class="col-span-8 font-medium">
-                            <a href="tel:090-6188-1722" class="hover:text-brand-gold transition">090-6188-1722</a>
-                        </span>
-                    </div>
-                    <div class="py-3.5 grid grid-cols-12 gap-4">
-                        <span class="col-span-4 font-bold text-brand-navy">営業時間</span>
-                        <span class="col-span-8 font-medium">10：00～20：00</span>
-                    </div>
-                    <div class="py-3.5 grid grid-cols-12 gap-4">
-                        <span class="col-span-4 font-bold text-brand-navy">定休日</span>
-                        <span class="col-span-8 font-medium">なし (年中無休)</span>
-                    </div>
-                </div>
-            </div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
-            <!-- 地図表示エリア -->
-            <div class="lg:col-span-6">
-                <div class="rounded-2xl overflow-hidden shadow-lg border-4 border-white h-80 bg-gray-200">
-                    <!-- Google Maps iframe -->
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.4727101569483!2d140.00342937682282!3d35.76377722543306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018828da062f6af%3A0xcfe0e350ae9ba3!2z44CSMjczLTAxMjUg5Y2D6JGJ55yM6Y6M44O26LC35biC5p2x5Lit5rKi77yR5LiB55uu77yR77yR4oiS77yT77yW!5e0!3m2!1sja!2sjp!4v1716912345678!5m2!1sja!2sjp" 
-                        class="w-full h-full border-0" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-            </div>
+<!-- 会社案内テーブル -->
+<div class="lg:col-span-6 space-y-6">
+<span class="text-brand-gold font-bold tracking-widest text-xs uppercase block">COMPANY INFO</span>
+<h2 class="font-serif text-3xl font-bold text-brand-navy">
+ウィルネクスト合同会社
+</h2>
+<p class="text-sm text-brand-dark/80">
+千葉県鎌ケ谷市を拠点に、関東一円およびオンラインを介して全国の美容サロンオーナー様をご支援しております。
+</p>
 
-        </div>
+                <!-- 【編集可能箇所：アクセス情報・営業時間・その他会社情報】 -->
+<div class="border-t border-brand-accent/80 divide-y divide-brand-accent/60 text-sm">
+<div class="py-3.5 grid grid-cols-12 gap-4">
+<span class="col-span-4 font-bold text-brand-navy">会社名</span>
+<span class="col-span-8 font-medium">ウィルネクスト合同会社</span>
+</div>
+<div class="py-3.5 grid grid-cols-12 gap-4">
+<span class="col-span-4 font-bold text-brand-navy">所在地</span>
+<span class="col-span-8 font-medium">〒273-0125 千葉県鎌ケ谷市東中沢1-11-36</span>
+</div>
+<div class="py-3.5 grid grid-cols-12 gap-4">
+<span class="col-span-4 font-bold text-brand-navy">電話番号</span>
+<span class="col-span-8 font-medium">
+<a href="tel:090-6188-1722" class="hover:text-brand-gold transition">090-6188-1722</a>
+</span>
+</div>
+<div class="py-3.5 grid grid-cols-12 gap-4">
+<span class="col-span-4 font-bold text-brand-navy">営業時間</span>
+<span class="col-span-8 font-medium">10：00～20：00</span>
+</div>
+<div class="py-3.5 grid grid-cols-12 gap-4">
+<span class="col-span-4 font-bold text-brand-navy">定休日</span>
+<span class="col-span-8 font-medium">なし (年中無休)</span>
+</div>
+</div>
+</div>
 
-    </div>
+<!-- 地図表示エリア -->
+<div class="lg:col-span-6">
+<div class="rounded-2xl overflow-hidden shadow-lg border-4 border-white h-80 bg-gray-200">
+<!-- Google Maps iframe -->
+                    <!-- 【編集可能箇所：Googleマップの埋め込みアドレス】 -->
+<iframe 
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.4727101569483!2d140.00342937682282!3d35.76377722543306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018828da062f6af%3A0xcfe0e350ae9ba3!2z44CSMjczLTAxMjUg5Y2D6JGJ55yM6Y6M44O26LC35biC5p2x5Lit5rKi77yR5LiB55uu77yR77yR4oiS77yT77yW!5e0!3m2!1sja!2sjp!4v1716912345678!5m2!1sja!2sjp" 
+class="w-full h-full border-0" 
+allowfullscreen="" 
+loading="lazy" 
+referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+</div>
+</div>
+
+</div>
+
+</div>
 </section>
 
 <!-- =================================================================
      お問い合わせフォーム (Contact Form)
+     お問い合わせフォーム (Contact Form - リアル送信設定)
 ================================================================== -->
 <section id="contact" class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center mb-12 space-y-4">
-            <span class="text-brand-gold font-bold tracking-widest text-xs uppercase block">CONTACT</span>
-            <h2 class="font-serif text-3xl font-bold text-brand-navy">
-                ご相談・お問い合わせ
-            </h2>
-            <p class="text-sm text-brand-dark/80">
-                サロン診断、経営改善のご相談、料金プランのお問い合わせなど、お気軽にお送りください。
-            </p>
-        </div>
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <!-- 
-          【完全なクラシック送信フォーム】
-          - 外部アプリ（Outlookなど）は絶対に起動しません。
-          - 100%エラーを回避するHTML標準のPOST送信のみで行います。
-          - アクティベーション済みの暗号化トークンを使用し直接 consul.will.next@gmail.com にメールを届けます。
-        -->
-        <div class="bg-brand-beige/30 p-8 sm:p-10 rounded-3xl border border-brand-accent/50 shadow-sm">
-            <form id="contact-form" class="space-y-6" action="https://formsubmit.co/d668f93e7fdb4e8874406353d6739f08" method="POST">
-                
-                <!-- FormSubmit用の隠しフィールド設定（標準POST仕様） -->
-                <input type="hidden" name="_subject" value="【WILL NEXT LP】新規お問い合わせが届きました">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off">
-                <!-- 送信成功後、不格好な別ページに行かずに自身のページに戻します -->
-                <input type="hidden" name="_next" value="https://will-next1.github.io/will-next/">
+<div class="text-center mb-12 space-y-4">
+<span class="text-brand-gold font-bold tracking-widest text-xs uppercase block">CONTACT</span>
+<h2 class="font-serif text-3xl font-bold text-brand-navy">
+ご相談・お問い合わせ
+</h2>
+<p class="text-sm text-brand-dark/80">
+サロン診断、経営改善のご相談、料金プランのお問い合わせなど、お気軽にお送りください。
+</p>
+</div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="space-y-1.5">
-                        <label class="text-xs font-bold text-brand-navy" for="salon_name">サロン名・お名前</label>
-                        <input type="text" id="salon_name" name="サロン名・お名前" required class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-white text-sm shadow-inner" placeholder="例：ネイルサロン カナモ">
-                    </div>
-                    <div class="space-y-1.5">
-                        <label class="text-xs font-bold text-brand-navy" for="email">メールアドレス</label>
-                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-white text-sm shadow-inner" placeholder="例：name@example.com">
-                    </div>
-                </div>
+        <!-- 簡易的な入力フォーム (安全ガイドラインに沿ったカスタム通知機能を使用) -->
+        <form id="demo-contact-form" class="space-y-6" onsubmit="handleDemoSubmit(event)">
+        <!-- リアル送信設定済みフォーム (非同期 fetch 送信処理にフック) -->
+        <form id="real-contact-form" class="space-y-6" onsubmit="handleFormSubmit(event)">
 
-                <div class="space-y-1.5">
-                    <label class="text-xs font-bold text-brand-navy" for="plan">ご希望のメニュー・プラン</label>
-                    <select id="plan" name="ご希望のメニュー・プラン" class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-white text-sm shadow-inner">
-                        <option value="初回相談">初回相談 (11,000円)</option>
-                        <option value="サロン診断">サロン診断 (55,000円)</option>
-                        <option value="月額ライト">月額ライト (27,500円/月)</option>
-                        <option value="月額スタンダード">月額スタンダード (55,000円/月)</option>
-                        <option value="月額プレミアム">月額プレミアム (110,000円/月)</option>
-                        <option value="開業伴走プラン">開業伴走プラン (330,000円)</option>
-                        <option value="その他・制作見積もり">その他（お見積り・ご質問など）</option>
-                    </select>
-                </div>
+            <!-- スパム防止用のハニーポット（ロボット除け：人間には見えない） -->
+            <input type="text" name="_honey" style="display:none">
+            
+            <!-- メールタイトルを指定 -->
+            <input type="hidden" name="_subject" value="【WILL NEXT】WEBサイトから新規お問い合わせがありました">
+            
+            <!-- メールの書式を綺麗にするためのテーブルテンプレート指定 -->
+            <input type="hidden" name="_template" value="table">
 
-                <div class="space-y-1.5">
-                    <label class="text-xs font-bold text-brand-navy" for="message">ご相談内容・メッセージ</label>
-                    <textarea id="message" name="ご相談内容・メッセージ" rows="5" required class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-white text-sm shadow-inner" placeholder="現状のサロンのお悩みやご相談事項、日程候補などがあればご自由に入力してください。"></textarea>
-                </div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-1.5">
+<label class="text-xs font-bold text-brand-navy" for="salon_name">サロン名・お名前</label>
+                    <input type="text" id="salon_name" required class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-brand-beige/50 text-sm" placeholder="例：ネイルサロン カナモ">
+                    <input type="text" name="サロン名・お名前" id="salon_name" required class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-brand-beige/50 text-sm" placeholder="例：ネイルサロン カナモ">
+</div>
+<div class="space-y-1.5">
+<label class="text-xs font-bold text-brand-navy" for="email">メールアドレス</label>
+                    <input type="email" id="email" required class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-brand-beige/50 text-sm" placeholder="例：name@example.com">
+                    <input type="email" name="メールアドレス" id="email" required class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-brand-beige/50 text-sm" placeholder="例：name@example.com">
+</div>
+</div>
 
-                <div class="text-center pt-4">
-                    <button type="submit" id="submit-btn" class="inline-flex items-center justify-center px-12 py-4 rounded-full text-sm font-bold tracking-widest text-white bg-brand-navy hover:bg-brand-gold transition-all duration-300 shadow-md min-w-[240px]">
-                        <span id="btn-text">この内容で送信する</span>
-                    </button>
-                </div>
+<div class="space-y-1.5">
+<label class="text-xs font-bold text-brand-navy" for="plan">ご希望のメニュー・プラン</label>
+                <select id="plan" class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-brand-beige/50 text-sm">
+                <select name="ご希望のプラン" id="plan" class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-brand-beige/50 text-sm">
+<option value="初回相談">初回相談 (11,000円)</option>
+<option value="サロン診断">サロン診断 (55,000円)</option>
+<option value="月額ライト">月額ライト (27,500円/月)</option>
+<option value="月額スタンダード">月額スタンダード (55,000円/月)</option>
+<option value="月額プレミアム">月額プレミアム (110,000円/月)</option>
+<option value="開業伴走プラン">開業伴走プラン (330,000円)</option>
+<option value="その他・制作見積もり">その他（お見積り・ご質問など）</option>
+</select>
+</div>
 
-            </form>
-        </div>
+<div class="space-y-1.5">
+<label class="text-xs font-bold text-brand-navy" for="message">ご相談内容・メッセージ</label>
+                <textarea id="message" rows="5" required class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-brand-beige/50 text-sm" placeholder="現状のサロンのお悩みやご相談事項、日程候補などがあればご自由に入力してください。"></textarea>
+                <textarea name="ご相談内容" id="message" rows="5" required class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-brand-beige/50 text-sm" placeholder="現状のサロンのお悩みやご相談事項、日程候補などがあればご自由に入力してください。"></textarea>
+</div>
 
-    </div>
+<div class="text-center pt-4">
+                <button type="submit" class="inline-flex items-center justify-center px-12 py-4 rounded-full text-sm font-bold tracking-widest text-white bg-brand-navy hover:bg-brand-gold transition-all duration-300 shadow-md">
+                    この内容で送信する
+                <button type="submit" id="submit-btn" class="inline-flex items-center justify-center px-12 py-4 rounded-full text-sm font-bold tracking-widest text-white bg-brand-navy hover:bg-brand-gold transition-all duration-300 shadow-md min-w-[240px]">
+                    <span id="btn-text">この内容で送信する</span>
+                    <!-- 送信中ローディングスピナー -->
+                    <svg id="btn-spinner" class="hidden animate-spin ml-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+</button>
+</div>
+
+</form>
+
+</div>
 </section>
 
 <!-- =================================================================
-     フッター (Footer)
+    フッター (Footer)
 ================================================================== -->
 <footer class="bg-brand-navy text-white/90 py-12 border-t-4 border-brand-gold">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center pb-8 border-b border-white/10">
-            <div class="space-y-2 text-center md:text-left">
-                <span class="font-serif text-xl sm:text-2xl font-black tracking-widest text-white">WILL NEXT</span>
-                <p class="text-[10px] text-white/60">美容サロン専門コンサルティングサービス</p>
-            </div>
-            <div class="flex flex-wrap justify-center gap-6 text-xs font-medium text-white/80">
-                <a href="#strengths" class="hover:text-brand-gold transition">強み</a>
-                <a href="#profile" class="hover:text-brand-gold transition">代表メッセージ</a>
-                <a href="#pricing" class="hover:text-brand-gold transition">料金</a>
-                <a href="#access" class="hover:text-brand-gold transition">会社概要</a>
-            </div>
-            <div class="text-center md:text-right text-xs space-y-1 text-white/75">
-                <p>〒273-0125 千葉県鎌ケ谷市東中沢1-11-36</p>
-                <p>TEL：<a href="tel:090-6188-1722" class="hover:text-brand-gold transition">090-6188-1722</a></p>
-                <p>営業時間 10:00 - 20:00 (年中無休)</p>
-            </div>
-        </div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div class="pt-8 text-center text-xs text-white/50 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p>© 2026 WILL NEXT LLC. All Rights Reserved.</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center pb-8 border-b border-white/10">
+<div class="space-y-2 text-center md:text-left">
+<span class="font-serif text-xl sm:text-2xl font-black tracking-widest text-white">WILL NEXT</span>
+<p class="text-[10px] text-white/60">美容サロン専門コンサルティングサービス</p>
+</div>
+<div class="flex flex-wrap justify-center gap-6 text-xs font-medium text-white/80">
+<a href="#strengths" class="hover:text-brand-gold transition">強み</a>
+<a href="#profile" class="hover:text-brand-gold transition">代表メッセージ</a>
+<a href="#pricing" class="hover:text-brand-gold transition">料金</a>
+<a href="#access" class="hover:text-brand-gold transition">会社概要</a>
+</div>
+<div class="text-center md:text-right text-xs space-y-1 text-white/75">
+<p>〒273-0125 千葉県鎌ケ谷市東中沢1-11-36</p>
+<p>TEL：<a href="tel:090-6188-1722" class="hover:text-brand-gold transition">090-6188-1722</a></p>
+<p>営業時間 10:00 - 20:00 (年中無休)</p>
+</div>
+</div>
+
+<div class="pt-8 text-center text-xs text-white/50 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <!-- 【編集可能箇所：コピーライト・免責事項など】 -->
+<p>© 2026 WILL NEXT LLC. All Rights Reserved.</p>
             <p class="text-[10px]">※本サイトに掲載されているサロンの成果・売上推移などの数字は、代表のこれまでの運用実績の一例であり、個々のクライアント様の将来的な数字を一律で保証するものではありません。</p>
-        </div>
+            <p class="text-[10px]">※本サイトに掲載されているサロン of 成果・売上推移などの数字は、代表のこれまでの運用実績の一例であり、個々のクライアント様の将来的な数字を一律で保証するものではありません。</p>
+</div>
 
-    </div>
+</div>
 </footer>
 
-<!-- 二重送信防止処理のみ追加 -->
-<script>
-    const form = document.getElementById('contact-form');
-    const submitBtn = document.getElementById('submit-btn');
-    const btnText = document.getElementById('btn-text');
+<!-- =================================================================
+     カスタムモーダル（送信完了ポップアップ）
+     送信結果通知用カスタムモーダル（成功・失敗）
+================================================================== -->
+<div id="demo-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 text-center shadow-2xl border border-brand-accent transform scale-90 transition-transform duration-300" id="demo-modal-content">
+<!-- 送信成功モーダル -->
+<div id="success-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="bg-white rounded-2xl max-w-md w-full p-8 text-center shadow-2xl border border-brand-accent transform scale-90 transition-transform duration-300" id="success-modal-content">
+<div class="w-16 h-16 bg-[#F3EFE6] rounded-full flex items-center justify-center mx-auto mb-4 text-brand-gold">
+<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+</svg>
+</div>
+        <h3 class="text-xl font-bold font-serif text-brand-navy mb-2">送信が完了しました（デモ）</h3>
+        <h3 class="text-xl font-bold font-serif text-brand-navy mb-3">お問い合わせを送信しました</h3>
+<p class="text-sm text-brand-dark/80 leading-relaxed mb-6">
+            デモ送信が正常に完了しました。<br>
+            本来の実装時には、送信先URL（Googleフォームや各種フォームAPI等）との統合設定を行ってください。
+            ウィルネクスト合同会社へのお問い合わせが正常に送信されました。代表より折り返しご連絡いたしますので、恐れ入りますが今しばらくお待ちください。
+</p>
+        <button onclick="closeDemoModal()" class="w-full py-3 rounded-full text-xs font-bold tracking-widest text-white bg-brand-navy hover:bg-brand-gold transition duration-200">
+        <button onclick="closeModal('success-modal')" class="w-full py-3.5 rounded-full text-xs font-bold tracking-widest text-white bg-brand-navy hover:bg-brand-gold transition duration-200">
+閉じる
+</button>
+</div>
+</div>
 
-    form.addEventListener('submit', function () {
-        // ボタンを無効化して多重送信を防ぎます
+<!-- 送信失敗エラーモーダル -->
+<div id="error-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="bg-white rounded-2xl max-w-md w-full p-8 text-center shadow-2xl border border-red-100 transform scale-90 transition-transform duration-300" id="error-modal-content">
+        <div class="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4 text-red-500">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+            </svg>
+        </div>
+        <h3 class="text-xl font-bold font-serif text-red-600 mb-3">送信できませんでした</h3>
+        <p class="text-sm text-brand-dark/80 leading-relaxed mb-6" id="error-text">
+            通信エラーが発生したか、一時的にサービスが利用できません。お手数をおかけしますが、お電話にて直接ご連絡いただくか、時間をおいて再度お試しください。
+        </p>
+        <button onclick="closeModal('error-modal')" class="w-full py-3.5 rounded-full text-xs font-bold tracking-widest text-white bg-brand-navy hover:bg-brand-gold transition duration-200">
+            戻る
+        </button>
+    </div>
+</div>
+
+<!-- =================================================================
+     スクリプト処理（AJAX送信）
+================================================================== -->
+<script>
+    // デモ送信完了時のモーダル表示
+    function handleDemoSubmit(event) {
+    // フォーム送信の非同期処理
+    async function handleFormSubmit(event) {
+event.preventDefault();
+        const modal = document.getElementById('demo-modal');
+        const content = document.getElementById('demo-modal-content');
+
+        const form = document.getElementById('real-contact-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const btnText = document.getElementById('btn-text');
+        const btnSpinner = document.getElementById('btn-spinner');
+
+        // UIを送信中（ローディング）状態に切り替え
         submitBtn.disabled = true;
-        submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
-        btnText.textContent = '送信中...';
-    });
+        submitBtn.classList.remove('hover:bg-brand-gold');
+        submitBtn.classList.add('bg-gray-400', 'cursor-not-allowed');
+        btnText.textContent = "送信中...";
+        btnSpinner.classList.remove('hidden');
+
+        // フォームデータの収集
+        const formData = new FormData(form);
+        const data = {};
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
+
+        try {
+            // FormSubmit の AJAX(JSON)用エンドポイントへPOST送信
+            const response = await fetch("https://formsubmit.co/ajax/consul.will.next@gmail.com", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                // 送信成功時：成功モーダルを表示
+                showModal('success-modal');
+                form.reset(); // 入力欄をクリア
+            } else {
+                // レスポンスエラー時
+                const errResult = await response.json();
+                console.error("Mail Send Error:", errResult);
+                showModal('error-modal', "エラーコード: " + response.status + "。送信に失敗しました。管理者宛メールアドレス設定をご確認ください。");
+            }
+        } catch (error) {
+            // ネットワーク遮断などの致命的エラー
+            console.error("Network Error:", error);
+            showModal('error-modal', "通信に失敗しました。ネットワーク環境をご確認いただくか、お電話（090-6188-1722）にてお気軽にお問い合わせください。");
+        } finally {
+            // ボタンを元の状態に戻す
+            submitBtn.disabled = false;
+            submitBtn.classList.add('hover:bg-brand-gold');
+            submitBtn.classList.remove('bg-gray-400', 'cursor-not-allowed');
+            btnText.textContent = "この内容で送信する";
+            btnSpinner.classList.add('hidden');
+        }
+    }
+
+    // モーダル表示用共通関数
+    function showModal(modalId, errorMessage = null) {
+        const modal = document.getElementById(modalId);
+        const content = document.getElementById(modalId + '-content');
+
+        if (errorMessage && modalId === 'error-modal') {
+            document.getElementById('error-text').textContent = errorMessage;
+        }
+
+modal.classList.remove('opacity-0', 'pointer-events-none');
+content.classList.remove('scale-90');
+content.classList.add('scale-100');
+}
+
+    // モーダルを閉じる
+    function closeDemoModal() {
+        const modal = document.getElementById('demo-modal');
+        const content = document.getElementById('demo-modal-content');
+    // モーダルクローズ用共通関数
+    function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        const content = document.getElementById(modalId + '-content');
+
+modal.classList.add('opacity-0', 'pointer-events-none');
+content.classList.remove('scale-100');
+content.classList.add('scale-90');
+        
+        // フォームをリセット
+        document.getElementById('demo-contact-form').reset();
+}
 </script>
 
 </body>
