@@ -480,7 +480,7 @@
 </section>
 
 <!-- =================================================================
-     お問い合わせフォーム (Contact Form)
+     お問い合わせフォーム (Googleフォーム埋め込み)
 ================================================================== -->
 <section id="contact" class="py-20 bg-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -490,64 +490,39 @@
             <h2 class="font-serif text-3xl font-bold text-brand-navy">
                 ご相談・お問い合わせ
             </h2>
-            <p class="text-sm text-brand-dark/80">
-                サロン診断、経営改善のご相談、料金プランのお問い合わせなど、お気軽にお送りください。
+            <p class="text-sm text-brand-dark/80 leading-relaxed">
+                サロン診断、経営改善のご相談、料金プランのお問い合わせなど、お気軽にお送りください。<br>
+                下記フォームより送信いただくと、内容を確認のうえ折り返しご連絡いたします。
             </p>
         </div>
 
-        <!-- 
-          【GitHub Pages対応：外部メール送信サービス利用フォーム】
-          GitHub Pagesは静的サイトのため、HTMLだけで直接メール送信はできません。
-          このフォームは FormSubmit を利用し、送信内容を consul.will.next@gmail.com 宛に送ります。
-          初回のみ、FormSubmitから consul.will.next@gmail.com に届く確認メールの承認が必要です。
-        -->
-        <form id="contact-form" action="https://formsubmit.co/ajax/consul.will.next@gmail.com" method="POST" class="space-y-6">
-            <input type="hidden" name="_subject" value="【WILL NEXT】ホームページから新規お問い合わせが届きました">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_replyto" value="">
-            <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off">
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="space-y-1.5">
-                    <label class="text-xs font-bold text-brand-navy" for="salon_name">サロン名・お名前 <span class="text-red-500">必須</span></label>
-                    <input type="text" id="salon_name" name="サロン名・お名前" required class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-brand-beige/50 text-sm" placeholder="例：ネイルサロン カナモ">
-                </div>
-                <div class="space-y-1.5">
-                    <label class="text-xs font-bold text-brand-navy" for="email">メールアドレス <span class="text-red-500">必須</span></label>
-                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-brand-beige/50 text-sm" placeholder="例：name@example.com">
-                </div>
-                <div class="space-y-1.5 md:col-span-2">
-                    <label class="text-xs font-bold text-brand-navy" for="phone">電話番号</label>
-                    <input type="tel" id="phone" name="電話番号" class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-brand-beige/50 text-sm" placeholder="例：090-0000-0000">
-                </div>
+        <div class="bg-brand-beige rounded-2xl border border-brand-accent shadow-sm p-3 sm:p-5">
+            <div class="bg-white rounded-xl overflow-hidden border border-brand-accent/70">
+                <iframe 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLScLZfYnpM96T7RD3yI2N0w6H2kwIlDajdbn-IFQIEMOA92syA/viewform?embedded=true" 
+                    width="100%" 
+                    height="980" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0"
+                    class="w-full">
+                    読み込んでいます…
+                </iframe>
             </div>
+        </div>
 
-            <div class="space-y-1.5">
-                <label class="text-xs font-bold text-brand-navy" for="plan">ご希望のメニュー・プラン</label>
-                <select id="plan" name="ご希望のメニュー・プラン" class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-brand-beige/50 text-sm">
-                    <option value="初回相談">初回相談 (11,000円)</option>
-                    <option value="サロン診断">サロン診断 (55,000円)</option>
-                    <option value="月額ライト">月額ライト (27,500円/月)</option>
-                    <option value="月額スタンダード">月額スタンダード (55,000円/月)</option>
-                    <option value="月額プレミアム">月額プレミアム (110,000円/月)</option>
-                    <option value="開業伴走プラン">開業伴走プラン (330,000円)</option>
-                    <option value="その他・制作見積もり">その他（お見積り・ご質問など）</option>
-                </select>
-            </div>
-
-            <div class="space-y-1.5">
-                <label class="text-xs font-bold text-brand-navy" for="message">ご相談内容・メッセージ</label>
-                <textarea id="message" name="ご相談内容・メッセージ" rows="5" required class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-brand-beige/50 text-sm" placeholder="現状のサロンのお悩みやご相談事項、日程候補などがあればご自由に入力してください。"></textarea>
-            </div>
-
-            <div class="text-center pt-4">
-                <button type="submit" id="submit-btn" class="inline-flex items-center justify-center px-12 py-4 rounded-full text-sm font-bold tracking-widest text-white bg-brand-navy hover:bg-brand-gold transition-all duration-300 shadow-md min-w-[240px]">
-                    <span id="btn-text">この内容で送信する</span>
-                </button>
-            </div>
-
-        </form>
+        <div class="mt-6 text-center text-xs text-brand-dark/70 leading-relaxed">
+            <p>フォームが表示されない場合は、下記より直接ご連絡ください。</p>
+            <p class="mt-2 font-semibold text-brand-navy">
+                メール：<a href="mailto:consul.will.next@gmail.com" class="hover:text-brand-gold transition">consul.will.next@gmail.com</a>
+                ／ 電話：<a href="tel:090-6188-1722" class="hover:text-brand-gold transition">090-6188-1722</a>
+            </p>
+            <p class="mt-3">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScLZfYnpM96T7RD3yI2N0w6H2kwIlDajdbn-IFQIEMOA92syA/viewform" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-5 py-2 rounded-full text-xs font-bold text-white bg-brand-navy hover:bg-brand-gold transition">
+                    フォームを別画面で開く
+                </a>
+            </p>
+        </div>
 
     </div>
 </section>
@@ -631,51 +606,35 @@
      JavaScript制御ロジック
 ================================================================== -->
 <script>
-    // 送信処理（GitHub Pages対応 / FormSubmit AJAX）
-    document.getElementById('contact-form').addEventListener('submit', async function (e) {
-        e.preventDefault();
+    /*
+      GitHub Pagesは静的サイトのため、サイト単体ではメール送信できません。
+      ここではFormSubmitの通常POST方式を使用しています。
+      AJAX方式はブラウザ側・FormSubmit側の制限で失敗することがあるため、通常POST方式に変更しています。
+    */
 
-        const form = this;
-        const button = document.getElementById('submit-btn');
-        const text = document.getElementById('btn-text');
-        const emailInput = document.getElementById('email');
-        const replyToInput = form.querySelector('input[name="_replyto"]');
-
-        // 返信先として、入力されたメールアドレスをFormSubmitへ渡す
-        replyToInput.value = emailInput.value;
-
-        button.disabled = true;
-        button.classList.add('opacity-70', 'cursor-not-allowed');
-        text.textContent = '送信中...';
-
-        try {
-            const formData = new FormData(form);
-
-            const response = await fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
-
-            if (!response.ok) {
-                throw new Error('送信サーバーから正常な応答がありませんでした。');
-            }
-
+    // FormSubmit送信後に戻ってきた場合、成功モーダルを表示
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('sent') === '1') {
+        window.addEventListener('load', function () {
             showModal('success-modal');
-            form.reset();
 
-        } catch (error) {
-            console.error('FormSubmit送信エラー:', error);
-            showModal('maintenance-modal');
+            // URLの ?sent=1 を消して、再読み込み時に毎回モーダルが出ないようにする
+            const cleanUrl = window.location.origin + window.location.pathname + '#contact';
+            window.history.replaceState({}, document.title, cleanUrl);
+        });
+    }
 
-        } finally {
-            button.disabled = false;
-            button.classList.remove('opacity-70', 'cursor-not-allowed');
-            text.textContent = 'この内容で送信する';
-        }
-    });
+    // 送信ボタンの表示制御
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function () {
+            const button = document.getElementById('submit-btn');
+            const text = document.getElementById('btn-text');
+            button.disabled = true;
+            button.classList.add('opacity-70', 'cursor-not-allowed');
+            text.textContent = '送信中...';
+        });
+    }
 
     // モーダル表示用関数
     function showModal(modalId) {
