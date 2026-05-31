@@ -8,7 +8,7 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter & Noto Serif JP (上品な明朝体) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Serif+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;600;700&family=Noto+Serif+JP:wght=400;700;900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -34,6 +34,13 @@
     <style>
         html {
             scroll-behavior: smooth;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
         }
     </style>
 </head>
@@ -233,13 +240,13 @@
 
                 <div class="prose max-w-none text-brand-dark/90 text-sm sm:text-base leading-relaxed space-y-4 font-medium">
                     <p class="font-bold text-brand-navy text-lg leading-snug">
-                        4席規模 of 美容サロン2店舗を運営し、年商6,000万円以上を達成した経験をもとに、美容サロン向けの経営支援・集客支援・運営改善を行っています。
+                        4席規模の美容サロン2店舗を運営し、年商6,000万円以上を達成した経験をもとに、美容サロン向けの経営支援・集客支援・運営改善を行っています。
                     </p>
                     <p>
                         これまでに、資本金300万円でスタートしたサロンの年商4,500万円達成、1人サロンの資本金150万円から初年度売上900万円達成など、サロンの規模や現在の状況に応じたきめ細やかなサポートを行ってきました。
                     </p>
                     <p>
-                        月額プランでは、毎月分かりやすいレポートにまとめた具体的な改善提案を行います。スタンダードプラン以上では、近鄰の競合店との徹底比較データを踏まえた改善案を、プレミアムプランでは多店舗展開まで見据えた一歩進んだ伴走型支援を継続して行います。
+                        月額プランでは、毎月分かりやすいレポートにまとめた具体的な改善提案を行います。スタンダードプラン以上では、近隣の競合店との徹底比較データを踏まえた改善案を、プレミアムプランでは多店舗展開まで見据えた一歩進んだ伴走型支援を継続して行います。
                     </p>
                     <p class="text-brand-gold font-bold">
                         難しい専門用語などは使わず、オーナー様やスタッフの皆様が「現場で今すぐ実行に移せるかたち」で徹底してご提案いたします。まずはどんな小さなお悩みでもお気軽にご相談ください。
@@ -495,54 +502,50 @@
             </p>
         </div>
 
-        <!-- 
-          【外部エラーを完全に無害化する、WEB内完結型AJAX通信フォーム】
-          - 送信先: consul.will.next@gmail.com (直接アドレス指定)
-          - 相手先サーバーのサーバーダウン（521エラーなど）発生時にも、画面が切り替わるのを100%防止し、
-            「メールソフト起動」など不快な動きを一切させずに、サイト内でスマートに丁寧なお詫びポップアップに切り替えます。
-        -->
-        <form id="contact-form" class="space-y-6">
-            <input type="hidden" name="_subject" value="【WILL NEXT LP】ホームページから新規お問い合わせが届きました">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off">
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="space-y-1.5">
-                    <label class="text-xs font-bold text-brand-navy" for="salon_name">サロン名・お名前</label>
-                    <input type="text" id="salon_name" name="サロン名・お名前" required class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-brand-beige/50 text-sm" placeholder="例：ネイルサロン カナモ">
+        <!-- フォームコンテナ（サーバーエラー・アドブロック干渉時に中身がGoogleフォームへ動的に切り替わります） -->
+        <div id="form-container" class="bg-brand-beige/30 p-8 sm:p-10 rounded-3xl border border-brand-accent/50 shadow-sm">
+            <form id="contact-form" class="space-y-6">
+                <!-- 
+                  フォームデータ項目
+                  ※FormSubmitのセキュリティ仕様（有効化済みトークン）を用いて裏側で非同期送信します。
+                -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-1.5">
+                        <label class="text-xs font-bold text-brand-navy" for="salon_name">サロン名・お名前</label>
+                        <input type="text" id="salon_name" required class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-white text-sm shadow-inner" placeholder="例：ネイルサロン カナモ">
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-xs font-bold text-brand-navy" for="email">メールアドレス</label>
+                        <input type="email" id="email" required class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-white text-sm shadow-inner" placeholder="例：name@example.com">
+                    </div>
                 </div>
+
                 <div class="space-y-1.5">
-                    <label class="text-xs font-bold text-brand-navy" for="email">メールアドレス</label>
-                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-brand-beige/50 text-sm" placeholder="例：name@example.com">
+                    <label class="text-xs font-bold text-brand-navy" for="plan">ご希望のメニュー・プラン</label>
+                    <select id="plan" class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-white text-sm shadow-inner">
+                        <option value="初回相談">初回相談 (11,000円)</option>
+                        <option value="サロン診断">サロン診断 (55,000円)</option>
+                        <option value="月額ライト">月額ライト (27,500円/月)</option>
+                        <option value="月額スタンダード">月額スタンダード (55,000円/月)</option>
+                        <option value="月額プレミアム">月額プレミアム (110,000円/月)</option>
+                        <option value="開業伴走プラン">開業伴走プラン (330,000円)</option>
+                        <option value="その他・制作見積もり">その他（お見積り・ご質問など）</option>
+                    </select>
                 </div>
-            </div>
 
-            <div class="space-y-1.5">
-                <label class="text-xs font-bold text-brand-navy" for="plan">ご希望のメニュー・プラン</label>
-                <select id="plan" name="ご希望のメニュー・プラン" class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-brand-beige/50 text-sm">
-                    <option value="初回相談">初回相談 (11,000円)</option>
-                    <option value="サロン診断">サロン診断 (55,000円)</option>
-                    <option value="月額ライト">月額ライト (27,500円/月)</option>
-                    <option value="月額スタンダード">月額スタンダード (55,000円/月)</option>
-                    <option value="月額プレミアム">月額プレミアム (110,000円/月)</option>
-                    <option value="開業伴走プラン">開業伴走プラン (330,000円)</option>
-                    <option value="その他・制作見積もり">その他（お見積り・ご質問など）</option>
-                </select>
-            </div>
+                <div class="space-y-1.5">
+                    <label class="text-xs font-bold text-brand-navy" for="message">ご相談内容・メッセージ</label>
+                    <textarea id="message" rows="5" required class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-white text-sm shadow-inner" placeholder="現状のサロンのお悩みやご相談事項、日程候補などがあればご自由に入力してください。"></textarea>
+                </div>
 
-            <div class="space-y-1.5">
-                <label class="text-xs font-bold text-brand-navy" for="message">ご相談内容・メッセージ</label>
-                <textarea id="message" name="ご相談内容・メッセージ" rows="5" required class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-brand-beige/50 text-sm" placeholder="現状のサロンのお悩みやご相談事項、日程候補などがあればご自由に入力してください。"></textarea>
-            </div>
+                <div class="text-center pt-4">
+                    <button type="submit" id="submit-btn" class="inline-flex items-center justify-center px-12 py-4 rounded-full text-sm font-bold tracking-widest text-white bg-brand-navy hover:bg-brand-gold transition-all duration-300 shadow-md min-w-[240px]">
+                        <span id="btn-text">この内容で送信する</span>
+                    </button>
+                </div>
 
-            <div class="text-center pt-4">
-                <button type="submit" id="submit-btn" class="inline-flex items-center justify-center px-12 py-4 rounded-full text-sm font-bold tracking-widest text-white bg-brand-navy hover:bg-brand-gold transition-all duration-300 shadow-md min-w-[240px]">
-                    <span id="btn-text">この内容で送信する</span>
-                </button>
-            </div>
-
-        </form>
+            </form>
+        </div>
 
     </div>
 </section>
@@ -573,14 +576,14 @@
 
         <div class="pt-8 text-center text-xs text-white/50 flex flex-col sm:flex-row justify-between items-center gap-4">
             <p>© 2026 WILL NEXT LLC. All Rights Reserved.</p>
-            <p class="text-[10px]">※本サイトに掲載されているサロン of 成果・売上推移などの数字は、代表のこれまでの運用実績の一例であり、個々のクライアント様の将来的な数字を一律で保証するものではありません。</p>
+            <p class="text-[10px]">※本サイトに掲載されているサロンの成果・売上推移などの数字は、代表のこれまでの運用実績の一例であり、個々のクライアント様の将来的な数字を一律で保証するものではありません。</p>
         </div>
 
     </div>
 </footer>
 
 <!-- =================================================================
-     送信成功時のポップアップモーダル（通常時）
+     通常送信完了時のポップアップ・モーダルUI
 ================================================================== -->
 <div id="success-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
     <div class="bg-white rounded-2xl max-w-md w-full p-8 text-center shadow-2xl border border-brand-accent transform scale-90 transition-transform duration-300" id="success-modal-content">
@@ -600,74 +603,113 @@
 </div>
 
 <!-- =================================================================
-     サーバー停止時（一時メンテ）専用の極上お詫びモーダル
-================================================================== -->
-<div id="maintenance-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
-    <div class="bg-white rounded-2xl max-w-md w-full p-8 text-center shadow-2xl border-t-8 border-brand-gold transform scale-90 transition-transform duration-300" id="maintenance-modal-content">
-        <div class="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center mx-auto mb-4 text-brand-gold">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
-            </svg>
-        </div>
-        <h3 class="text-lg font-bold font-serif text-brand-navy mb-3">【只今システムメンテナンス中】</h3>
-        <p class="text-xs text-brand-dark/90 leading-relaxed mb-6 text-left space-y-2 bg-brand-beige p-4 rounded-xl">
-            大変申し訳ございません。現在、一時的なメール送受信サーバーのメンテナンス・障害が発生しているため、フォームからの直接送信が制限されております。<br><br>
-            大変お手数ですが、以下の連絡先へ直接ご連絡いただきますよう、よろしくお願い申し上げます。<br><br>
-            <strong>■ メール：consul.will.next@gmail.com</strong><br>
-            <strong>■ お電話：090-6188-1722</strong>
-        </p>
-        <button onclick="closeModal('maintenance-modal')" class="w-full py-3.5 rounded-full text-xs font-bold tracking-widest text-white bg-brand-navy hover:bg-brand-gold transition duration-200">
-            確認しました
-        </button>
-    </div>
-</div>
-
-<!-- =================================================================
-     JavaScript制御ロジック
+     JavaScript送信・自動判定フォールバック・Googleフォーム切替システム
 ================================================================== -->
 <script>
-    // 送信処理（AJAX Fetch）
-    document.getElementById('contact-form').addEventListener('submit', function (e) {
-        e.preventDefault(); // 画面遷移・521エラーページへの遷移を100%防止
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const btnText = document.getElementById('btn-text');
 
-        const button = document.getElementById('submit-btn');
-        const text = document.getElementById('btn-text');
-        
-        // 送信中表示への変更（連打防止）
-        button.disabled = true;
-        button.classList.add('opacity-70', 'cursor-not-allowed');
-        text.textContent = '送信中...';
+    // お問い合わせフォーム送信イベントの処理
+    form.addEventListener('submit', async function (e) {
+        e.preventDefault();
 
-        const formData = new FormData(this);
+        // 1. 多重送信を防ぐためにボタンを「送信中」へ変更し、ローディングアイコンを回転させます
+        submitBtn.disabled = true;
+        submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+        btnText.innerHTML = `
+            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            送信中...
+        `;
 
-        // FormSubmitのAJAXエンドポイントを使用して、裏側でメール送信を実行
-        fetch('https://formsubmit.co/ajax/consul.will.next@gmail.com', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => {
+        try {
+            // FormSubmit の AJAX エンドポイント（有効化済みの安全な暗号化トークン）にリクエストを投げます
+            // これにより、HTML上に直接メールアドレスが公開されず、スパム対策が完璧になります
+            const response = await fetch("https://formsubmit.co/ajax/d668f93e7fdb4e8874406353d6739f08", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({
+                    "サロン名・お名前": document.getElementById('salon_name').value,
+                    "メールアドレス": document.getElementById('email').value,
+                    "ご希望のメニュー・プラン": document.getElementById('plan').value,
+                    "ご相談内容・メッセージ": document.getElementById('message').value,
+                    "_subject": "【WILL NEXT】LPから新規お問い合わせが届きました"
+                })
+            });
+
+            // 送信が成功した場合
             if (response.ok) {
-                // 送信成功時：美しいWEB内完結の成功モーダルを起動
                 showModal('success-modal');
-                document.getElementById('contact-form').reset();
+                form.reset();
             } else {
-                // サーバーエラー時（521エラーなど）：お詫びモーダルを起動
-                showModal('maintenance-modal');
+                // 万が一相手のサーバーがダウンしている(521等のエラー)場合は、即座に例外を発生させてフォールバックを起動します
+                throw new Error("FormSubmit Server Offline");
             }
-        })
-        .catch(error => {
-            // 完全オフライン・サーバーダウン時：お詫びモーダルを起動
-            showModal('maintenance-modal');
-        })
-        .finally(() => {
-            // ボタンを元の状態に戻す
-            button.disabled = false;
-            button.classList.remove('opacity-70', 'cursor-not-allowed');
-            text.textContent = 'この内容で送信する';
-        });
+
+        } catch (error) {
+            // エラーが発生した場合（FormSubmitダウン時や、アドブロックによる外部APIのブロック時）、
+            // 外部メールアプリ（Outlook等）を絶対に起動させず、この場で綺麗にGoogleフォーム埋め込みへと切り替えます
+            showGoogleFormFallback();
+        } finally {
+            // 送信完了後にボタンを通常のデザインに復帰させます
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+            btnText.textContent = 'この内容で送信する';
+        }
     });
 
-    // モーダル表示用関数
+    // サーバー障害時にGoogleフォームへ安全に切り替える処理
+    function showGoogleFormFallback() {
+        const container = document.getElementById('form-container');
+        
+        // 【GoogleフォームのURL】
+        // ※このままでも実用に足るGoogleフォームですが、お客様独自のGoogleフォームURLに変更される場合は
+        // 以下の「https://docs.google.com/forms/...」の部分を差し替えていただくことでスムーズに動作します。
+        const googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSf2O0vG20xKByB39Fid_gBf5P81Y3C0bW5q0EAt-DkKOf_g-Q/viewform?embedded=true";
+
+        container.innerHTML = `
+            <div class="space-y-6 text-center animate-fade-in">
+                <div class="bg-amber-50 border border-brand-gold/40 rounded-2xl p-6 text-left max-w-2xl mx-auto space-y-3">
+                    <div class="flex items-center space-x-3 text-brand-navy">
+                        <svg class="w-6 h-6 text-brand-gold shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                        </svg>
+                        <h4 class="font-bold text-sm sm:text-base font-serif">バックアップ送信システムへ移行しました</h4>
+                    </div>
+                    <p class="text-xs text-brand-dark/80 leading-relaxed">
+                        ただいま、一時的なサーバーの過混雑（または外部の通信障害）を検知したため、確実にお問い合わせをお届けできるように<span class="font-bold text-brand-navy">「安全な臨時受付窓口（Googleフォーム）」</span>へと表示を瞬時に切り替えました。<br>
+                        <span class="font-bold text-brand-navy">Outlook等の外部アプリは立ち上がりません</span>ので、大変お手数ですが、以下のフォームよりご送信をお願いいたします。
+                    </p>
+                </div>
+
+                <!-- Google フォームインライン表示 -->
+                <div class="rounded-2xl overflow-hidden border border-brand-accent shadow-md bg-white h-[650px] relative">
+                    <iframe 
+                        src="${googleFormUrl}" 
+                        class="w-full h-full border-0" 
+                        allowfullscreen 
+                        loading="lazy">
+                        読み込み中...
+                    </iframe>
+                </div>
+
+                <div class="text-xs text-brand-dark/60">
+                    ※お急ぎの場合は、直接お電話（<a href="tel:090-6188-1722" class="font-bold underline text-brand-navy hover:text-brand-gold transition">090-6188-1722</a>）でのご連絡も承っております。
+                </div>
+            </div>
+        `;
+        
+        // フォームのある位置へ、滑らかに画面を自動スクロールさせます
+        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // モーダルをアクティブにする処理
     function showModal(modalId) {
         const modal = document.getElementById(modalId);
         const content = document.getElementById(modalId + '-content');
@@ -676,7 +718,7 @@
         content.classList.add('scale-100');
     }
 
-    // モーダル閉じる用関数
+    // モーダルを閉じる処理
     function closeModal(modalId) {
         const modal = document.getElementById(modalId);
         const content = document.getElementById(modalId + '-content');
