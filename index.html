@@ -495,23 +495,34 @@
             </p>
         </div>
 
-        <!-- リアル送信フォーム（AJAX送信。失敗時は自動的に高度なMailtoダイレクト送信にフェイルセーフ） -->
-        <form id="real-contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+        <!-- 
+          【ランダム文字列追加前のクラシックな直接送信フォームに復元】
+          - アドレス直打ち: consul.will.next@gmail.com
+          - 標準のPOST送信を使用（JavaScriptの Fetch API エラーによるCORS・アドブロックの遮断を100%回避）
+          - 送信完了後に元のページへ自動リダイレクトさせ、そのパラメータを検知して美しいモーダルを起動します
+        -->
+        <form id="contact-form" class="space-y-6" action="https://formsubmit.co/consul.will.next@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="【WILL NEXT LP】ホームページから新規お問い合わせが届きました">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off">
+            <!-- 送信成功時の戻り先URL。?status=successを付与して自身のページに戻し、モーダル表示を連動させます -->
+            <input type="hidden" name="_next" value="https://will-next1.github.io/will-next/?status=success#contact">
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="space-y-1.5">
                     <label class="text-xs font-bold text-brand-navy" for="salon_name">サロン名・お名前</label>
-                    <input type="text" id="salon_name" required class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-brand-beige/50 text-sm" placeholder="例：ネイルサロン カナモ">
+                    <input type="text" id="salon_name" name="サロン名・お名前" required class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-brand-beige/50 text-sm" placeholder="例：ネイルサロン カナモ">
                 </div>
                 <div class="space-y-1.5">
                     <label class="text-xs font-bold text-brand-navy" for="email">メールアドレス</label>
-                    <input type="email" id="email" required class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-brand-beige/50 text-sm" placeholder="例：name@example.com">
+                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-brand-beige/50 text-sm" placeholder="例：name@example.com">
                 </div>
             </div>
 
             <div class="space-y-1.5">
                 <label class="text-xs font-bold text-brand-navy" for="plan">ご希望のメニュー・プラン</label>
-                <select id="plan" class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-brand-beige/50 text-sm">
+                <select id="plan" name="ご希望のメニュー・プラン" class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-brand-beige/50 text-sm">
                     <option value="初回相談">初回相談 (11,000円)</option>
                     <option value="サロン診断">サロン診断 (55,000円)</option>
                     <option value="月額ライト">月額ライト (27,500円/月)</option>
@@ -524,17 +535,12 @@
 
             <div class="space-y-1.5">
                 <label class="text-xs font-bold text-brand-navy" for="message">ご相談内容・メッセージ</label>
-                <textarea id="message" rows="5" required class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-brand-beige/50 text-sm" placeholder="現状のサロンのお悩みやご相談事項、日程候補などがあればご自由に入力してください。"></textarea>
+                <textarea id="message" name="ご相談内容・メッセージ" rows="5" required class="w-full px-4 py-3 rounded-lg border border-brand-accent focus:outline-none focus:border-brand-gold bg-brand-beige/50 text-sm" placeholder="現状のサロンのお悩みやご相談事項、日程候補などがあればご自由に入力してください。"></textarea>
             </div>
 
             <div class="text-center pt-4">
                 <button type="submit" id="submit-btn" class="inline-flex items-center justify-center px-12 py-4 rounded-full text-sm font-bold tracking-widest text-white bg-brand-navy hover:bg-brand-gold transition-all duration-300 shadow-md min-w-[240px]">
                     <span id="btn-text">この内容で送信する</span>
-                    <!-- 送信中ローディングスピナー -->
-                    <svg id="btn-spinner" class="hidden animate-spin ml-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
                 </button>
             </div>
 
@@ -576,9 +582,8 @@
 </footer>
 
 <!-- =================================================================
-     モーダルUI（送信成功・サーバー障害用代替経路案内）
+     モーダルUI（送信成功時にWEBサイト内で自動的に立ち上がる演出）
 ================================================================== -->
-<!-- 送信成功モーダル -->
 <div id="success-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
     <div class="bg-white rounded-2xl max-w-md w-full p-8 text-center shadow-2xl border border-brand-accent transform scale-90 transition-transform duration-300" id="success-modal-content">
         <div class="w-16 h-16 bg-[#F3EFE6] rounded-full flex items-center justify-center mx-auto mb-4 text-brand-gold">
@@ -596,160 +601,34 @@
     </div>
 </div>
 
-<!-- 自動経路切り替え（フェイルセーフ・サーバーダウン時用）モーダル -->
-<div id="fallback-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
-    <div class="bg-white rounded-2xl max-w-md w-full p-8 text-center shadow-2xl border-2 border-brand-gold transform scale-90 transition-transform duration-300" id="fallback-modal-content">
-        <div class="w-16 h-16 bg-[#F9F6F0] rounded-full flex items-center justify-center mx-auto mb-4 text-brand-gold">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-            </svg>
-        </div>
-        <h3 class="text-lg font-bold font-serif text-brand-navy mb-3">送信経路を安全に切り替えました</h3>
-        <p class="text-xs text-brand-dark/80 leading-relaxed mb-6 text-left bg-brand-beige p-4 rounded-xl">
-            現在、自動送信サーバーが一時的にメンテナンス（混雑）中のため、確実に入力内容をお届けできるよう、<strong>直接メール送信（セキュア暗号経路）</strong>へと自動で移行しました。<br><br>
-            以下のボタンをクリックすると、お使いのメールアプリが起動し、<strong>今入力された内容が自動的にすべて書き込まれた状態</strong>になります。そのまま「送信」ボタンを押すだけで完了します。
-        </p>
-        
-        <!-- メール起動ダイレクト送信ボタン -->
-        <button id="fallback-mailto-btn" class="w-full py-4 mb-3 rounded-full text-xs font-bold tracking-widest text-white bg-brand-gold hover:bg-brand-navy transition duration-200 shadow-md">
-            メールソフトを起動して送信する
-        </button>
-        
-        <p class="text-[10px] text-brand-dark/60 mb-4">
-            ※起動しない場合は、お手数ですが <span class="font-bold">consul.will.next@gmail.com</span> へ直接メールをお送りください。
-        </p>
-        
-        <button onclick="closeModal('fallback-modal')" class="text-xs text-brand-dark hover:text-brand-gold transition font-bold underline">
-            フォームに戻って修正する
-        </button>
-    </div>
-</div>
-
 <!-- =================================================================
      JavaScript制御ロジック
 ================================================================== -->
 <script>
-    // 保存用の一時データ変数
-    let tempFormData = {
-        salonName: '',
-        email: '',
-        plan: '',
-        message: ''
-    };
-
-    // フォーム送信処理（AJAX + 万が一の時のフェイルセーフ自動切り替え）
-    async function handleFormSubmit(event) {
-        event.preventDefault();
-
-        const submitBtn = document.getElementById('submit-btn');
-        const btnText = document.getElementById('btn-text');
-        const btnSpinner = document.getElementById('btn-spinner');
-
-        // ボタンを「送信中」状態に変化（多重送信防止）
-        submitBtn.disabled = true;
-        submitBtn.classList.remove('hover:bg-brand-gold');
-        submitBtn.classList.add('bg-gray-400', 'cursor-not-allowed');
-        btnText.textContent = "送信中...";
-        btnSpinner.classList.remove('hidden');
-
-        // 入力値の取得
-        const salonName = document.getElementById('salon_name').value;
-        const email = document.getElementById('email').value;
-        const plan = document.getElementById('plan').value;
-        const message = document.getElementById('message').value;
-
-        // 一時データに格納（障害発生時のメール転送用）
-        tempFormData = { salonName, email, plan, message };
-
-        // FormSubmitへの送信オブジェクト作成
-        const payload = {
-            "サロン名・お名前": salonName,
-            "メールアドレス": email,
-            "ご希望のプラン": plan,
-            "ご相談内容": message,
-            "_subject": "【WILL NEXT】WEBサイトから新規お問い合わせがありました"
-        };
-
-        try {
-            // 通信タイムアウトを設定（6秒応答がなければ自動的にフェイルセーフを起動）
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 6000);
-
-            // AJAX非同期による送信試行
-            const response = await fetch("https://formsubmit.co/ajax/d668f93e7fdb4e8874406353d6739f08", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                },
-                body: JSON.stringify(payload),
-                signal: controller.signal
-            });
-
-            clearTimeout(timeoutId);
-
-            if (response.ok) {
-                // 送信成功時：フォームをリセットして通常成功モーダルを表示
-                document.getElementById('real-contact-form').reset();
-                showModal('success-modal');
-            } else {
-                // サーバーエラー時（521等のダウン時）：フェイルセーフ（メールソフト転送）を発動
-                throw new Error("FormSubmit server responded with error status " + response.status);
+    // ページ読み込み時に送信完了パラメータ（?status=success）があれば自動でモーダルを表示する
+    window.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('status') === 'success') {
+            // モーダルの表示
+            showModal('success-modal');
+            
+            // アドレスバーを綺麗なURL（パラメータなし）にクリーンアップ
+            if (window.history.replaceState) {
+                const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + window.location.hash;
+                window.history.replaceState({path: cleanUrl}, '', cleanUrl);
             }
-
-        } catch (error) {
-            console.warn("送信サーバーが停止しています。安全なセキュアルート（Mailto）を自動的に立ち上げます。 Error context: ", error);
-            
-            // フェイルセーフ（メールソフト起動用モーダル）を表示
-            showModal('fallback-modal');
-            
-            // メール送信ボタンにクリック処理を紐付け
-            const mailtoBtn = document.getElementById('fallback-mailto-btn');
-            mailtoBtn.onclick = () => {
-                triggerDirectMailto(tempFormData.salonName, tempFormData.email, tempFormData.plan, tempFormData.message);
-                closeModal('fallback-modal');
-                document.getElementById('real-contact-form').reset();
-            };
-        } finally {
-            // ボタンを通常状態にリセット
-            submitBtn.disabled = false;
-            submitBtn.classList.remove('bg-gray-400', 'cursor-not-allowed');
-            submitBtn.classList.add('hover:bg-brand-gold');
-            btnText.textContent = "この内容で送信する";
-            btnSpinner.classList.add('hidden');
         }
-    }
+    });
 
-    // ユーザーのメーラーを起動させて内容を書き出すフェイルセーフ機能
-    function triggerDirectMailto(salonName, userEmail, plan, message) {
-        const toEmail = "consul.will.next@gmail.com";
-        const subject = `【WILL NEXT お問い合わせ】 ${salonName} 様`;
-        
-        // メール本文のテンプレートを綺麗に改行して構築
-        const body = `ウィルネクスト合同会社 代表 高崎様
-
-WEBサイトより、以下の内容でお問い合わせいたします。
-
---------------------------------------------------
-【サロン名・お名前】
-${salonName}
-
-【メールアドレス】
-${userEmail}
-
-【ご希望のプラン】
-${plan}
-
-【ご相談内容・メッセージ】
-${message}
---------------------------------------------------`;
-
-        // mailtoプロトコルの組み立て
-        const mailtoUrl = `mailto:${toEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        
-        // ユーザーブラウザにmailtoを流し込む
-        window.location.href = mailtoUrl;
-    }
+    // 送信ボタンの二重送信防止＆「送信中...」への変化
+    document.getElementById('contact-form').addEventListener('submit', function () {
+        const button = document.getElementById('submit-btn');
+        const text = document.getElementById('btn-text');
+        if (!button) return;
+        button.disabled = true;
+        button.classList.add('opacity-70', 'cursor-not-allowed');
+        text.textContent = '送信中...';
+    });
 
     // モーダル表示
     function showModal(modalId) {
