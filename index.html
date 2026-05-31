@@ -239,7 +239,7 @@
                         これまでに、資本金300万円でスタートしたサロンの年商4,500万円達成、1人サロンの資本金150万円から初年度売上900万円達成など、サロンの規模や現在の状況に応じたきめ細やかなサポートを行ってきました。
                     </p>
                     <p>
-                        月額プランでは、毎月分かりやすいレポートにまとめた具体的な改善提案を行います。スタンダードプラン以上では、近隣の競合店との徹底比較データを踏まえた改善案を、プレミアムプランでは多店舗展開まで見据えた一歩進んだ伴走型支援を継続して行います。
+                        月額プランでは、毎月分かりやすいレポートにまとめた具体的な改善提案を行います。スタンダードプラン以上では、近鄰の競合店との徹底比較データを踏まえた改善案を、プレミアムプランでは多店舗展開まで見据えた一歩進んだ伴走型支援を継続して行います。
                     </p>
                     <p class="text-brand-gold font-bold">
                         難しい専門用語などは使わず、オーナー様やスタッフの皆様が「現場で今すぐ実行に移せるかたち」で徹底してご提案いたします。まずはどんな小さなお悩みでもお気軽にご相談ください。
@@ -496,18 +496,16 @@
         </div>
 
         <!-- 
-          【ランダム文字列追加前のクラシックな直接送信フォームに復元】
-          - アドレス直打ち: consul.will.next@gmail.com
-          - 標準のPOST送信を使用（JavaScriptの Fetch API エラーによるCORS・アドブロックの遮断を100%回避）
-          - 送信完了後に元のページへ自動リダイレクトさせ、そのパラメータを検知して美しいモーダルを起動します
+          【外部エラーを完全に無害化する、WEB内完結型AJAX通信フォーム】
+          - 送信先: consul.will.next@gmail.com (直接アドレス指定)
+          - 相手先サーバーのサーバーダウン（521エラーなど）発生時にも、画面が切り替わるのを100%防止し、
+            「メールソフト起動」など不快な動きを一切させずに、サイト内でスマートに丁寧なお詫びポップアップに切り替えます。
         -->
-        <form id="contact-form" class="space-y-6" action="https://formsubmit.co/consul.will.next@gmail.com" method="POST">
+        <form id="contact-form" class="space-y-6">
             <input type="hidden" name="_subject" value="【WILL NEXT LP】ホームページから新規お問い合わせが届きました">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_captcha" value="false">
             <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off">
-            <!-- 送信成功時の戻り先URL。?status=successを付与して自身のページに戻し、モーダル表示を連動させます -->
-            <input type="hidden" name="_next" value="https://will-next1.github.io/will-next/?status=success#contact">
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="space-y-1.5">
@@ -582,7 +580,7 @@
 </footer>
 
 <!-- =================================================================
-     モーダルUI（送信成功時にWEBサイト内で自動的に立ち上がる演出）
+     送信成功時のポップアップモーダル（通常時）
 ================================================================== -->
 <div id="success-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
     <div class="bg-white rounded-2xl max-w-md w-full p-8 text-center shadow-2xl border border-brand-accent transform scale-90 transition-transform duration-300" id="success-modal-content">
@@ -602,35 +600,74 @@
 </div>
 
 <!-- =================================================================
+     サーバー停止時（一時メンテ）専用の極上お詫びモーダル
+================================================================== -->
+<div id="maintenance-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="bg-white rounded-2xl max-w-md w-full p-8 text-center shadow-2xl border-t-8 border-brand-gold transform scale-90 transition-transform duration-300" id="maintenance-modal-content">
+        <div class="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center mx-auto mb-4 text-brand-gold">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+            </svg>
+        </div>
+        <h3 class="text-lg font-bold font-serif text-brand-navy mb-3">【只今システムメンテナンス中】</h3>
+        <p class="text-xs text-brand-dark/90 leading-relaxed mb-6 text-left space-y-2 bg-brand-beige p-4 rounded-xl">
+            大変申し訳ございません。現在、一時的なメール送受信サーバーのメンテナンス・障害が発生しているため、フォームからの直接送信が制限されております。<br><br>
+            大変お手数ですが、以下の連絡先へ直接ご連絡いただきますよう、よろしくお願い申し上げます。<br><br>
+            <strong>■ メール：consul.will.next@gmail.com</strong><br>
+            <strong>■ お電話：090-6188-1722</strong>
+        </p>
+        <button onclick="closeModal('maintenance-modal')" class="w-full py-3.5 rounded-full text-xs font-bold tracking-widest text-white bg-brand-navy hover:bg-brand-gold transition duration-200">
+            確認しました
+        </button>
+    </div>
+</div>
+
+<!-- =================================================================
      JavaScript制御ロジック
 ================================================================== -->
 <script>
-    // ページ読み込み時に送信完了パラメータ（?status=success）があれば自動でモーダルを表示する
-    window.addEventListener('DOMContentLoaded', () => {
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('status') === 'success') {
-            // モーダルの表示
-            showModal('success-modal');
-            
-            // アドレスバーを綺麗なURL（パラメータなし）にクリーンアップ
-            if (window.history.replaceState) {
-                const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + window.location.hash;
-                window.history.replaceState({path: cleanUrl}, '', cleanUrl);
-            }
-        }
-    });
+    // 送信処理（AJAX Fetch）
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+        e.preventDefault(); // 画面遷移・521エラーページへの遷移を100%防止
 
-    // 送信ボタンの二重送信防止＆「送信中...」への変化
-    document.getElementById('contact-form').addEventListener('submit', function () {
         const button = document.getElementById('submit-btn');
         const text = document.getElementById('btn-text');
-        if (!button) return;
+        
+        // 送信中表示への変更（連打防止）
         button.disabled = true;
         button.classList.add('opacity-70', 'cursor-not-allowed');
         text.textContent = '送信中...';
+
+        const formData = new FormData(this);
+
+        // FormSubmitのAJAXエンドポイントを使用して、裏側でメール送信を実行
+        fetch('https://formsubmit.co/ajax/consul.will.next@gmail.com', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                // 送信成功時：美しいWEB内完結の成功モーダルを起動
+                showModal('success-modal');
+                document.getElementById('contact-form').reset();
+            } else {
+                // サーバーエラー時（521エラーなど）：お詫びモーダルを起動
+                showModal('maintenance-modal');
+            }
+        })
+        .catch(error => {
+            // 完全オフライン・サーバーダウン時：お詫びモーダルを起動
+            showModal('maintenance-modal');
+        })
+        .finally(() => {
+            // ボタンを元の状態に戻す
+            button.disabled = false;
+            button.classList.remove('opacity-70', 'cursor-not-allowed');
+            text.textContent = 'この内容で送信する';
+        });
     });
 
-    // モーダル表示
+    // モーダル表示用関数
     function showModal(modalId) {
         const modal = document.getElementById(modalId);
         const content = document.getElementById(modalId + '-content');
@@ -639,7 +676,7 @@
         content.classList.add('scale-100');
     }
 
-    // モーダルクローズ
+    // モーダル閉じる用関数
     function closeModal(modalId) {
         const modal = document.getElementById(modalId);
         const content = document.getElementById(modalId + '-content');
