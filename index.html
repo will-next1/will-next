@@ -233,7 +233,7 @@
 
                 <div class="prose max-w-none text-brand-dark/90 text-sm sm:text-base leading-relaxed space-y-4 font-medium">
                     <p class="font-bold text-brand-navy text-lg leading-snug">
-                        4席規模 of 美容サロン2店舗を運営し、年商6,000万円以上を達成した経験をもとに、美容サロン向けの経営支援・集客支援・運営改善を行っています。
+                        4席規模の美容サロン2店舗を運営し、年商6,000万円以上を達成した経験をもとに、美容サロン向けの経営支援・集客支援・運営改善を行っています。
                     </p>
                     <p>
                         これまでに、資本金300万円でスタートしたサロンの年商4,500万円達成、1人サロンの資本金150万円から初年度売上900万円達成など、サロンの規模や現在の状況に応じたきめ細やかなサポートを行ってきました。
@@ -651,8 +651,8 @@
         });
 
         try {
-            // FormSubmit の AJAX(JSON)用エンドポイントへPOST送信
-            const response = await fetch("https://formsubmit.co/ajax/consul.will.next@gmail.com", {
+            // FormSubmit の AJAX(JSON)用エンドポイントへPOST送信（メールアドレス隠蔽トークンに置き換え完了）
+            const response = await fetch("https://formsubmit.co/ajax/d668f93e7fdb4e8874406353d6739f08", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -669,7 +669,7 @@
                 // レスポンスエラー時
                 const errResult = await response.json();
                 console.error("Mail Send Error:", errResult);
-                showModal('error-modal', "エラーコード: " + response.status + "。送信に失敗しました。管理者宛メールアドレス設定をご確認ください。");
+                showModal('error-modal', "エラーコード: " + response.status + "。送信に失敗しました。フォームの有効化（Active）設定が完了しているかご確認ください。");
             }
         } catch (error) {
             // ネットワーク遮断などの致命的エラー
