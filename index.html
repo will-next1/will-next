@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- サイトのタイトル -->
     <title>ウィルネクスト合同会社 | 美容サロン専門コンサルティング</title>
-
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-
+    <!-- Google Fonts: Inter & Noto Serif JP (上品な明朝体) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Serif+JP:wght@400;700;900&display=swap" rel="stylesheet">
-
     <script>
         tailwind.config = {
             theme: {
@@ -19,24 +19,22 @@
                     },
                     colors: {
                         brand: {
-                            navy: '#1A3050',
-                            gold: '#C5A880',
-                            darkGold: '#A3845B',
-                            beige: '#F9F6F0',
-                            accent: '#E6DCD0',
-                            dark: '#2A2A2A'
+                            navy: '#1A3050',      /* 信頼を表現するネイビー */
+                            gold: '#C5A880',      /* 上品なゴールド */
+                            darkGold: '#A3845B',  /* ホバー用の濃いゴールド */
+                            beige: '#F9F6F0',     /* 背景用の極薄いベージュ */
+                            accent: '#E6DCD0',    /* 仕切り・枠線用のベージュ */
+                            dark: '#2A2A2A'       /* メインテキスト色 */
                         }
                     }
                 }
             }
         }
     </script>
-
     <style>
         html {
             scroll-behavior: smooth;
         }
-
         .strength-image {
             width: 128px;
             height: 128px;
@@ -47,7 +45,6 @@
             border: 3px solid #fff;
             box-shadow: 0 12px 28px rgba(26, 48, 80, 0.14);
         }
-
         @media (max-width: 640px) {
             .strength-image {
                 width: 112px;
@@ -56,12 +53,15 @@
         }
     </style>
 </head>
-
 <body class="bg-brand-beige text-brand-dark font-sans antialiased">
 
+<!-- =================================================================
+     ヘッダー・ナビゲーション
+================================================================== -->
 <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-brand-accent shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         <div class="flex items-center space-x-2">
+            <!-- ロゴ画像・会社名 -->
             <img src="images/logo-header.png" alt="ウィルネクスト合同会社 ロゴ" class="h-12 w-auto object-contain" onerror="this.style.display='none'">
             <span class="font-serif text-xl sm:text-2xl font-black tracking-wider text-brand-navy">
                 WILL NEXT
@@ -70,18 +70,17 @@
                 ウィルネクスト合同会社
             </span>
         </div>
-
         <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wide">
             <a href="#strengths" class="text-brand-dark hover:text-brand-gold transition">強み・事業</a>
             <a href="#profile" class="text-brand-dark hover:text-brand-gold transition">代表メッセージ</a>
             <a href="#pricing" class="text-brand-dark hover:text-brand-gold transition">コンサル料金</a>
             <a href="#access" class="text-brand-dark hover:text-brand-gold transition">会社情報</a>
         </nav>
-
         <div class="flex items-center space-x-4">
+            <!-- ヘッダー電話番号 -->
             <a href="tel:090-6188-1722" class="hidden lg:flex items-center text-brand-navy hover:text-brand-gold font-bold text-sm transition">
                 <svg class="w-4 h-4 mr-1.5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.540l4.435.740a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
                 </svg>
                 090-6188-1722
             </a>
@@ -92,22 +91,26 @@
     </div>
 </header>
 
+<!-- =================================================================
+     メインビジュアル (Hero Section)
+================================================================== -->
 <section class="relative bg-gradient-to-r from-brand-beige via-[#F2EDE2] to-brand-beige py-16 md:py-28 overflow-hidden border-b border-brand-accent">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- テキスト情報 -->
             <div class="lg:col-span-7 space-y-6">
                 <div class="inline-block bg-white border border-brand-gold/40 text-brand-gold font-bold text-xs px-4 py-1.5 rounded-full shadow-sm tracking-widest">
                     BEAUTY SALON CONSULTING
                 </div>
-
                 <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-black text-brand-navy leading-tight tracking-wide">
                     サロンの魅力が、<br class="hidden sm:inline">きちんと伝わる仕組みづくり
                 </h1>
-
                 <p class="text-base sm:text-lg text-brand-dark/80 leading-relaxed font-medium">
                     お店の強みや想いを整理し、運営・集客・WEB・販促の力から、美容サロンの成幸を力強く伴走支援いたします。現場の実務に落とし込める実践的な手法をご提供。
                 </p>
-
+                
+                <!-- 実績アピールバッジ -->
                 <div class="grid grid-cols-2 gap-4 pt-4">
                     <div class="bg-white p-4 rounded-xl border border-brand-accent shadow-sm">
                         <span class="text-xs text-brand-gold font-bold block mb-1">実店舗運営実績</span>
@@ -126,18 +129,25 @@
                 </div>
             </div>
 
+            <!-- メインビジュアルイメージ -->
             <div class="lg:col-span-5 relative">
                 <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-white flex items-center justify-center p-6">
                     <img src="images/logo-main.png" alt="ウィルネクスト合同会社 ロゴ" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/600x450/e8e3d9/1a3050?text=WILL+NEXT+CONSULTING'">
                 </div>
+                <!-- 装飾用のアウトラインゴールド -->
                 <div class="absolute -bottom-4 -right-4 w-full h-full border-2 border-brand-gold/30 rounded-2xl -z-10"></div>
             </div>
+
         </div>
     </div>
 </section>
 
+<!-- =================================================================
+     サロンの強み・事業内容 (Strengths)
+================================================================== -->
 <section id="strengths" class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
             <span class="text-brand-gold font-bold tracking-widest text-xs uppercase block">WILL NEXT STRENGTH</span>
             <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-navy tracking-wider">
@@ -149,6 +159,8 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            
+            <!-- カード1: 経営・運営支援 -->
             <div class="bg-brand-beige p-8 rounded-2xl border border-brand-accent/50 hover:shadow-lg transition duration-300 flex flex-col justify-between">
                 <div class="space-y-4">
                     <img src="images/keiei.png" alt="経営・運営支援" class="strength-image">
@@ -159,6 +171,7 @@
                 </div>
             </div>
 
+            <!-- カード2: 選ばれる集客支援 -->
             <div class="bg-brand-beige p-8 rounded-2xl border border-brand-accent/50 hover:shadow-lg transition duration-300 flex flex-col justify-between">
                 <div class="space-y-4">
                     <img src="images/syukyaku.png" alt="選ばれる集客支援" class="strength-image">
@@ -169,6 +182,7 @@
                 </div>
             </div>
 
+            <!-- カード3: 伝わるWEB制作 -->
             <div class="bg-brand-beige p-8 rounded-2xl border border-brand-accent/50 hover:shadow-lg transition duration-300 flex flex-col justify-between">
                 <div class="space-y-4">
                     <img src="images/web.png" alt="伝わるWEB制作" class="strength-image">
@@ -179,6 +193,7 @@
                 </div>
             </div>
 
+            <!-- カード4: キャラクター販促支援 -->
             <div class="bg-brand-beige p-8 rounded-2xl border border-brand-accent/50 hover:shadow-lg transition duration-300 flex flex-col justify-between">
                 <div class="space-y-4">
                     <img src="images/character.png" alt="キャラクター販促支援" class="strength-image">
@@ -188,13 +203,20 @@
                     </p>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
 
+<!-- =================================================================
+     代表者紹介 (Profile Section)
+================================================================== -->
 <section id="profile" class="py-20 bg-brand-beige border-t border-b border-brand-accent">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            <!-- 代表者画像 -->
             <div class="lg:col-span-5 flex justify-center">
                 <div class="relative w-full max-w-sm sm:max-w-md">
                     <div class="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-gray-200">
@@ -206,9 +228,10 @@
                 </div>
             </div>
 
+            <!-- 代表メッセージ・実績詳細 -->
             <div class="lg:col-span-7 space-y-6">
                 <span class="text-brand-gold font-bold tracking-widest text-xs uppercase block">REPRESENTATIVE PROFILE</span>
-
+                
                 <div class="space-y-2">
                     <span class="text-sm font-semibold text-brand-gold">代表紹介</span>
                     <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-navy leading-tight">
@@ -231,12 +254,18 @@
                     </p>
                 </div>
             </div>
+
         </div>
+
     </div>
 </section>
 
+<!-- =================================================================
+     料金プラン（料金表）
+================================================================== -->
 <section id="pricing" class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
             <span class="text-brand-gold font-bold tracking-widest text-xs uppercase block">PRICE LIST</span>
             <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-navy tracking-wider">
@@ -247,7 +276,10 @@
             </p>
         </div>
 
+        <!-- 料金表グリッド -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- 初回相談 -->
             <div class="bg-brand-beige p-8 rounded-2xl border-2 border-brand-accent/60 flex flex-col justify-between shadow-sm hover:shadow-md transition">
                 <div>
                     <h3 class="text-lg font-bold text-brand-navy mb-2">初回相談</h3>
@@ -267,6 +299,7 @@
                 </div>
             </div>
 
+            <!-- サロン診断 -->
             <div class="bg-brand-beige p-8 rounded-2xl border-2 border-brand-accent/60 flex flex-col justify-between shadow-sm hover:shadow-md transition">
                 <div>
                     <h3 class="text-lg font-bold text-brand-navy mb-2">サロン診断</h3>
@@ -286,6 +319,7 @@
                 </div>
             </div>
 
+            <!-- 月額ライト -->
             <div class="bg-brand-beige p-8 rounded-2xl border-2 border-brand-accent/60 flex flex-col justify-between shadow-sm hover:shadow-md transition">
                 <div>
                     <h3 class="text-lg font-bold text-brand-navy mb-2">月額ライト</h3>
@@ -305,6 +339,7 @@
                 </div>
             </div>
 
+            <!-- 月額スタンダード -->
             <div class="bg-[#F3EFE6] p-8 rounded-2xl border-2 border-brand-gold flex flex-col justify-between shadow-md relative">
                 <div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-brand-gold text-white text-[10px] font-bold tracking-widest px-4 py-1 rounded-full uppercase">
                     RECOMMEND / おすすめ
@@ -327,6 +362,7 @@
                 </div>
             </div>
 
+            <!-- 月額プレミアム -->
             <div class="bg-brand-beige p-8 rounded-2xl border-2 border-brand-accent/60 flex flex-col justify-between shadow-sm hover:shadow-md transition">
                 <div>
                     <h3 class="text-lg font-bold text-brand-navy mb-2">月額プレミアム</h3>
@@ -346,6 +382,7 @@
                 </div>
             </div>
 
+            <!-- 開業伴走プラン -->
             <div class="bg-brand-beige p-8 rounded-2xl border-2 border-brand-accent/60 flex flex-col justify-between shadow-sm hover:shadow-md transition">
                 <div>
                     <h3 class="text-lg font-bold text-brand-navy mb-2">開業伴走プラン</h3>
@@ -364,8 +401,10 @@
                     </a>
                 </div>
             </div>
+
         </div>
 
+        <!-- 補足・お見積り情報 -->
         <div class="mt-12 bg-brand-beige p-6 sm:p-8 rounded-2xl border border-brand-accent max-w-4xl mx-auto">
             <h4 class="font-bold text-brand-navy text-sm mb-4">お見積り・制作メニューについて</h4>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-brand-dark/80 leading-relaxed">
@@ -381,12 +420,19 @@
                 </div>
             </div>
         </div>
+
     </div>
 </section>
 
+<!-- =================================================================
+     アクセス・会社情報 (Access & Info)
+================================================================== -->
 <section id="access" class="py-20 bg-brand-beige border-t border-brand-accent">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- 会社案内テーブル -->
             <div class="lg:col-span-6 space-y-6">
                 <span class="text-brand-gold font-bold tracking-widest text-xs uppercase block">COMPANY INFO</span>
                 <h2 class="font-serif text-3xl font-bold text-brand-navy">
@@ -422,23 +468,31 @@
                 </div>
             </div>
 
+            <!-- 地図表示エリア -->
             <div class="lg:col-span-6">
                 <div class="rounded-2xl overflow-hidden shadow-lg border-4 border-white h-80 bg-gray-200">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.4727101569483!2d140.00342937682282!3d35.76377722543306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018828da062f6af%3A0xcfe0e350ae9ba3!2z44CSMjczLTAxMjUg5Y2D6JGJ55yM6Y6M44O26LC35biC5p2x5Lit5rKi77yR5LiB55uu77yR77yR4oiS77yT77yW!5e0!3m2!1sja!2sjp!4v1716912345678!5m2!1sja!2sjp"
-                        class="w-full h-full border-0"
-                        allowfullscreen=""
-                        loading="lazy"
+                    <!-- Google Maps iframe -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.4727101569483!2d140.00342937682282!3d35.76377722543306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018828da062f6af%3A0xcfe0e350ae9ba3!2z44CSMjczLTAxMjUg5Y2D6JGJ55yM6Y6M44O26LC35biC5p2x5Lit5rKi77yR5LiB55uu77yR77yR4oiS77yT77yW!5e0!3m2!1sja!2sjp!4v1716912345678!5m2!1sja!2sjp" 
+                        class="w-full h-full border-0" 
+                        allowfullscreen="" 
+                        loading="lazy" 
                         referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>
             </div>
+
         </div>
+
     </div>
 </section>
 
+<!-- =================================================================
+     お問い合わせフォーム (Googleフォーム埋め込み)
+================================================================== -->
 <section id="contact" class="py-20 bg-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         <div class="text-center mb-12 space-y-4">
             <span class="text-brand-gold font-bold tracking-widest text-xs uppercase block">CONTACT</span>
             <h2 class="font-serif text-3xl font-bold text-brand-navy">
@@ -452,12 +506,12 @@
 
         <div class="bg-brand-beige rounded-2xl border border-brand-accent shadow-sm p-3 sm:p-5">
             <div class="bg-white rounded-xl overflow-hidden border border-brand-accent/70">
-                <iframe
-                    src="https://docs.google.com/forms/d/e/1FAIpQLScLZfYnpM96T7RD3yI2N0w6H2kwIlDajdbn-IFQIEMOA92syA/viewform?embedded=true"
-                    width="100%"
-                    height="980"
-                    frameborder="0"
-                    marginheight="0"
+                <iframe 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLScLZfYnpM96T7RD3yI2N0w6H2kwIlDajdbn-IFQIEMOA92syA/viewform?embedded=true" 
+                    width="100%" 
+                    height="980" 
+                    frameborder="0" 
+                    marginheight="0" 
                     marginwidth="0"
                     class="w-full">
                     読み込んでいます…
@@ -477,11 +531,16 @@
                 </a>
             </p>
         </div>
+
     </div>
 </section>
 
+<!-- =================================================================
+     フッター (Footer)
+================================================================== -->
 <footer class="bg-brand-navy text-white/90 py-12 border-t-4 border-brand-gold">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center pb-8 border-b border-white/10">
             <div class="space-y-2 text-center md:text-left">
                 <span class="font-serif text-xl sm:text-2xl font-black tracking-widest text-white">WILL NEXT</span>
@@ -502,11 +561,15 @@
 
         <div class="pt-8 text-center text-xs text-white/50 flex flex-col sm:flex-row justify-between items-center gap-4">
             <p>© 2026 WILL NEXT LLC. All Rights Reserved.</p>
-            <p class="text-[10px]">※本サイトに掲載されているサロンの成果・売上推移などの数字は、代表のこれまでの運用実績の一例であり、個々のクライアント様の将来的な数字を一律で保証するものではありません。</p>
+            <p class="text-[10px]">※本サイトに掲載されているサロン of 成果・売上推移などの数字は、代表のこれまでの運用実績の一例であり、個々のクライアント様の将来的な数字を一律で保証するものではありません。</p>
         </div>
+
     </div>
 </footer>
 
+<!-- =================================================================
+     送信成功時のポップアップモーダル（通常時）
+================================================================== -->
 <div id="success-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
     <div class="bg-white rounded-2xl max-w-md w-full p-8 text-center shadow-2xl border border-brand-accent transform scale-90 transition-transform duration-300" id="success-modal-content">
         <div class="w-16 h-16 bg-[#F3EFE6] rounded-full flex items-center justify-center mx-auto mb-4 text-brand-gold">
@@ -524,6 +587,9 @@
     </div>
 </div>
 
+<!-- =================================================================
+     サーバー停止時（一時メンテ）専用のお詫びモーダル
+================================================================== -->
 <div id="maintenance-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
     <div class="bg-white rounded-2xl max-w-md w-full p-8 text-center shadow-2xl border-t-8 border-brand-gold transform scale-90 transition-transform duration-300" id="maintenance-modal-content">
         <div class="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center mx-auto mb-4 text-brand-gold">
@@ -544,20 +610,30 @@
     </div>
 </div>
 
+<!-- =================================================================
+     JavaScript制御ロジック
+================================================================== -->
 <script>
-    const urlParams = new URLSearchParams(window.location.search);
+    /*
+      GitHub Pagesは静的サイトのため、サイト単体ではメール送信できません。
+      ここではFormSubmitの通常POST方式を使用しています。
+      AJAX方式はブラウザ側・FormSubmit側の制限で失敗することがあるため、通常POST方式に変更しています。
+    */
 
+    // FormSubmit送信後に戻ってきた場合、成功モーダルを表示
+    const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('sent') === '1') {
         window.addEventListener('load', function () {
             showModal('success-modal');
 
+            // URLの ?sent=1 を消して、再読み込み時に毎回モーダルが出ないようにする
             const cleanUrl = window.location.origin + window.location.pathname + '#contact';
             window.history.replaceState({}, document.title, cleanUrl);
         });
     }
 
+    // 送信ボタンの表示制御
     const contactForm = document.getElementById('contact-form');
-
     if (contactForm) {
         contactForm.addEventListener('submit', function () {
             const button = document.getElementById('submit-btn');
@@ -568,6 +644,7 @@
         });
     }
 
+    // モーダル表示用関数
     function showModal(modalId) {
         const modal = document.getElementById(modalId);
         const content = document.getElementById(modalId + '-content');
@@ -576,6 +653,7 @@
         content.classList.add('scale-100');
     }
 
+    // モーダル閉じる用関数
     function closeModal(modalId) {
         const modal = document.getElementById(modalId);
         const content = document.getElementById(modalId + '-content');
