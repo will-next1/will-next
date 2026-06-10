@@ -52,6 +52,39 @@
                 height: 112px;
             }
         }
+        .representative-photo-card {
+            width: 112px;
+            height: 112px;
+            border-radius: 18px;
+            flex: 0 0 auto;
+        }
+        .representative-photo {
+            object-position: center 16%;
+        }
+        .representative-intro {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        @media (min-width: 640px) {
+            .representative-photo-card {
+                width: 132px;
+                height: 132px;
+                border-radius: 20px;
+            }
+        }
+        @media (max-width: 640px) {
+            .representative-photo-card {
+                width: 88px;
+                height: 88px;
+                border-radius: 16px;
+            }
+            .representative-name-kana {
+                display: block;
+                margin-left: 0;
+                margin-top: 0.35rem;
+            }
+        }
     </style>
 </head>
 <body class="bg-brand-beige text-brand-dark font-sans antialiased">
@@ -291,29 +324,21 @@
 <section id="profile" class="py-20 bg-brand-beige border-t border-b border-brand-accent">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
-            <!-- 代表者画像 -->
-            <div class="lg:col-span-5 flex justify-center">
-                <div class="relative w-full max-w-sm sm:max-w-md">
-                    <div class="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-gray-200">
-                        <img src="images/profile.png" alt="ウィルネクスト代表 高崎弘之" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x533/e8e3d9/1a3050?text=Representative'">
-                    </div>
-                    <div class="absolute -top-4 -left-4 w-16 h-16 bg-brand-gold text-white font-serif flex items-center justify-center rounded-2xl shadow-lg font-black text-xl">
-                        実績
-                    </div>
-                </div>
-            </div>
+        <div class="max-w-4xl mx-auto space-y-6">
 
             <!-- 代表メッセージ・実績詳細 -->
-            <div class="lg:col-span-7 space-y-6">
-                <span class="text-brand-gold font-bold tracking-widest text-xs uppercase block">REPRESENTATIVE PROFILE</span>
-                
-                <div class="space-y-2">
-                    <span class="text-sm font-semibold text-brand-gold">代表紹介</span>
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-navy leading-tight">
-                        高崎 弘之 <span class="text-sm font-normal text-brand-dark/70 ml-2">(タカサキ ヒロユキ)</span>
-                    </h2>
+            <div class="representative-copy space-y-6">
+                <div class="representative-intro">
+                    <div class="representative-photo-card overflow-hidden shadow-lg border-4 border-white bg-gray-200">
+                        <img src="images/profile.png" alt="ウィルネクスト代表 高崎弘之" class="representative-photo w-full h-full object-cover" onerror="this.src='https://placehold.co/400x533/e8e3d9/1a3050?text=Representative'">
+                    </div>
+                    <div class="space-y-2 min-w-0">
+                        <span class="text-brand-gold font-bold tracking-widest text-xs uppercase block">REPRESENTATIVE PROFILE</span>
+                        <span class="text-sm font-semibold text-brand-gold block">代表紹介</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-navy leading-tight">
+                            高崎 弘之 <span class="representative-name-kana text-sm font-normal text-brand-dark/70 ml-2">(タカサキ ヒロユキ)</span>
+                        </h2>
+                    </div>
                 </div>
 
                 <div class="prose max-w-none text-brand-dark/90 text-sm sm:text-base leading-relaxed space-y-4 font-medium">
