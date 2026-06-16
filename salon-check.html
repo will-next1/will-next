@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美容サロン向け経営・集客簡易診断 | ウィルネクスト合同会社</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Noto Serif JP -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Serif+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Noto Serif JP', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            navy: '#1A3050',      /* 信頼を表現するネイビー */
+                            gold: '#C5A880',      /* 上品なゴールド */
+                            darkGold: '#A3845B',  /* ホバー用の濃いゴールド */
+                            beige: '#F9F6F0',     /* 背景用の極薄いベージュ */
+                            accent: '#E6DCD0',    /* 仕切り・枠線用のベージュ */
+                            dark: '#2A2A2A'       /* メインテキスト色 */
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-brand-beige text-brand-dark font-sans antialiased flex flex-col min-h-screen">
+
+<!-- =================================================================
+     ヘッダー・ナビゲーション
+================================================================== -->
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-brand-accent shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+            <!-- ロゴ画像・会社名 -->
+            <img src="images/logo-header.png" alt="ウィルネクスト合同会社 ロゴ" class="h-12 w-auto object-contain" onerror="this.style.display='none'">
+            <span class="font-serif text-xl sm:text-2xl font-black tracking-wider text-brand-navy">
+                <a href="index.html" class="hover:opacity-80 transition">WILL NEXT</a>
+            </span>
+            <span class="text-xs bg-brand-gold text-white px-2 py-1 rounded font-bold tracking-tight hidden sm:inline-block">
+                ウィルネクスト合同会社
+            </span>
+        </div>
+        <nav class="hidden md:flex items-center gap-4 lg:gap-6 text-xs lg:text-sm font-semibold tracking-wide">
+            <a href="index.html#strengths" class="text-brand-dark hover:text-brand-gold transition">強み・事業</a>
+            <a href="salon-check.html" class="text-brand-gold font-bold transition">簡易診断</a>
+            <a href="index.html#profile" class="text-brand-dark hover:text-brand-gold transition">代表メッセージ</a>
+            <a href="https://sites.google.com/view/willnext/" class="text-brand-dark hover:text-brand-gold transition">料金・サービス詳細</a>
+            <a href="https://sites.google.com/view/willnext/%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E4%B8%80%E8%A6%A7" class="text-brand-dark hover:text-brand-gold transition">ホームページ制作</a>
+            <a href="index.html#access" class="text-brand-dark hover:text-brand-gold transition">会社情報</a>
+        </nav>
+        <div class="flex items-center space-x-4">
+            <!-- ヘッダー電話番号 -->
+            <a href="tel:090-6188-1722" class="hidden lg:flex items-center text-brand-navy hover:text-brand-gold font-bold text-sm transition">
+                <svg class="w-4 h-4 mr-1.5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                </svg>
+                090-6188-1722
+            </a>
+            <a href="index.html#contact" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-brand-navy hover:bg-brand-gold transition duration-300 shadow-md">
+                お問い合わせ
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- =================================================================
+     メインコンテンツ
+================================================================== -->
+<main class="flex-grow py-8 sm:py-16 px-4">
+    <div class="max-w-3xl mx-auto">
+
+        <!-- 導入文（診断開始前に表示） -->
+        <div id="intro-container" class="bg-white rounded-3xl border border-brand-accent p-6 sm:p-12 shadow-md space-y-6">
+            <div class="text-center space-y-3">
+                <span class="text-brand-gold font-bold tracking-widest text-xs uppercase block">SALON MANAGEMENT DIAGNOSIS</span>
+                <h1 class="font-serif text-2xl sm:text-3xl font-bold text-brand-navy">
+                    美容サロン向け 経営・集客簡易診断
+                </h1>
+                <p class="text-xs sm:text-sm text-brand-dark/70">
+                    サロンの経営・集客状況を見直し、安定した黒字運営に向けたセルフチェックを行います。
+                </p>
+            </div>
+            
+            <div class="border-t border-b border-brand-accent/60 py-6 my-6 text-sm text-brand-dark/80 space-y-4">
+                <p class="font-bold text-brand-navy">■ 診断分野（5分野・全10問）</p>
+                <ul class="list-disc pl-5 space-y-1">
+                    <li><strong>集客：</strong>新規顧客獲得や集客経路の把握状況</li>
+                    <li><strong>再来：</strong>リピート率の測定や次回予約案内の仕組み化</li>
+                    <li><strong>客単価：</strong>単価分析や追加提案・店販の提供プロセス</li>
+                    <li><strong>店舗運営：</strong>予約稼働の分析やスタッフ稼働率の把握</li>
+                    <li><strong>数値管理：</strong>利益・固定費の確認や目標設定の有無</li>
+                </ul>
+                <p class="text-xs text-brand-dark/75 leading-relaxed bg-brand-beige p-3 rounded-lg">
+                    回答はすべて3択です。選択し終えると、分野別の強みと課題がグラフで可視化され、今後の具体的なアクションプランが提示されます。回答データは外部に送信されません。
+                </p>
+            </div>
+
+            <div class="text-center">
+                <button onclick="startDiagnosis()" class="w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 rounded-full text-sm font-bold tracking-wider text-white bg-brand-navy hover:bg-brand-gold transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                    診断を開始する
+                </button>
+            </div>
+        </div>
+
+        <!-- 診断中画面（JavaScriptで制御） -->
+        <div id="quiz-container" class="hidden bg-white rounded-3xl border border-brand-accent p-5 sm:p-10 shadow-md space-y-6">
+            
+            <!-- 進捗表示 -->
+            <div class="space-y-2">
+                <div class="flex justify-between items-center text-xs font-semibold">
+                    <span id="field-badge" class="bg-brand-gold/15 text-brand-gold px-3 py-1 rounded-full tracking-wider font-bold">
+                        分野：集客
+                    </span>
+                    <span class="text-brand-dark/60">
+                        質問 <span id="progress-text" class="text-brand-navy font-bold text-sm">1</span> / 10
+                    </span>
+                </div>
+                <!-- プログレスバー -->
+                <div class="w-full bg-brand-beige rounded-full h-2">
+                    <div id="progress-bar" class="bg-brand-navy h-2 rounded-full transition-all duration-300" style="width: 10%;"></div>
+                </div>
+            </div>
+
+            <!-- 質問文 -->
+            <div class="py-4">
+                <h2 id="question-text" class="font-serif text-lg sm:text-xl font-bold text-brand-navy leading-relaxed">
+                    質問内容がここに入ります。
+                </h2>
+            </div>
+
+            <!-- 選択肢 -->
+            <div id="options-container" class="space-y-3">
+                <!-- ボタンがJavaScriptで生成されます -->
+            </div>
+
+            <!-- ボタンエリア -->
+            <div class="flex justify-between items-center pt-6 border-t border-brand-accent/50">
+                <button id="back-btn" onclick="prevQuestion()" class="px-5 py-2.5 rounded-full text-xs font-bold text-brand-navy border border-brand-navy hover:bg-brand-beige transition duration-200 disabled:opacity-30 disabled:pointer-events-none">
+                     前の質問へ戻る
+                </button>
+                <button id="next-btn" onclick="nextQuestion()" class="px-6 py-2.5 rounded-full text-xs font-bold text-white bg-brand-navy hover:bg-brand-gold transition duration-200 disabled:opacity-40 disabled:cursor-not-allowed" disabled>
+                    次へ進む
+                </button>
+            </div>
+        </div>
+
+        <!-- 結果画面（JavaScriptで制御） -->
+        <div id="result-container" class="hidden bg-white rounded-3xl border border-brand-accent p-5 sm:p-10 shadow-lg space-y-8">
+            
+            <!-- 結果見出し -->
+            <div class="text-center space-y-2">
+                <span class="text-brand-gold font-bold tracking-widest text-xs uppercase block">DIAGNOSIS RESULT</span>
+                <h1 class="font-serif text-2xl sm:text-3xl font-bold text-brand-navy">あなたの診断結果</h1>
+            </div>
+
+            <!-- 総合得点・判定表示 -->
+            <div class="bg-brand-beige rounded-2xl border border-brand-accent/60 p-6 text-center space-y-3">
+                <p class="text-xs text-brand-dark/70 font-semibold tracking-wider">総合スコア</p>
+                <div class="flex items-baseline justify-center gap-1">
+                    <span id="result-score" class="font-serif text-5xl sm:text-6xl font-black text-brand-navy">15</span>
+                    <span class="text-sm font-bold text-brand-dark">/ 20 点</span>
+                </div>
+                <div class="inline-block bg-brand-navy text-white text-base sm:text-lg font-bold px-6 py-2 rounded-lg font-serif tracking-widest shadow-sm" id="result-type">
+                    改善余地型
+                </div>
+                <p class="text-xs sm:text-sm text-brand-dark/95 leading-relaxed max-w-xl mx-auto pt-2 font-medium" id="result-desc">
+                    いくつかの分野で改善の余地があります。強みを生かしつつ、点数の低かった分野を中心に仕組みを整えることで、さらなる売上・利益の向上が期待できます。
+                </p>
+            </div>
+
+            <!-- 分野別得点グラフ -->
+            <div class="space-y-4">
+                <h3 class="font-serif text-lg font-bold text-brand-navy border-b border-brand-accent pb-2">
+                    分野別診断スコア (各4点満点)
+                </h3>
+                <div class="space-y-4" id="bars-container">
+                    <!-- JavaScriptで動的に生成します -->
+                </div>
+            </div>
+
+            <!-- 優先改善項目 & アドバイス -->
+            <div class="bg-red-50/40 rounded-2xl border border-red-200/60 p-5 sm:p-6 space-y-4">
+                <div class="flex items-center gap-2 text-red-800 font-bold">
+                    <svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-sm sm:text-base font-serif">優先して改善したい項目</span>
+                </div>
+                <div class="space-y-4" id="advice-container">
+                    <!-- 動的にアドバイスを表示 -->
+                </div>
+            </div>
+
+            <!-- アクションボタン -->
+            <div class="pt-4 flex flex-col gap-3 max-w-md mx-auto">
+                <a href="index.html#contact" class="w-full inline-flex items-center justify-center px-8 py-4 rounded-full text-sm font-bold tracking-wider text-white bg-brand-gold hover:bg-brand-navy transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-center">
+                    診断結果について相談する
+                </a>
+                <button onclick="resetDiagnosis()" class="w-full py-3 rounded-full text-xs font-bold text-brand-navy border border-brand-accent hover:bg-brand-beige transition duration-200 text-center">
+                    もう一度診断する
+                </button>
+            </div>
+
+            <!-- 免責事項/注意書き -->
+            <div class="text-[10px] sm:text-xs text-brand-dark/60 leading-relaxed text-center border-t border-brand-accent/50 pt-6">
+                本診断は、ご入力いただいた回答をもとにした簡易的なセルフチェックです。個別の経営状況や利益を保証するものではありません。
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<!-- =================================================================
+     フッター
+================================================================== -->
+<footer class="bg-brand-navy text-white/90 py-12 border-t-4 border-brand-gold">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center pb-8 border-b border-white/10">
+            <div class="space-y-2 text-center md:text-left">
+                <span class="font-serif text-xl sm:text-2xl font-black tracking-widest text-white">WILL NEXT</span>
+                <p class="text-[10px] text-white/60">美容サロン専門コンサルティングサービス</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4 text-xs font-medium text-white/80">
+                <a href="index.html#strengths" class="hover:text-brand-gold transition">強み</a>
+                <a href="salon-check.html" class="hover:text-brand-gold transition">簡易診断</a>
+                <a href="index.html#profile" class="hover:text-brand-gold transition">代表メッセージ</a>
+                <a href="https://sites.google.com/view/willnext/" class="hover:text-brand-gold transition">料金・サービス詳細</a>
+                <a href="https://sites.google.com/view/willnext/%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E4%B8%80%E8%A6%A7" class="hover:text-brand-gold transition">ホームページ制作</a>
+                <a href="index.html#access" class="hover:text-brand-gold transition">会社概要</a>
+            </div>
+            <div class="text-center md:text-right text-xs space-y-1 text-white/75">
+                <p>〒273-0112 千葉県鎌ケ谷市東中沢1-11</p>
+                <p>TEL：<a href="tel:090-6188-1722" class="hover:text-brand-gold transition">090-6188-1722</a></p>
+                <p>営業時間 10:00 - 20:00 (年中無休)</p>
+            </div>
+        </div>
+
+        <div class="pt-8 text-center text-xs text-white/50 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p>© 2026 WILL NEXT LLC. All Rights Reserved.</p>
+            <p class="text-[10px]">※本診断を含む掲載情報は一例であり、個々のクライアント様の将来的な数字を保証するものではありません。</p>
+        </div>
+
+    </div>
+</footer>
+
+<!-- =================================================================
+     JavaScript ロジック
+================================================================== -->
+<script>
+    // 10問の質問データ定義
+    const questions = [
+        {
+            id: 1,
+            field: "集客",
+            text: "毎月の新規顧客数を把握していますか？",
+            options: [
+                { text: "正確に把握している", score: 2 },
+                { text: "おおよそ把握している", score: 1 },
+                { text: "ほとんど把握していない", score: 0 }
+            ]
+        },
+        {
+            id: 2,
+            field: "集客",
+            text: "どの媒体から何件予約が入ったか確認していますか？",
+            options: [
+                { text: "毎月確認している", score: 2 },
+                { text: "ときどき確認している", score: 1 },
+                { text: "確認していない", score: 0 }
+            ]
+        },
+        {
+            id: 3,
+            field: "再来",
+            text: "新規客と既存客の再来率を把握していますか？",
+            options: [
+                { text: "分けて把握している", score: 2 },
+                { text: "全体のおおよその数字だけ分かる", score: 1 },
+                { text: "把握していない", score: 0 }
+            ]
+        },
+        {
+            id: 4,
+            field: "再来",
+            text: "来店時に次回予約をご案内していますか？",
+            options: [
+                { text: "仕組みとして実施している", score: 2 },
+                { text: "スタッフによって異なる", score: 1 },
+                { text: "ほとんど行っていない", score: 0 }
+            ]
+        },
+        {
+            id: 5,
+            field: "客単価",
+            text: "平均客単価を毎月確認していますか？",
+            options: [
+                { text: "毎月確認している", score: 2 },
+                { text: "ときどき確認している", score: 1 },
+                { text: "確認していない", score: 0 }
+            ]
+        },
+        {
+            id: 6,
+            field: "客単価",
+            text: "追加メニューや店販を提案できる仕組みがありますか？",
+            options: [
+                { text: "仕組み化されている", score: 2 },
+                { text: "一部だけ実施している", score: 1 },
+                { text: "特にない", score: 0 }
+            ]
+        },
+        {
+            id: 7,
+            field: "店舗運営",
+            text: "予約の埋まり方や空き時間を分析していますか？",
+            options: [
+                { text: "曜日・時間帯別に確認している", score: 2 },
+                { text: "感覚的には把握している", score: 1 },
+                { text: "分析していない", score: 0 }
+            ]
+        },
+        {
+            id: 8,
+            field: "店舗運営",
+            text: "スタッフ別の売上や稼働率を把握していますか？",
+            options: [
+                { text: "毎月確認している", score: 2 },
+                { text: "売上だけ確認している", score: 1 },
+                { text: "確認していない", score: 0 }
+            ]
+        },
+        {
+            id: 9,
+            field: "数値管理",
+            text: "売上だけでなく、利益や固定費も確認していますか？",
+            options: [
+                { text: "毎月確認している", score: 2 },
+                { text: "おおよそ把握している", score: 1 },
+                { text: "売上しか見ていない", score: 0 }
+            ]
+        },
+        {
+            id: 10,
+            field: "数値管理",
+            text: "毎月、具体的な改善目標を決めていますか？",
+            options: [
+                { text: "数値目標を決めている", score: 2 },
+                { text: "漠然と決めている", score: 1 },
+                { text: "特に決めていない", score: 0 }
+            ]
+        }
+    ];
+
+    // 分野別アドバイス文の定義
+    const fieldAdvices = {
+        "集客": "新規顧客の獲得経路（各集客媒体、SNS、看板など）を可視化し、費用対効果を見直すことが重要です。毎月数値を集計・測定することで、無駄な広告コストを抑えながら確実なターゲット層へアプローチできるようになります。",
+        "再来": "リピート率は店舗経営の生命線です。新規客と既存客の再来率をそれぞれ細かく測定し、来店時の「次回予約のご案内」を店舗共通のフローとして仕組み化（トークスクリプト整備や特典付与等）しましょう。",
+        "客単価": "売上を上げるには単価アップが欠かせません。既存メニューに追加しやすいライトオプションの設計や、カウンセリング時に無理なく物販商品を提案できる仕組みを構築し、価値あるサービスでの単価向上を目指します。",
+        "店舗運営": "時間帯別・曜日別の稼働状況（予約の空き）を分析し、空き時間を有効活用するクーポンやメニューを用意しましょう。スタッフ別の稼働率も可視化し、適切な人員配置とパフォーマンス管理を行います。",
+        "数値管理": "売上のみを追うのは危険です。家賃や人件費等の固定費、材料費などの変動費を差し引いた「手元に残る純利益」を毎月把握しましょう。その上で現実的かつ具体的な数値目標を設定し、PDCAを回していきます。"
+    };
+
+    // 診断中の状態管理変数
+    let currentStep = 0; // 0〜9: 質問ステップ
+    let selectedAnswers = Array(questions.length).fill(null); // 各質問に対する選択したオプションのインデックス
+
+    // 診断開始
+    function startDiagnosis() {
+        document.getElementById("intro-container").classList.add("hidden");
+        document.getElementById("quiz-container").classList.remove("hidden");
+        renderQuestion();
+    }
+
+    // 質問のレンダリング
+    function renderQuestion() {
+        const q = questions[currentStep];
+        
+        // 進捗バッジとバーの更新
+        document.getElementById("field-badge").textContent = `分野：${q.field}`;
+        document.getElementById("progress-text").textContent = currentStep + 1;
+        
+        const progressPercentage = ((currentStep + 1) / questions.length) * 100;
+        document.getElementById("progress-bar").style.width = `${progressPercentage}%`;
+        
+        // 質問テキスト
+        document.getElementById("question-text").textContent = q.text;
+        
+        // 選択肢の描画
+        const optionsContainer = document.getElementById("options-container");
+        optionsContainer.innerHTML = "";
+        
+        q.options.forEach((opt, idx) => {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = "w-full text-left p-4 rounded-xl border border-brand-accent/80 hover:bg-brand-beige/50 hover:border-brand-gold font-medium transition duration-150 flex items-center justify-between group";
+            
+            // 選択済みの場合はスタイルを変更
+            if (selectedAnswers[currentStep] === idx) {
+                button.classList.add("bg-[#F3EFE6]", "border-brand-gold", "ring-1", "ring-brand-gold");
+            }
+            
+            button.onclick = () => selectOption(idx);
+            
+            const textSpan = document.createElement("span");
+            textSpan.className = "text-sm sm:text-base text-brand-dark font-medium";
+            textSpan.textContent = opt.text;
+            
+            const checkDiv = document.createElement("div");
+            checkDiv.className = "w-5 h-5 rounded-full border border-brand-accent flex items-center justify-center shrink-0 ml-3 group-hover:border-brand-gold transition";
+            if (selectedAnswers[currentStep] === idx) {
+                checkDiv.className = "w-5 h-5 rounded-full bg-brand-gold flex items-center justify-center shrink-0 ml-3";
+                checkDiv.innerHTML = `<svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>`;
+            }
+            
+            button.appendChild(textSpan);
+            button.appendChild(checkDiv);
+            optionsContainer.appendChild(button);
+        });
+
+        // 戻るボタンの表示・非表示
+        const backBtn = document.getElementById("back-btn");
+        if (currentStep === 0) {
+            backBtn.disabled = true;
+        } else {
+            backBtn.disabled = false;
+        }
+
+        // 次へボタンの表示・活性化
+        const nextBtn = document.getElementById("next-btn");
+        if (selectedAnswers[currentStep] !== null) {
+            nextBtn.disabled = false;
+            nextBtn.classList.remove("opacity-40", "cursor-not-allowed");
+        } else {
+            nextBtn.disabled = true;
+            nextBtn.classList.add("opacity-40", "cursor-not-allowed");
+        }
+
+        // 最終質問の時はボタン文言を変更
+        if (currentStep === questions.length - 1) {
+            nextBtn.textContent = "診断結果を見る";
+        } else {
+            nextBtn.textContent = "次へ進む";
+        }
+    }
+
+    // 選択肢クリック時の処理
+    function selectOption(optionIdx) {
+        selectedAnswers[currentStep] = optionIdx;
+        renderQuestion();
+    }
+
+    // 次へ進む
+    function nextQuestion() {
+        if (selectedAnswers[currentStep] === null) return;
+        
+        if (currentStep < questions.length - 1) {
+            currentStep++;
+            renderQuestion();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+            // 診断完了
+            showResults();
+        }
+    }
+
+    // 前へ戻る
+    function prevQuestion() {
+        if (currentStep > 0) {
+            currentStep--;
+            renderQuestion();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }
+
+    // 結果表示
+    function showResults() {
+        document.getElementById("quiz-container").classList.add("hidden");
+        document.getElementById("result-container").classList.remove("hidden");
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // スコア集計
+        let totalScore = 0;
+        const fieldScores = {
+            "集客": 0,
+            "再来": 0,
+            "客単価": 0,
+            "店舗運営": 0,
+            "数値管理": 0
+        };
+
+        questions.forEach((q, idx) => {
+            const selectedOptIdx = selectedAnswers[idx];
+            const score = q.options[selectedOptIdx].score;
+            totalScore += score;
+            fieldScores[q.field] += score;
+        });
+
+        // 総合得点と総合判定の出力
+        document.getElementById("result-score").textContent = totalScore;
+        
+        let typeText = "";
+        let descText = "";
+        if (totalScore >= 16) {
+            typeText = "安定運営型";
+            descText = "素晴らしい運営状態です。現在の仕組みを継続しつつ、さらに多店舗展開や客単価アップ、ブランド化など、一歩進んだ戦略を検討しましょう。";
+        } else if (totalScore >= 11) {
+            typeText = "改善余地型";
+            descText = "いくつかの分野で改善の余地があります。強みを生かしつつ、点数の低かった分野を中心に仕組みを整えることで、さらなる売上・利益の向上が期待できます。";
+        } else if (totalScore >= 6) {
+            typeText = "仕組み再構築型";
+            descText = "店舗運営や集客の仕組みを見直すタイミングです。感覚的な運営から数値に基づいた計画的な運営へとシフトし、土台を作り直しましょう。";
+        } else {
+            typeText = "早期改善推奨型";
+            descText = "早急な改善が必要です。売上や利益の確保、集客導線の確保、リピートの仕組み化など、優先度の高い課題から順に対策を講じる必要があります。まずは現状分析を徹底しましょう。";
+        }
+
+        document.getElementById("result-type").textContent = typeText;
+        document.getElementById("result-desc").textContent = descText;
+
+        // 分野別スコアグラフの描画
+        const barsContainer = document.getElementById("bars-container");
+        barsContainer.innerHTML = "";
+
+        for (const [field, score] of Object.entries(fieldScores)) {
+            // スコア割合 (4点満点)
+            const percentage = (score / 4) * 100;
+            
+            const barWrapper = document.createElement("div");
+            barWrapper.className = "space-y-1";
+            
+            barWrapper.innerHTML = `
+                <div class="flex justify-between text-xs font-bold text-brand-navy">
+                    <span>${field}</span>
+                    <span>${score} / 4 点</span>
+                </div>
+                <div class="w-full bg-brand-beige rounded-full h-3 border border-brand-accent/50 overflow-hidden">
+                    <div class="bg-brand-gold h-full rounded-full transition-all duration-1000" style="width: 0%"></div>
+                </div>
+            `;
+            
+            barsContainer.appendChild(barWrapper);
+            
+            // アニメーション効果を出すためsetTimeoutで後から幅を設定
+            setTimeout(() => {
+                const bar = barWrapper.querySelector(".bg-brand-gold");
+                if (bar) bar.style.width = `${percentage}%`;
+            }, 100);
+        }
+
+        // 優先改善項目（最低得点分野）の選定
+        let minScore = 4;
+        let priorityFields = [];
+
+        for (const [field, score] of Object.entries(fieldScores)) {
+            if (score < minScore) {
+                minScore = score;
+                priorityFields = [field];
+            } else if (score === minScore) {
+                priorityFields.push(field);
+            }
+        }
+
+        // 最低得点分野のアドバイス表示
+        const adviceContainer = document.getElementById("advice-container");
+        adviceContainer.innerHTML = "";
+
+        priorityFields.forEach(field => {
+            const card = document.createElement("div");
+            card.className = "bg-white p-4 rounded-xl border border-red-100 shadow-sm space-y-2";
+            card.innerHTML = `
+                <h4 class="font-bold text-brand-navy text-sm font-serif">
+                    【${field}】の課題と改善アクション（分野スコア: ${fieldScores[field]}点）
+                </h4>
+                <p class="text-xs sm:text-sm text-brand-dark/90 leading-relaxed font-medium">
+                    ${fieldAdvices[field]}
+                </p>
+            `;
+            adviceContainer.appendChild(card);
+        });
+    }
+
+    // 診断リセット
+    function resetDiagnosis() {
+        currentStep = 0;
+        selectedAnswers = Array(questions.length).fill(null);
+        
+        document.getElementById("result-container").classList.add("hidden");
+        document.getElementById("quiz-container").classList.remove("hidden");
+        renderQuestion();
+    }
+</script>
+
+</body>
+</html>
