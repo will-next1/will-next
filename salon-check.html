@@ -42,37 +42,40 @@
      ヘッダー・ナビゲーション
 ================================================================== -->
 <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-brand-accent shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        <div class="flex items-center space-x-2">
-            <!-- ロゴ画像・会社名 -->
-            <img src="images/logo-header.png" alt="ウィルネクスト合同会社 ロゴ" class="h-12 w-auto object-contain" onerror="this.style.display='none'">
-            <span class="font-serif text-xl sm:text-2xl font-black tracking-wider text-brand-navy">
-                <a href="index.html" class="hover:opacity-80 transition">WILL NEXT</a>
-            </span>
-            <span class="text-xs bg-brand-gold text-white px-2 py-1 rounded font-bold tracking-tight hidden sm:inline-block">
-                ウィルネクスト合同会社
-            </span>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- 上段：ロゴとコンタクト情報 (PC/スマホ共通、PCでは高さを少し抑える) -->
+        <div class="flex items-center justify-between h-20 md:h-16">
+            <div class="flex items-center space-x-2">
+                <!-- ロゴ画像・会社名 -->
+                <img src="images/logo-header.png" alt="ウィルネクスト合同会社 ロゴ" class="h-10 sm:h-12 w-auto object-contain" onerror="this.style.display='none'">
+                <span class="font-serif text-xl sm:text-2xl font-black tracking-wider text-brand-navy">
+                    <a href="index.html" class="hover:opacity-80 transition">WILL NEXT</a>
+                </span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <!-- ヘッダー電話番号 (PC表示で表示) -->
+                <a href="tel:090-6188-1722" class="hidden md:flex items-center text-brand-navy hover:text-brand-gold font-bold text-sm transition">
+                    <svg class="w-4 h-4 mr-1.5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                    </svg>
+                    090-6188-1722
+                </a>
+                <a href="index.html#contact" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-brand-navy hover:bg-brand-gold transition duration-300 shadow-md">
+                    お問い合わせ
+                </a>
+            </div>
         </div>
-        <nav class="hidden md:flex items-center gap-4 lg:gap-6 text-xs lg:text-sm font-semibold tracking-wide">
-            <a href="index.html#strengths" class="text-brand-dark hover:text-brand-gold transition">強み・事業</a>
-            <a href="salon-check.html" class="text-brand-gold font-bold transition">簡易診断</a>
-            <a href="index.html#profile" class="text-brand-dark hover:text-brand-gold transition">代表メッセージ</a>
-            <a href="https://sites.google.com/view/willnext/" class="text-brand-dark hover:text-brand-gold transition">料金・サービス詳細</a>
-            <a href="https://sites.google.com/view/willnext/%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E4%B8%80%E8%A6%A7" class="text-brand-dark hover:text-brand-gold transition">ホームページ制作</a>
-            <a href="index.html#access" class="text-brand-dark hover:text-brand-gold transition">会社情報</a>
+        
+        <!-- 下段：ナビゲーションメニュー (PC表示のみ、中央寄せ、区切り線入り) -->
+        <nav class="hidden md:flex items-center justify-center gap-6 lg:gap-8 pt-3 pb-3 border-t border-brand-accent/40 text-xs lg:text-sm font-semibold tracking-wide">
+            <a href="index.html" class="text-brand-dark hover:text-brand-gold border-b-2 border-transparent hover:border-brand-gold pb-1 transition-all duration-200 whitespace-nowrap">トップ</a>
+            <a href="index.html#strengths" class="text-brand-dark hover:text-brand-gold border-b-2 border-transparent hover:border-brand-gold pb-1 transition-all duration-200 whitespace-nowrap">強み・事業</a>
+            <a href="salon-check.html" class="text-brand-gold border-b-2 border-brand-gold pb-1 transition-all duration-200 whitespace-nowrap">簡易診断</a>
+            <a href="index.html#profile" class="text-brand-dark hover:text-brand-gold border-b-2 border-transparent hover:border-brand-gold pb-1 transition-all duration-200 whitespace-nowrap">代表メッセージ</a>
+            <a href="https://sites.google.com/view/willnext/" class="text-brand-dark hover:text-brand-gold border-b-2 border-transparent hover:border-brand-gold pb-1 transition-all duration-200 whitespace-nowrap">料金・サービス</a>
+            <a href="https://sites.google.com/view/willnext/%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E4%B8%80%E8%A6%A7" class="text-brand-dark hover:text-brand-gold border-b-2 border-transparent hover:border-brand-gold pb-1 transition-all duration-200 whitespace-nowrap">ホームページ制作</a>
+            <a href="index.html#access" class="text-brand-dark hover:text-brand-gold border-b-2 border-transparent hover:border-brand-gold pb-1 transition-all duration-200 whitespace-nowrap">会社情報</a>
         </nav>
-        <div class="flex items-center space-x-4">
-            <!-- ヘッダー電話番号 -->
-            <a href="tel:090-6188-1722" class="hidden lg:flex items-center text-brand-navy hover:text-brand-gold font-bold text-sm transition">
-                <svg class="w-4 h-4 mr-1.5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
-                </svg>
-                090-6188-1722
-            </a>
-            <a href="index.html#contact" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-brand-navy hover:bg-brand-gold transition duration-300 shadow-md">
-                お問い合わせ
-            </a>
-        </div>
     </div>
 </header>
 
