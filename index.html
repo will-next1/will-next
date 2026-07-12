@@ -94,6 +94,45 @@
                 margin-top: 0.35rem;
             }
         }
+        @media (max-width: 480px) {
+            .header-inner {
+                padding-left: 12px;
+                padding-right: 12px;
+            }
+            .header-logo {
+                min-width: 0;
+                gap: 4px;
+            }
+            .header-logo > * + *,
+            .header-actions > * + * {
+                margin-left: 0 !important;
+            }
+            .header-logo img {
+                height: 32px;
+            }
+            .header-logo span {
+                font-size: 16px;
+                letter-spacing: 0.04em;
+                white-space: nowrap;
+            }
+            .header-actions {
+                gap: 6px;
+                flex-shrink: 0;
+            }
+            .header-contact-button {
+                white-space: nowrap;
+                flex-shrink: 0;
+                padding-left: 12px;
+                padding-right: 12px;
+                font-size: 14px;
+                letter-spacing: 0.04em;
+            }
+            #mobile-menu-button {
+                width: 40px;
+                height: 40px;
+                flex-shrink: 0;
+            }
+        }
     </style>
 </head>
 <body class="bg-brand-beige text-brand-dark font-sans antialiased">
@@ -102,17 +141,17 @@
      ヘッダー・ナビゲーション
 ================================================================== -->
 <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-brand-accent shadow-sm">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="header-inner max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- 上段：ロゴとコンタクト情報 (PC/スマホ共通、PCでは高さを少し抑える) -->
         <div class="flex items-center justify-between h-20 md:h-16">
-            <div class="flex items-center space-x-2">
+            <div class="header-logo flex items-center space-x-2">
                 <!-- ロゴ画像・会社名 -->
                 <img src="images/logo-header.png" alt="ウィルネクスト合同会社 ロゴ" class="h-10 sm:h-12 w-auto object-contain" onerror="this.style.display='none'">
                 <span class="font-serif text-xl sm:text-2xl font-black tracking-wider text-brand-navy">
                     <a href="index.html" class="hover:opacity-80 transition">WILL NEXT</a>
                 </span>
             </div>
-            <div class="flex items-center space-x-2 sm:space-x-4">
+            <div class="header-actions flex items-center space-x-2 sm:space-x-4">
                 <!-- ヘッダー電話番号 (PC表示で表示) -->
                 <a href="tel:09061881722" class="hidden md:flex items-center text-brand-navy hover:text-brand-gold font-bold text-sm transition">
                     <svg class="w-4 h-4 mr-1.5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
@@ -120,7 +159,7 @@
                     </svg>
                     090-6188-1722
                 </a>
-                <a href="#contact" class="inline-flex items-center justify-center px-4 sm:px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-[#5FAFD3] hover:bg-[#438FB5] transition duration-300 shadow-[0_10px_24px_rgba(95,175,211,0.25)]">
+                <a href="#contact" class="header-contact-button inline-flex items-center justify-center px-4 sm:px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-[#5FAFD3] hover:bg-[#438FB5] transition duration-300 shadow-[0_10px_24px_rgba(95,175,211,0.25)]">
                     お問い合わせ
                 </a>
                 <button id="mobile-menu-button" type="button" class="md:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border border-brand-accent/70 bg-white text-[#465F7E] text-2xl leading-none shadow-sm hover:bg-[#EEF8FC] transition" aria-controls="mobile-menu" aria-expanded="false" aria-label="メニューを開閉">
@@ -632,12 +671,12 @@
                         </span>
                     </div>
                     <div class="py-3.5 grid grid-cols-12 gap-4">
-                        <span class="col-span-4 font-bold text-brand-navy">営業時間</span>
-                        <span class="col-span-8 font-medium">10：00～20：00</span>
+                        <span class="col-span-4 font-bold text-brand-navy">受付時間</span>
+                        <span class="col-span-8 font-medium">10：00〜20：00</span>
                     </div>
                     <div class="py-3.5 grid grid-cols-12 gap-4">
                         <span class="col-span-4 font-bold text-brand-navy">定休日</span>
-                        <span class="col-span-8 font-medium">なし (年中無休)</span>
+                        <span class="col-span-8 font-medium">不定休</span>
                     </div>
                 </div>
             </div>
@@ -744,7 +783,7 @@
             <div class="text-center md:text-right text-xs space-y-1 text-white/75">
                 <p>〒273-0112 千葉県鎌ケ谷市東中沢1-11-36</p>
                 <p>TEL：<a href="tel:09061881722" class="hover:text-brand-gold transition">090-6188-1722</a></p>
-                <p>営業時間 10:00 - 20:00 (年中無休)</p>
+                <p>受付時間 10：00〜20：00／定休日 不定休</p>
             </div>
         </div>
 
