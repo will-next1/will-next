@@ -70,6 +70,26 @@
                 transform: translateY(0);
             }
         }
+        @keyframes hero-logo-lift {
+            from {
+                opacity: 0.2;
+                transform: translateY(24px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1.4);
+            }
+        }
+        @keyframes hero-logo-glow {
+            from {
+                opacity: 0;
+                transform: scale(0.7);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1.15);
+            }
+        }
         @media (prefers-reduced-motion: no-preference) {
             .scroll-heading-reveal {
                 opacity: 0;
@@ -77,6 +97,12 @@
             }
             .scroll-heading-reveal.is-visible {
                 animation: heading-fade-up 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+            }
+            .hero-logo-card.is-visible .hero-logo-animated {
+                animation: hero-logo-lift 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+            }
+            .hero-logo-card.is-visible .hero-logo-glow {
+                animation: hero-logo-glow 1.35s ease-out both;
             }
         }
         @media (prefers-reduced-motion: reduce) {
@@ -88,6 +114,21 @@
                 transform: none;
                 animation: none;
             }
+            .hero-logo-animated {
+                opacity: 1;
+                transform: scale(1.4);
+            }
+            .hero-logo-glow {
+                opacity: 1;
+                transform: scale(1.15);
+            }
+        }
+        .hero-logo-animated {
+            transform-origin: center;
+        }
+        .hero-logo-glow {
+            background: radial-gradient(circle, rgba(138, 108, 66, 0.32) 0%, rgba(39, 118, 155, 0.18) 44%, rgba(255, 255, 255, 0) 72%);
+            filter: blur(16px);
         }
         @media (max-width: 767px) {
             html {
@@ -279,8 +320,9 @@
 
             <!-- メインビジュアルイメージ -->
             <div class="lg:col-span-5 relative">
-                <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-white flex items-center justify-center p-6">
-                    <img src="images/logo-optimized.webp" alt="ウィルネクスト合同会社 ロゴ" width="768" height="768" decoding="async" fetchpriority="high" class="w-[80%] h-[80%] object-contain mx-auto" onerror="this.src='https://placehold.co/600x450/e8e3d9/1a3050?text=WILL+NEXT+CONSULTING'">
+                <div class="hero-logo-card relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-white flex items-center justify-center p-6">
+                    <div class="hero-logo-glow absolute inset-[8%] pointer-events-none" aria-hidden="true"></div>
+                    <img src="images/logo-optimized.webp" alt="ウィルネクスト合同会社 ロゴ" width="768" height="768" decoding="async" fetchpriority="high" class="hero-logo-animated relative z-10 w-[70%] h-[70%] object-contain mx-auto" onerror="this.src='https://placehold.co/600x450/e8e3d9/1a3050?text=WILL+NEXT+CONSULTING'">
                 </div>
                 <!-- 装飾用のアウトラインゴールド -->
                 <div class="absolute -bottom-4 -right-4 w-full h-full border-2 border-brand-gold/30 rounded-2xl -z-10"></div>
@@ -922,6 +964,25 @@
         animatedHeadings.forEach(function (heading) {
             headingObserver.observe(heading);
         });
+    }
+
+    // ファーストビューのロゴが画面内へ入るたびに拡大・浮上・発光
+    const heroLogoCard = document.querySelector('.hero-logo-card');
+    if (heroLogoCard && 'IntersectionObserver' in window) {
+        const heroLogoObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('is-visible');
+                    void entry.target.offsetWidth;
+                    entry.target.classList.add('is-visible');
+                } else {
+                    entry.target.classList.remove('is-visible');
+                }
+            });
+        }, {
+            threshold: 0.4
+        });
+        heroLogoObserver.observe(heroLogoCard);
     }
 
     // スマホ用ハンバーガーメニューの開閉
