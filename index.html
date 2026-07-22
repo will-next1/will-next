@@ -891,6 +891,27 @@
      JavaScript制御ロジック
 ================================================================== -->
 <script>
+    // メイン見出しが画面内へ戻るたびにアニメーションを再生
+    const heroHeading = document.querySelector('.hero-heading-reveal');
+    if (heroHeading && 'IntersectionObserver' in window) {
+        let hasAnimatedOnce = false;
+        const heroHeadingObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+
+                if (hasAnimatedOnce) {
+                    heroHeading.classList.remove('hero-heading-reveal');
+                    void heroHeading.offsetWidth;
+                    heroHeading.classList.add('hero-heading-reveal');
+                }
+                hasAnimatedOnce = true;
+            });
+        }, {
+            threshold: 0.45
+        });
+        heroHeadingObserver.observe(heroHeading);
+    }
+
     // スマホ用ハンバーガーメニューの開閉
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
