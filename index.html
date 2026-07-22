@@ -4,6 +4,14 @@
     <meta name="google-site-verification" content="kde3h1Z7WyF4Z1Gfu7_UZfzqq8YN-LvR-rsF3PGAf2s" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="美容サロンの集客・再来・運営改善を、実店舗経営の経験をもとに支援するウィルネクスト合同会社。サロン診断、経営支援、WEB制作、AI活用までご相談いただけます。">
+    <meta name="theme-color" content="#1A3050">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ウィルネクスト合同会社">
+    <meta property="og:title" content="ウィルネクスト合同会社 | 美容サロン専門コンサルティング">
+    <meta property="og:description" content="美容サロンの集客・再来・運営改善からWEB制作・AI活用まで、現場で実行できる形に整えます。">
+    <meta name="twitter:card" content="summary">
     <!-- サイトのタイトル -->
     <title>ウィルネクスト合同会社 | 美容サロン専門コンサルティング</title>
 <!-- Google tag (gtag.js) -->
@@ -18,7 +26,9 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter & Noto Serif JP (上品な明朝体) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Serif+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=Noto+Serif+JP:wght@400;700;900&amp;display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -30,8 +40,8 @@
                     colors: {
                         brand: {
                             navy: '#1A3050',      /* 信頼を表現するネイビー */
-                            gold: '#C5A880',      /* 上品なゴールド */
-                            darkGold: '#A3845B',  /* ホバー用の濃いゴールド */
+                            gold: '#8A6C42',      /* 白背景でも読みやすいゴールド */
+                            darkGold: '#6F532F',  /* ホバー用の濃いゴールド */
                             beige: '#F9F6F0',     /* 背景用の極薄いベージュ */
                             accent: '#E6DCD0',    /* 仕切り・枠線用のベージュ */
                             dark: '#2A2A2A'       /* メインテキスト色 */
@@ -44,6 +54,39 @@
     <style>
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 7.5rem;
+        }
+        :focus-visible {
+            outline: 3px solid #27769B;
+            outline-offset: 3px;
+        }
+        @keyframes hero-heading-fade-up {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @media (prefers-reduced-motion: no-preference) {
+            .hero-heading-reveal {
+                animation: hero-heading-fade-up 1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            .hero-heading-reveal {
+                animation: none;
+            }
+        }
+        @media (max-width: 767px) {
+            html {
+                scroll-padding-top: 5.5rem;
+            }
         }
         .strength-image {
             width: 128px;
@@ -146,7 +189,7 @@
         <div class="flex items-center justify-between h-20 md:h-16">
             <div class="header-logo flex items-center space-x-2">
                 <!-- ロゴ画像・会社名 -->
-                <img src="images/logo-header.png" alt="ウィルネクスト合同会社 ロゴ" class="h-10 sm:h-12 w-auto object-contain" onerror="this.style.display='none'">
+                <img src="images/logo-optimized.webp" alt="ウィルネクスト合同会社 ロゴ" width="768" height="768" decoding="async" fetchpriority="high" class="h-10 sm:h-12 w-auto object-contain" onerror="this.style.display='none'">
                 <span class="font-serif text-xl sm:text-2xl font-black tracking-wider text-brand-navy">
                     <a href="index.html" class="hover:opacity-80 transition">WILL NEXT</a>
                 </span>
@@ -159,10 +202,10 @@
                     </svg>
                     090-6188-1722
                 </a>
-                <a href="#contact" class="header-contact-button inline-flex items-center justify-center px-4 sm:px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-[#5FAFD3] hover:bg-[#438FB5] transition duration-300 shadow-[0_10px_24px_rgba(95,175,211,0.25)]">
+                <a href="#contact" class="header-contact-button inline-flex items-center justify-center px-4 sm:px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-[#27769B] hover:bg-[#1E6382] transition duration-300 shadow-[0_10px_24px_rgba(39,118,155,0.25)]">
                     お問い合わせ
                 </a>
-                <button id="mobile-menu-button" type="button" class="md:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border border-brand-accent/70 bg-white text-[#465F7E] text-2xl leading-none shadow-sm hover:bg-[#EEF8FC] transition" aria-controls="mobile-menu" aria-expanded="false" aria-label="メニューを開閉">
+                <button id="mobile-menu-button" type="button" class="md:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border border-brand-accent/70 bg-white text-[#465F7E] text-2xl leading-none shadow-sm hover:bg-[#EEF8FC] transition" aria-controls="mobile-menu" aria-expanded="false" aria-label="メニューを開く">
                     ☰
                 </button>
             </div>
@@ -173,18 +216,18 @@
             <a href="index.html" class="text-brand-gold border-b-2 border-brand-gold pb-1 transition-all duration-200 whitespace-nowrap">トップ</a>
             <a href="#strengths" class="text-brand-dark hover:text-brand-gold border-b-2 border-transparent hover:border-brand-gold pb-1 transition-all duration-200 whitespace-nowrap">強み・事業</a>
             <a href="#profile" class="text-brand-dark hover:text-brand-gold border-b-2 border-transparent hover:border-brand-gold pb-1 transition-all duration-200 whitespace-nowrap">代表メッセージ</a>
-            <a href="https://sites.google.com/view/willnext/" class="text-brand-dark hover:text-brand-gold border-b-2 border-transparent hover:border-brand-gold pb-1 transition-all duration-200 whitespace-nowrap">料金・サービス</a>
+            <a href="#pricing" class="text-brand-dark hover:text-brand-gold border-b-2 border-transparent hover:border-brand-gold pb-1 transition-all duration-200 whitespace-nowrap">料金プラン</a>
             <a href="https://sites.google.com/view/willnext/%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E4%B8%80%E8%A6%A7" class="text-brand-dark hover:text-brand-gold border-b-2 border-transparent hover:border-brand-gold pb-1 transition-all duration-200 whitespace-nowrap">ホームページ制作</a>
             <a href="#access" class="text-brand-dark hover:text-brand-gold border-b-2 border-transparent hover:border-brand-gold pb-1 transition-all duration-200 whitespace-nowrap">会社情報</a>
         </nav>
         <!-- スマホ用ナビゲーションメニュー -->
         <nav id="mobile-menu" class="hidden md:hidden border-t border-brand-accent/50 bg-white/95 pb-3 text-sm font-semibold tracking-wide shadow-sm">
-            <a href="index.html" class="block px-4 py-3 text-[#465F7E] border-b border-brand-accent/40 hover:text-[#5FAFD3] hover:bg-[#EEF8FC] transition">トップ</a>
-            <a href="#strengths" class="block px-4 py-3 text-[#465F7E] border-b border-brand-accent/40 hover:text-[#5FAFD3] hover:bg-[#EEF8FC] transition">強み・事業</a>
-            <a href="#profile" class="block px-4 py-3 text-[#465F7E] border-b border-brand-accent/40 hover:text-[#5FAFD3] hover:bg-[#EEF8FC] transition">代表メッセージ</a>
-            <a href="https://sites.google.com/view/willnext/" class="block px-4 py-3 text-[#465F7E] border-b border-brand-accent/40 hover:text-[#5FAFD3] hover:bg-[#EEF8FC] transition">料金・サービス</a>
-            <a href="https://sites.google.com/view/willnext/%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E4%B8%80%E8%A6%A7" class="block px-4 py-3 text-[#465F7E] border-b border-brand-accent/40 hover:text-[#5FAFD3] hover:bg-[#EEF8FC] transition">ホームページ制作</a>
-            <a href="#access" class="block px-4 py-3 text-[#465F7E] hover:text-[#5FAFD3] hover:bg-[#EEF8FC] transition">会社情報</a>
+            <a href="index.html" class="block px-4 py-3 text-[#465F7E] border-b border-brand-accent/40 hover:text-[#27769B] hover:bg-[#EEF8FC] transition">トップ</a>
+            <a href="#strengths" class="block px-4 py-3 text-[#465F7E] border-b border-brand-accent/40 hover:text-[#27769B] hover:bg-[#EEF8FC] transition">強み・事業</a>
+            <a href="#profile" class="block px-4 py-3 text-[#465F7E] border-b border-brand-accent/40 hover:text-[#27769B] hover:bg-[#EEF8FC] transition">代表メッセージ</a>
+            <a href="#pricing" class="block px-4 py-3 text-[#465F7E] border-b border-brand-accent/40 hover:text-[#27769B] hover:bg-[#EEF8FC] transition">料金プラン</a>
+            <a href="https://sites.google.com/view/willnext/%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E4%B8%80%E8%A6%A7" class="block px-4 py-3 text-[#465F7E] border-b border-brand-accent/40 hover:text-[#27769B] hover:bg-[#EEF8FC] transition">ホームページ制作</a>
+            <a href="#access" class="block px-4 py-3 text-[#465F7E] hover:text-[#27769B] hover:bg-[#EEF8FC] transition">会社情報</a>
         </nav>
     </div>
 </header>
@@ -202,7 +245,7 @@
                 <div class="inline-block bg-white border border-brand-gold/40 text-brand-gold font-bold text-xs px-4 py-1.5 rounded-full shadow-sm tracking-widest">
                     BEAUTY SALON CONSULTING
                 </div>
-                <h1 class="font-serif text-3xl sm:text-4xl lg:text-4xl font-bold text-[#465F7E] leading-[1.18] tracking-wide">
+                <h1 class="hero-heading-reveal font-serif text-3xl sm:text-4xl lg:text-4xl font-bold text-[#465F7E] leading-[1.18] tracking-wide">
                     サロンの課題を浮き彫りにし、<br class="hidden sm:inline">集客・再来・運営の流れを整えます。
                 </h1>
                 <p class="text-sm sm:text-[15px] text-[#6B7888] leading-relaxed font-medium max-w-2xl">
@@ -212,17 +255,17 @@
                 <!-- 実績アピールバッジ -->
                 <div class="grid grid-cols-2 gap-4 pt-4">
                     <div class="bg-white p-4 rounded-xl border border-brand-accent shadow-sm">
-                        <span class="text-xs text-[#C2A87D] font-bold block mb-1">実店舗運営実績</span>
+                        <span class="text-xs text-[#8A6C42] font-bold block mb-1">実店舗運営実績</span>
                         <span class="text-xl sm:text-2xl font-serif font-bold text-[#465F7E]">2店舗経営</span>
                     </div>
                     <div class="bg-white p-4 rounded-xl border border-brand-accent shadow-sm">
-                        <span class="text-xs text-[#C2A87D] font-bold block mb-1">実績売上高</span>
+                        <span class="text-xs text-[#8A6C42] font-bold block mb-1">実績売上高</span>
                         <span class="text-xl sm:text-2xl font-serif font-bold text-[#465F7E]">年商6,500万円超</span>
                     </div>
                 </div>
 
                 <div class="pt-6">
-                    <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 rounded-full text-sm font-bold tracking-wider text-white bg-[#5FAFD3] hover:bg-[#438FB5] transition-all duration-300 shadow-[0_10px_24px_rgba(95,175,211,0.25)] hover:shadow-[0_14px_28px_rgba(95,175,211,0.32)] transform hover:-translate-y-0.5">
+                    <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 rounded-full text-sm font-bold tracking-wider text-white bg-[#27769B] hover:bg-[#1E6382] transition-all duration-300 shadow-[0_10px_24px_rgba(39,118,155,0.25)] hover:shadow-[0_14px_28px_rgba(39,118,155,0.32)] transform hover:-translate-y-0.5">
                         初回無料相談で課題を整理する
                     </a>
                 </div>
@@ -231,7 +274,7 @@
             <!-- メインビジュアルイメージ -->
             <div class="lg:col-span-5 relative">
                 <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-white flex items-center justify-center p-6">
-                    <img src="images/logo-main.png" alt="ウィルネクスト合同会社 ロゴ" class="w-[80%] h-[80%] object-contain mx-auto" onerror="this.src='https://placehold.co/600x450/e8e3d9/1a3050?text=WILL+NEXT+CONSULTING'">
+                    <img src="images/logo-optimized.webp" alt="ウィルネクスト合同会社 ロゴ" width="768" height="768" decoding="async" fetchpriority="high" class="w-[80%] h-[80%] object-contain mx-auto" onerror="this.src='https://placehold.co/600x450/e8e3d9/1a3050?text=WILL+NEXT+CONSULTING'">
                 </div>
                 <!-- 装飾用のアウトラインゴールド -->
                 <div class="absolute -bottom-4 -right-4 w-full h-full border-2 border-brand-gold/30 rounded-2xl -z-10"></div>
@@ -263,7 +306,7 @@
             <div class="bg-white p-8 rounded-2xl border border-brand-accent/50 hover:shadow-lg transition duration-300 flex flex-col justify-between"
                  style="background-image: url(&quot;images/card-bg-blue.jpg&quot;); background-size: cover; background-position: center; background-repeat: no-repeat;">
                 <div class="space-y-4">
-                    <img src="images/keiei.png" alt="経営・運営支援" class="strength-image">
+                    <img src="images/keiei-optimized.webp" alt="経営・運営支援" width="384" height="384" loading="lazy" decoding="async" class="strength-image">
                     <h3 class="font-serif text-xl font-bold text-[#465F7E]">経営・運営支援</h3>
                     <p class="text-sm text-brand-dark/80 leading-relaxed">
                         メニュー設計・予約枠・スタッフ配置・業務フローを見直し、AIも活用しながら、無駄を減らし、利益と生産性を高める改善策を具体化します。
@@ -275,7 +318,7 @@
             <div class="bg-white p-8 rounded-2xl border border-brand-accent/50 hover:shadow-lg transition duration-300 flex flex-col justify-between"
                  style="background-image: url(&quot;images/card-bg-blue.jpg&quot;); background-size: cover; background-position: center; background-repeat: no-repeat;">
                 <div class="space-y-4">
-                    <img src="images/syukyaku.png" alt="選ばれる集客支援" class="strength-image">
+                    <img src="images/syukyaku-optimized.webp" alt="選ばれる集客支援" width="384" height="384" loading="lazy" decoding="async" class="strength-image">
                     <h3 class="font-serif text-xl font-bold text-[#465F7E]">選ばれる集客支援</h3>
                     <p class="text-sm text-brand-dark/80 leading-relaxed">
                         Hot Pepper Beauty・ホームページ・SNS・店頭販促などを、お客様が知り、比較し、安心して予約するまでの心理に沿って見直し、選ばれる集客導線を整えます。
@@ -287,7 +330,7 @@
             <div class="bg-white p-8 rounded-2xl border border-brand-accent/50 hover:shadow-lg transition duration-300 flex flex-col justify-between"
                  style="background-image: url(&quot;images/card-bg-blue.jpg&quot;); background-size: cover; background-position: center; background-repeat: no-repeat;">
                 <div class="space-y-4">
-                    <img src="images/web.png" alt="伝わるWEB制作" class="strength-image">
+                    <img src="images/web-optimized.webp" alt="伝わるWEB制作" width="384" height="384" loading="lazy" decoding="async" class="strength-image">
                     <h3 class="font-serif text-xl font-bold text-[#465F7E]">伝わるWEB制作</h3>
                     <p class="text-sm text-brand-dark/80 leading-relaxed">
                         見た目だけのホームページではなく、サロンの強み・メニュー・予約導線が伝わるWEB制作で、お問い合わせにつながる流れを整えます。
@@ -299,7 +342,7 @@
             <div class="bg-white p-8 rounded-2xl border border-brand-accent/50 hover:shadow-lg transition duration-300 flex flex-col justify-between"
                  style="background-image: url(&quot;images/card-bg-blue.jpg&quot;); background-size: cover; background-position: center; background-repeat: no-repeat;">
                 <div class="space-y-4">
-                    <img src="images/character.png" alt="キャラクター販促支援" class="strength-image">
+                    <img src="images/character-optimized.webp" alt="キャラクター販促支援" width="384" height="384" loading="lazy" decoding="async" class="strength-image">
                     <h3 class="font-serif text-xl font-bold text-[#465F7E]">キャラクター販促支援</h3>
                     <p class="text-sm text-brand-dark/80 leading-relaxed">
                         キャラクターやイラストを“かわいいだけ”で終わらせず、サロンの個性を伝える発信資産として活用し、記憶に残る販促へつなげます。
@@ -320,7 +363,7 @@
         <div class="relative overflow-hidden bg-white rounded-[2rem] border border-brand-accent p-8 sm:p-10 md:p-14 shadow-[0_24px_60px_rgba(26,48,80,0.10)] max-w-5xl mx-auto">
             <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                 <div class="lg:col-span-8 space-y-5">
-                    <span class="inline-flex items-center rounded-full bg-white border border-brand-accent/70 text-[#C2A87D] text-[11px] font-bold tracking-widest px-4 py-2">
+                    <span class="inline-flex items-center rounded-full bg-white border border-brand-accent/70 text-[#8A6C42] text-[11px] font-bold tracking-widest px-4 py-2">
                         FIRST FREE CONSULTATION
                     </span>
                     <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#465F7E] leading-snug tracking-wide">
@@ -336,7 +379,7 @@
                     </p>
                 </div>
                 <div class="lg:col-span-4 flex flex-col items-stretch sm:items-center lg:items-end">
-                    <a href="https://will-next1.github.io/salon-hearing-sheet/" target="_blank" rel="noopener noreferrer" class="inline-flex w-full sm:w-auto items-center justify-center px-8 py-4 rounded-full text-sm font-bold tracking-wider text-white bg-[#5FAFD3] hover:bg-[#438FB5] transition-all duration-300 shadow-[0_10px_24px_rgba(95,175,211,0.25)] hover:shadow-[0_14px_28px_rgba(95,175,211,0.32)] transform hover:-translate-y-0.5">
+                    <a href="https://will-next1.github.io/salon-hearing-sheet/" target="_blank" rel="noopener noreferrer" class="inline-flex w-full sm:w-auto items-center justify-center px-8 py-4 rounded-full text-sm font-bold tracking-wider text-white bg-[#27769B] hover:bg-[#1E6382] transition-all duration-300 shadow-[0_10px_24px_rgba(39,118,155,0.25)] hover:shadow-[0_14px_28px_rgba(39,118,155,0.32)] transform hover:-translate-y-0.5">
                         無料サロン診断シートを見る
                     </a>
                     <p class="mt-3 max-w-xs mx-auto text-left text-xs sm:text-sm text-[#6B7888] leading-relaxed">
@@ -386,7 +429,7 @@
                             各サービスの内容・対応範囲・料金を詳しくご確認いただけます。
                         </p>
                     </div>
-                    <span class="shrink-0 w-11 h-11 rounded-full bg-[#5FAFD3] text-white flex items-center justify-center group-hover:bg-[#438FB5] transition shadow-[0_10px_24px_rgba(95,175,211,0.25)]">
+                    <span class="shrink-0 w-11 h-11 rounded-full bg-[#27769B] text-white flex items-center justify-center group-hover:bg-[#1E6382] transition shadow-[0_10px_24px_rgba(39,118,155,0.25)]">
                         →
                     </span>
                 </div>
@@ -411,7 +454,7 @@
                             制作料金、制作方法、更新プラン、業種別のホームページ見本をまとめてご覧いただけます。
                         </p>
                     </div>
-                    <span class="shrink-0 w-11 h-11 rounded-full bg-[#5FAFD3] text-white flex items-center justify-center group-hover:bg-[#438FB5] transition shadow-[0_10px_24px_rgba(95,175,211,0.25)]">
+                    <span class="shrink-0 w-11 h-11 rounded-full bg-[#27769B] text-white flex items-center justify-center group-hover:bg-[#1E6382] transition shadow-[0_10px_24px_rgba(39,118,155,0.25)]">
                         →
                     </span>
                 </div>
@@ -437,7 +480,7 @@
             <div class="representative-copy space-y-6">
                 <div class="representative-intro">
                     <div class="representative-photo-card overflow-hidden shadow-lg border-4 border-white bg-gray-200">
-                        <img src="images/profile.png" alt="ウィルネクスト代表 高崎弘之" class="representative-photo w-full h-full object-cover" onerror="this.src='https://placehold.co/400x533/e8e3d9/1a3050?text=Representative'">
+                        <img src="images/profile-optimized.webp" alt="ウィルネクスト代表 高崎弘之" width="599" height="800" loading="lazy" decoding="async" class="representative-photo w-full h-full object-cover" onerror="this.src='https://placehold.co/400x533/e8e3d9/1a3050?text=Representative'">
                     </div>
                     <div class="space-y-2 min-w-0">
                         <span class="text-brand-gold font-bold tracking-widest text-xs uppercase block">REPRESENTATIVE PROFILE</span>
@@ -485,7 +528,7 @@
             </p>
             <div class="pt-3">
                 <a href="https://sites.google.com/view/willnext/"
-                   class="inline-flex items-center justify-center px-6 py-3 rounded-full text-xs font-bold tracking-wider text-white bg-[#5FAFD3] hover:bg-[#438FB5] transition duration-300 shadow-[0_10px_24px_rgba(95,175,211,0.25)]">
+                   class="inline-flex items-center justify-center px-6 py-3 rounded-full text-xs font-bold tracking-wider text-white bg-[#27769B] hover:bg-[#1E6382] transition duration-300 shadow-[0_10px_24px_rgba(39,118,155,0.25)]">
                     各プランの詳しい内容を見る
                 </a>
             </div>
@@ -508,7 +551,7 @@
                     </p>
                 </div>
                 <div class="pt-6">
-                    <a href="#contact" class="block text-center w-full py-2.5 rounded-lg text-xs font-bold bg-[#5FAFD3] text-white hover:bg-[#438FB5] transition duration-200 shadow-[0_10px_24px_rgba(95,175,211,0.25)]">
+                    <a href="#contact" class="block text-center w-full py-2.5 rounded-lg text-xs font-bold bg-[#27769B] text-white hover:bg-[#1E6382] transition duration-200 shadow-[0_10px_24px_rgba(39,118,155,0.25)]">
                         初回無料相談を予約する
                     </a>
                 </div>
@@ -528,7 +571,7 @@
                     </p>
                 </div>
                 <div class="pt-6">
-                    <a href="#contact" class="block text-center w-full py-2.5 rounded-lg text-xs font-bold bg-[#5FAFD3] text-white hover:bg-[#438FB5] transition duration-200 shadow-[0_10px_24px_rgba(95,175,211,0.25)]">
+                    <a href="#contact" class="block text-center w-full py-2.5 rounded-lg text-xs font-bold bg-[#27769B] text-white hover:bg-[#1E6382] transition duration-200 shadow-[0_10px_24px_rgba(39,118,155,0.25)]">
                         このプランに申し込む
                     </a>
                 </div>
@@ -548,7 +591,7 @@
                     </p>
                 </div>
                 <div class="pt-6">
-                    <a href="#contact" class="block text-center w-full py-2.5 rounded-lg text-xs font-bold bg-[#5FAFD3] text-white hover:bg-[#438FB5] transition duration-200 shadow-[0_10px_24px_rgba(95,175,211,0.25)]">
+                    <a href="#contact" class="block text-center w-full py-2.5 rounded-lg text-xs font-bold bg-[#27769B] text-white hover:bg-[#1E6382] transition duration-200 shadow-[0_10px_24px_rgba(39,118,155,0.25)]">
                         このプランに申し込む
                     </a>
                 </div>
@@ -568,7 +611,7 @@
                     </p>
                 </div>
                 <div class="pt-6">
-                    <a href="#contact" class="block text-center w-full py-2.5 rounded-lg text-xs font-bold bg-[#5FAFD3] text-white hover:bg-[#438FB5] transition duration-200 shadow-[0_10px_24px_rgba(95,175,211,0.25)]">
+                    <a href="#contact" class="block text-center w-full py-2.5 rounded-lg text-xs font-bold bg-[#27769B] text-white hover:bg-[#1E6382] transition duration-200 shadow-[0_10px_24px_rgba(39,118,155,0.25)]">
                         このプランに申し込む
                     </a>
                 </div>
@@ -588,7 +631,7 @@
                     </p>
                 </div>
                 <div class="pt-6">
-                    <a href="#contact" class="block text-center w-full py-2.5 rounded-lg text-xs font-bold bg-[#5FAFD3] text-white hover:bg-[#438FB5] transition duration-200 shadow-[0_10px_24px_rgba(95,175,211,0.25)]">
+                    <a href="#contact" class="block text-center w-full py-2.5 rounded-lg text-xs font-bold bg-[#27769B] text-white hover:bg-[#1E6382] transition duration-200 shadow-[0_10px_24px_rgba(39,118,155,0.25)]">
                         このプランに申し込む
                     </a>
                 </div>
@@ -608,7 +651,7 @@
                     </p>
                 </div>
                 <div class="pt-6">
-                    <a href="#contact" class="block text-center w-full py-2.5 rounded-lg text-xs font-bold bg-[#5FAFD3] text-white hover:bg-[#438FB5] transition duration-200 shadow-[0_10px_24px_rgba(95,175,211,0.25)]">
+                    <a href="#contact" class="block text-center w-full py-2.5 rounded-lg text-xs font-bold bg-[#27769B] text-white hover:bg-[#1E6382] transition duration-200 shadow-[0_10px_24px_rgba(39,118,155,0.25)]">
                         このプランに申し込む
                     </a>
                 </div>
@@ -684,20 +727,24 @@
             <!-- ルート地図表示エリア -->
             <div class="lg:col-span-6">
                 <div class="rounded-[28px] bg-white/80 border border-white/70 shadow-lg p-3 sm:p-4">
-                    <a href="https://www.google.com/maps/search/?api=1&query=%E3%82%A6%E3%82%A3%E3%83%AB%E3%83%8D%E3%82%AF%E3%82%B9%E3%83%88%E5%90%88%E5%90%8C%E4%BC%9A%E7%A4%BE%20%E5%8D%83%E8%91%89%E7%9C%8C%E9%8E%8C%E3%82%B1%E8%B0%B7%E5%B8%82%E6%9D%B1%E4%B8%AD%E6%B2%A21-11-36"
+                    <a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%A6%E3%82%A3%E3%83%AB%E3%83%8D%E3%82%AF%E3%82%B9%E3%83%88%E5%90%88%E5%90%8C%E4%BC%9A%E7%A4%BE%20%E5%8D%83%E8%91%89%E7%9C%8C%E9%8E%8C%E3%82%B1%E8%B0%B7%E5%B8%82%E6%9D%B1%E4%B8%AD%E6%B2%A21-11-36"
                        target="_blank"
                        rel="noopener noreferrer"
                        class="block rounded-[24px] overflow-hidden border border-white/70 shadow-md bg-white">
-                        <img src="images/access-route-kitahatsutomi-willnext.jpg"
+                        <img src="images/access-route-kitahatsutomi-willnext-optimized.webp"
                              alt="ウィルネクスト合同会社の所在地マップ"
+                             width="1000"
+                             height="800"
+                             loading="lazy"
+                             decoding="async"
                              class="w-full h-auto block object-contain">
                     </a>
                     <div class="text-center pt-4">
-                        <a href="https://www.google.com/maps/search/?api=1&query=%E3%82%A6%E3%82%A3%E3%83%AB%E3%83%8D%E3%82%AF%E3%82%B9%E3%83%88%E5%90%88%E5%90%8C%E4%BC%9A%E7%A4%BE%20%E5%8D%83%E8%91%89%E7%9C%8C%E9%8E%8C%E3%82%B1%E8%B0%B7%E5%B8%82%E6%9D%B1%E4%B8%AD%E6%B2%A21-11-36"
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%A6%E3%82%A3%E3%83%AB%E3%83%8D%E3%82%AF%E3%82%B9%E3%83%88%E5%90%88%E5%90%8C%E4%BC%9A%E7%A4%BE%20%E5%8D%83%E8%91%89%E7%9C%8C%E9%8E%8C%E3%82%B1%E8%B0%B7%E5%B8%82%E6%9D%B1%E4%B8%AD%E6%B2%A21-11-36"
                            target="_blank"
                            rel="noopener noreferrer"
                            class="inline-flex items-center justify-center rounded-full px-6 py-3 text-white text-sm font-semibold shadow-md transition hover:opacity-90"
-                           style="background:#5FAFD3;">
+                           style="background:#27769B;">
                             Googleマップで見る
                         </a>
                         <p class="mt-3 text-sm text-[#6B7888]">
@@ -734,8 +781,10 @@
             <div class="bg-white rounded-xl overflow-hidden border border-brand-accent/70">
                 <iframe 
                     src="https://docs.google.com/forms/d/e/1FAIpQLScLZfYnpM96T7RD3yI2N0w6H2kwIlDajdbn-IFQIEMOA92syA/viewform?embedded=true" 
+                    title="ウィルネクストお問い合わせフォーム"
                     width="100%" 
                     height="980" 
+                    loading="lazy"
                     frameborder="0" 
                     marginheight="0" 
                     marginwidth="0"
@@ -752,7 +801,7 @@
                 ／ 電話：<a href="tel:09061881722" class="hover:text-brand-gold transition">090-6188-1722</a>
             </p>
             <p class="mt-3">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScLZfYnpM96T7RD3yI2N0w6H2kwIlDajdbn-IFQIEMOA92syA/viewform" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-5 py-2 rounded-full text-xs font-bold text-white bg-[#5FAFD3] hover:bg-[#438FB5] transition shadow-[0_10px_24px_rgba(95,175,211,0.25)]">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScLZfYnpM96T7RD3yI2N0w6H2kwIlDajdbn-IFQIEMOA92syA/viewform" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-5 py-2 rounded-full text-xs font-bold text-white bg-[#27769B] hover:bg-[#1E6382] transition shadow-[0_10px_24px_rgba(39,118,155,0.25)]">
                     フォームを別画面で開く
                 </a>
             </p>
@@ -776,7 +825,7 @@
             <div class="flex flex-wrap justify-center gap-4 text-xs font-medium text-white/80">
                 <a href="#strengths" class="hover:text-brand-gold transition">強み</a>
                 <a href="#profile" class="hover:text-brand-gold transition">代表メッセージ</a>
-                <a href="https://sites.google.com/view/willnext/" class="hover:text-brand-gold transition">料金・サービス詳細</a>
+                <a href="#pricing" class="hover:text-brand-gold transition">料金プラン</a>
                 <a href="https://sites.google.com/view/willnext/%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E4%B8%80%E8%A6%A7" class="hover:text-brand-gold transition">ホームページ制作</a>
                 <a href="#access" class="hover:text-brand-gold transition">会社概要</a>
             </div>
@@ -789,7 +838,7 @@
 
         <div class="pt-8 text-center text-xs text-white/50 flex flex-col sm:flex-row justify-between items-center gap-4">
             <p>© 2026 WILL NEXT LLC. All Rights Reserved.</p>
-            <p class="text-[10px]">※本サイトに掲載されているサロン of 成果・売上推移などの数字は、代表のこれまでの運用実績の一例であり、個々のクライアント様の将来的な数字を一律で保証するものではありません。</p>
+            <p class="text-[10px]">※本サイトに掲載されているサロンの成果・売上推移などの数字は、代表のこれまでの運用実績の一例であり、個々のクライアント様の将来的な数字を一律で保証するものではありません。</p>
         </div>
 
     </div>
@@ -798,18 +847,18 @@
 <!-- =================================================================
      送信成功時のポップアップモーダル（通常時）
 ================================================================== -->
-<div id="success-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
+<div id="success-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="success-modal-title" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
     <div class="bg-white rounded-2xl max-w-md w-full p-8 text-center shadow-2xl border border-brand-accent transform scale-90 transition-transform duration-300" id="success-modal-content">
         <div class="w-16 h-16 bg-[#F3EFE6] rounded-full flex items-center justify-center mx-auto mb-4 text-brand-gold">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
             </svg>
         </div>
-        <h3 class="text-xl font-bold font-serif text-brand-navy mb-3">お問い合わせを受付しました</h3>
+        <h3 id="success-modal-title" class="text-xl font-bold font-serif text-brand-navy mb-3">お問い合わせを受付しました</h3>
         <p class="text-sm text-brand-dark/80 leading-relaxed mb-6">
             ウィルネクスト合同会社へのお問い合わせが正常に送信されました。担当より折り返しご連絡いたしますので、恐れ入りますが今しばらくお待ちください。
         </p>
-        <button onclick="closeModal('success-modal')" class="w-full py-3.5 rounded-full text-xs font-bold tracking-widest text-white bg-[#5FAFD3] hover:bg-[#438FB5] transition duration-200 shadow-[0_10px_24px_rgba(95,175,211,0.25)]">
+        <button type="button" onclick="closeModal('success-modal')" class="w-full py-3.5 rounded-full text-xs font-bold tracking-widest text-white bg-[#27769B] hover:bg-[#1E6382] transition duration-200 shadow-[0_10px_24px_rgba(39,118,155,0.25)]">
             閉じる
         </button>
     </div>
@@ -818,21 +867,21 @@
 <!-- =================================================================
      サーバー停止時（一時メンテ）専用のお詫びモーダル
 ================================================================== -->
-<div id="maintenance-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
+<div id="maintenance-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="maintenance-modal-title" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
     <div class="bg-white rounded-2xl max-w-md w-full p-8 text-center shadow-2xl border-t-8 border-brand-gold transform scale-90 transition-transform duration-300" id="maintenance-modal-content">
         <div class="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center mx-auto mb-4 text-brand-gold">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
             </svg>
         </div>
-        <h3 class="text-lg font-bold font-serif text-brand-navy mb-3">フォーム送信に失敗しました</h3>
+        <h3 id="maintenance-modal-title" class="text-lg font-bold font-serif text-brand-navy mb-3">フォーム送信に失敗しました</h3>
         <p class="text-xs text-brand-dark/90 leading-relaxed mb-6 text-left space-y-2 bg-brand-beige p-4 rounded-xl">
             大変申し訳ございません。現在、一時的にフォームからの送信ができません。<br><br>
             お手数ですが、以下の連絡先へ直接ご連絡ください。<br><br>
             <strong>■ メール：consul.will.next@gmail.com</strong><br>
             <strong>■ お電話：090-6188-1722</strong>
         </p>
-        <button onclick="closeModal('maintenance-modal')" class="w-full py-3.5 rounded-full text-xs font-bold tracking-widest text-white bg-[#5FAFD3] hover:bg-[#438FB5] transition duration-200 shadow-[0_10px_24px_rgba(95,175,211,0.25)]">
+        <button type="button" onclick="closeModal('maintenance-modal')" class="w-full py-3.5 rounded-full text-xs font-bold tracking-widest text-white bg-[#27769B] hover:bg-[#1E6382] transition duration-200 shadow-[0_10px_24px_rgba(39,118,155,0.25)]">
             確認しました
         </button>
     </div>
@@ -846,27 +895,34 @@
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
     if (mobileMenuButton && mobileMenu) {
+        const closeMobileMenu = function (returnFocus) {
+            mobileMenu.classList.add('hidden');
+            mobileMenuButton.setAttribute('aria-expanded', 'false');
+            mobileMenuButton.setAttribute('aria-label', 'メニューを開く');
+            if (returnFocus) mobileMenuButton.focus();
+        };
+
         mobileMenuButton.addEventListener('click', function () {
             const isOpen = !mobileMenu.classList.contains('hidden');
             mobileMenu.classList.toggle('hidden', isOpen);
             mobileMenuButton.setAttribute('aria-expanded', String(!isOpen));
+            mobileMenuButton.setAttribute('aria-label', isOpen ? 'メニューを開く' : 'メニューを閉じる');
         });
 
         mobileMenu.querySelectorAll('a').forEach(function (link) {
             link.addEventListener('click', function () {
-                mobileMenu.classList.add('hidden');
-                mobileMenuButton.setAttribute('aria-expanded', 'false');
+                closeMobileMenu(false);
             });
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+                closeMobileMenu(true);
+            }
         });
     }
 
-    /*
-      GitHub Pagesは静的サイトのため、サイト単体ではメール送信できません。
-      ここではFormSubmitの通常POST方式を使用しています。
-      AJAX方式はブラウザ側・FormSubmit側の制限で失敗することがあるため、通常POST方式に変更しています。
-    */
-
-    // FormSubmit送信後に戻ってきた場合、成功モーダルを表示
+    // 旧フォームの送信完了URLにも引き続き対応
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('sent') === '1') {
         window.addEventListener('load', function () {
@@ -878,35 +934,51 @@
         });
     }
 
-    // 送信ボタンの表示制御
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function () {
-            const button = document.getElementById('submit-btn');
-            const text = document.getElementById('btn-text');
-            button.disabled = true;
-            button.classList.add('opacity-70', 'cursor-not-allowed');
-            text.textContent = '送信中...';
-        });
-    }
+    let lastFocusedElement = null;
 
     // モーダル表示用関数
     function showModal(modalId) {
         const modal = document.getElementById(modalId);
         const content = document.getElementById(modalId + '-content');
+        if (!modal || !content) return;
+        lastFocusedElement = document.activeElement;
         modal.classList.remove('opacity-0', 'pointer-events-none');
+        modal.setAttribute('aria-hidden', 'false');
         content.classList.remove('scale-90');
         content.classList.add('scale-100');
+        document.body.style.overflow = 'hidden';
+        const closeButton = modal.querySelector('button');
+        if (closeButton) closeButton.focus();
     }
 
     // モーダル閉じる用関数
     function closeModal(modalId) {
         const modal = document.getElementById(modalId);
         const content = document.getElementById(modalId + '-content');
+        if (!modal || !content) return;
         modal.classList.add('opacity-0', 'pointer-events-none');
+        modal.setAttribute('aria-hidden', 'true');
         content.classList.remove('scale-100');
         content.classList.add('scale-90');
+        document.body.style.overflow = '';
+        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+            lastFocusedElement.focus();
+        }
     }
+
+    document.querySelectorAll('[role="dialog"]').forEach(function (modal) {
+        modal.addEventListener('click', function (event) {
+            if (event.target === modal && modal.getAttribute('aria-hidden') === 'false') {
+                closeModal(modal.id);
+            }
+        });
+    });
+
+    document.addEventListener('keydown', function (event) {
+        if (event.key !== 'Escape') return;
+        const openModal = document.querySelector('[role="dialog"][aria-hidden="false"]');
+        if (openModal) closeModal(openModal.id);
+    });
 </script>
 
 </body>
