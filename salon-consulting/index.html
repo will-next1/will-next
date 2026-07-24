@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="美容サロンの集客・再来・客単価・経営改善を実行支援。Hot Pepper Beauty、Google、ホームページ、SNS、LINE、各種予約媒体を横断して集客導線を整えます。">
+  <meta name="theme-color" content="#1A3050">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ウィルネクスト合同会社">
+  <meta property="og:title" content="美容サロンコンサルティング | ウィルネクスト合同会社">
+  <meta property="og:description" content="集客媒体を横断し、サロンの経営課題を現場で実行できる改善策へ整えます。">
+  <meta name="twitter:card" content="summary">
+  <title>美容サロンコンサルティング | 集客・再来・AI活用 | ウィルネクスト合同会社</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=Noto+Serif+JP:wght@400;700;900&amp;display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            serif: ["Noto Serif JP", "serif"]
+          },
+          colors: {
+            brand: {
+              navy: "#1A3050",
+              gold: "#8A6C42",
+              darkGold: "#6F532F",
+              accent: "#E6DCD0",
+              dark: "#2A2A2A"
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="../assets/lp.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "ウィルネクスト合同会社",
+    "description": "美容サロンの集客、再来、客単価、店舗運営、AI活用を支援するコンサルティングサービスです。",
+    "telephone": "090-6188-1722",
+    "email": "consul.will.next@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "postalCode": "273-0112",
+      "addressRegion": "千葉県",
+      "addressLocality": "鎌ケ谷市",
+      "streetAddress": "東中沢1-11-36",
+      "addressCountry": "JP"
+    },
+    "areaServed": "JP"
+  }
+  </script>
+</head>
+<body class="font-sans antialiased">
+<div class="page-shell">
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-brand-accent shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-3">
+      <a href="../index.html" class="flex items-center gap-2 min-w-0" aria-label="ウィルネクスト合同会社 トップページ">
+        <img src="../images/logo-optimized.webp" alt="" width="56" height="56" class="w-12 h-12 object-contain">
+        <div class="min-w-0">
+          <span class="block font-serif font-black tracking-widest text-brand-navy text-base sm:text-lg">WILL NEXT</span>
+          <span class="block text-[10px] text-[#6B7888] whitespace-nowrap">ウィルネクスト合同会社</span>
+        </div>
+      </a>
+      <div class="hidden md:flex items-center gap-3">
+        <a href="#support" class="text-sm font-semibold text-[#465F7E] hover:text-[#27769B]">支援内容</a>
+        <a href="#pricing" class="text-sm font-semibold text-[#465F7E] hover:text-[#27769B]">料金</a>
+        <a href="https://will-next1.github.io/salon-hearing-sheet/" target="_blank" rel="noopener noreferrer" class="cta-primary px-5 py-2.5 text-xs">無料詳細診断</a>
+      </div>
+      <button type="button" data-mobile-menu-button aria-expanded="false" aria-label="メニューを開く" class="md:hidden w-11 h-11 rounded-full border border-brand-accent text-brand-navy text-xl">☰</button>
+    </div>
+    <nav class="desktop-nav hidden md:flex items-center justify-center border-t border-brand-accent/40 text-sm font-semibold tracking-wide" aria-label="メインナビゲーション">
+      <a href="../index.html" class="text-brand-dark hover:text-brand-gold">公式トップ</a>
+      <a href="#media" class="text-brand-dark hover:text-brand-gold">各媒体への対応</a>
+      <a href="#support" class="text-brand-dark hover:text-brand-gold">支援領域</a>
+      <a href="#diagnosis" class="text-brand-dark hover:text-brand-gold">サロン診断</a>
+      <a href="#pricing" class="text-brand-dark hover:text-brand-gold">料金プラン</a>
+      <a href="../web-production/index.html" class="text-brand-dark hover:text-brand-gold">ホームページ制作</a>
+    </nav>
+    <nav data-mobile-menu class="mobile-nav hidden md:hidden border-t border-brand-accent/50 bg-white/95 text-sm font-semibold shadow-sm" aria-label="モバイルナビゲーション">
+      <a href="../index.html" class="block py-3 border-b border-brand-accent/40 text-[#465F7E]">公式トップ</a>
+      <a href="#media" class="block py-3 border-b border-brand-accent/40 text-[#465F7E]">各媒体への対応</a>
+      <a href="#support" class="block py-3 border-b border-brand-accent/40 text-[#465F7E]">支援領域</a>
+      <a href="#diagnosis" class="block py-3 border-b border-brand-accent/40 text-[#465F7E]">サロン診断</a>
+      <a href="#pricing" class="block py-3 border-b border-brand-accent/40 text-[#465F7E]">料金プラン</a>
+      <a href="../web-production/index.html" class="block py-3 text-[#465F7E]">ホームページ制作</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="brand-pattern relative py-16 md:py-24 border-b border-brand-accent">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[1.08fr_0.92fr] gap-10 items-center">
+        <div>
+          <p class="section-label mb-4">SALON CONSULTING</p>
+          <h1 class="hero-title font-serif text-3xl sm:text-[2.1rem] lg:text-[2.5rem] font-semibold">
+            美容サロンの集客・再来・経営改善を、<br class="hidden sm:block">現場で実行できる形へ
+          </h1>
+          <p class="hero-lead mt-6 text-base sm:text-lg leading-8 max-w-2xl">
+            Hot Pepper Beautyだけに依存せず、Google、ホームページ、SNS、LINE、各種予約媒体を横断して、
+            認知から予約・再来までの流れを整えます。
+          </p>
+          <div class="mt-7 flex flex-wrap gap-2">
+            <span class="price-badge">集客導線</span>
+            <span class="price-badge">再来率改善</span>
+            <span class="price-badge">経営数値</span>
+            <span class="price-badge">AI活用</span>
+          </div>
+          <div class="mt-8 flex flex-col sm:flex-row gap-3">
+            <a href="https://will-next1.github.io/salon-hearing-sheet/" target="_blank" rel="noopener noreferrer" class="cta-primary px-8 py-4 text-sm">登録不要でサロンを診断する</a>
+            <a href="#contact" class="cta-secondary px-8 py-4 text-sm">初回無料相談</a>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="white-card rounded-2xl p-5 sm:p-7">
+            <img src="../images/character-optimized.webp" alt="美容サロンの課題整理と改善を支援するイメージ" width="600" height="600" class="w-full max-w-md mx-auto h-auto">
+          </div>
+          <div class="absolute -bottom-6 -left-3 sm:-left-8 brand-card brand-card--light hero-feature-card rounded-xl p-4 w-[235px] sm:w-[280px]">
+            <p class="text-[11px] tracking-widest text-white/65">FROM ANALYSIS TO ACTION</p>
+            <p class="font-serif text-lg font-bold mt-1">課題整理から実行まで伴走</p>
+            <p class="text-xs text-white/80 mt-2 leading-5">店舗の数字と現場を確認し、優先順位を明確にします。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto">
+          <p class="section-label">YOUR CONCERNS</p>
+          <h2 class="section-title font-serif text-3xl font-bold mt-3">こんな課題を抱えていませんか</h2>
+        </div>
+        <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div class="white-card rounded-2xl p-6"><span class="feature-icon">01</span><h3 class="font-bold text-[#465F7E] mt-4">新規客が増えない</h3><p class="mt-2 text-sm leading-7 text-[#6B7888]">媒体ごとの役割と、予約までの導線を確認します。</p></div>
+          <div class="white-card rounded-2xl p-6"><span class="feature-icon">02</span><h3 class="font-bold text-[#465F7E] mt-4">再来率が上がらない</h3><p class="mt-2 text-sm leading-7 text-[#6B7888]">次回予約、LINE、顧客対応、メニュー設計を見直します。</p></div>
+          <div class="white-card rounded-2xl p-6"><span class="feature-icon">03</span><h3 class="font-bold text-[#465F7E] mt-4">媒体費用が重い</h3><p class="mt-2 text-sm leading-7 text-[#6B7888]">媒体別の効果と依存度を整理し、集客経路を見直します。</p></div>
+          <div class="white-card rounded-2xl p-6"><span class="feature-icon">04</span><h3 class="font-bold text-[#465F7E] mt-4">情報発信が続かない</h3><p class="mt-2 text-sm leading-7 text-[#6B7888]">SNS、ホームページ、AIを使った発信方法を整えます。</p></div>
+          <div class="white-card rounded-2xl p-6"><span class="feature-icon">05</span><h3 class="font-bold text-[#465F7E] mt-4">数字の見方が分からない</h3><p class="mt-2 text-sm leading-7 text-[#6B7888]">売上、客単価、来店数、再来率などを分かりやすく整理します。</p></div>
+          <div class="white-card rounded-2xl p-6"><span class="feature-icon">06</span><h3 class="font-bold text-[#465F7E] mt-4">経営判断を一人で抱えている</h3><p class="mt-2 text-sm leading-7 text-[#6B7888]">課題と優先順位を整理し、実施結果まで一緒に確認します。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="media" class="brand-pattern py-20 border-y border-brand-accent">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto">
+          <p class="section-label">MEDIA STRATEGY</p>
+          <h2 class="section-title font-serif text-3xl font-bold mt-3">各媒体を横断して集客導線を整えます</h2>
+          <p class="mt-4 text-sm sm:text-base leading-8 text-[#6B7888]">
+            1つの媒体だけを改善するのではなく、認知・比較・予約・来店・再来までのつながりを確認します。
+          </p>
+        </div>
+        <div class="media-cards-grid mt-10 grid lg:grid-cols-[0.95fr_1.05fr] gap-6">
+          <div class="brand-card brand-card--light media-strategy-card rounded-2xl p-6 sm:p-8">
+            <p class="section-label">MEDIA ROLES</p>
+            <h3 class="font-serif text-2xl font-bold mt-2">媒体ごとの役割を明確に</h3>
+            <div class="media-strategy-card__steps mt-6 space-y-4">
+              <div class="media-strategy-card__step rounded-xl p-4"><p class="font-bold">認知</p><p class="text-sm mt-1">Google・SNS・広告・各種ポータル</p></div>
+              <div class="media-strategy-card__step rounded-xl p-4"><p class="font-bold">比較</p><p class="text-sm mt-1">ホームページ・口コミ・SNS・料金情報</p></div>
+              <div class="media-strategy-card__step rounded-xl p-4"><p class="font-bold">予約</p><p class="text-sm mt-1">予約媒体・LINE・電話・自社予約</p></div>
+              <div class="media-strategy-card__step rounded-xl p-4"><p class="font-bold">再来</p><p class="text-sm mt-1">LINE・次回予約・顧客管理・口コミ</p></div>
+            </div>
+            <div class="media-strategy-card__logo">
+              <img src="../images/logo-optimized.webp" alt="ウィルネクスト合同会社" width="320" height="320">
+            </div>
+          </div>
+          <div class="white-card media-list-card rounded-2xl p-6 sm:p-7">
+            <div class="media-list-card__header">
+              <p class="section-label">MEDIA OPTIONS</p>
+              <h3 class="font-serif text-2xl font-bold text-[#465F7E] mt-2">対応できる媒体</h3>
+              <p class="text-sm leading-7 text-[#6B7888] mt-2">目的とご予算に合わせて、必要な媒体を選びます。</p>
+            </div>
+            <div class="media-row"><h3 class="font-bold text-[#465F7E]">検索・地図</h3><p class="text-sm leading-7 text-[#6B7888]">Google検索、Googleビジネスプロフィール、Googleマップ、Appleマップ、Bing</p></div>
+            <div class="media-row"><h3 class="font-bold text-[#465F7E]">美容・予約媒体</h3><p class="text-sm leading-7 text-[#6B7888]">Hot Pepper Beauty、楽天ビューティ、minimo、EPARK、OZmall、その他の美容・地域媒体</p></div>
+            <div class="media-row"><h3 class="font-bold text-[#465F7E]">自社メディア</h3><p class="text-sm leading-7 text-[#6B7888]">公式ホームページ、ブログ、予約フォーム、自社予約システム</p></div>
+            <div class="media-row"><h3 class="font-bold text-[#465F7E]">SNS・動画</h3><p class="text-sm leading-7 text-[#6B7888]">Instagram、Facebook、TikTok、YouTube、X、Threads</p></div>
+            <div class="media-row"><h3 class="font-bold text-[#465F7E]">顧客対応</h3><p class="text-sm leading-7 text-[#6B7888]">LINE公式、メール、SMS、予約リマインド、口コミ依頼</p></div>
+            <div class="media-row"><h3 class="font-bold text-[#465F7E]">Web広告</h3><p class="text-sm leading-7 text-[#6B7888]">Google広告、Instagram・Facebook広告、LINE広告など</p></div>
+          </div>
+        </div>
+        <p class="mt-6 text-center text-xs leading-6 text-[#6B7888]">すべての媒体の導入を勧めるものではありません。店舗規模、商圏、顧客層、予算に合う組み合わせをご提案します。</p>
+      </div>
+    </section>
+
+    <section id="support" class="py-20 bg-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto">
+          <p class="section-label">SUPPORT AREAS</p>
+          <h2 class="section-title font-serif text-3xl font-bold mt-3">支援する領域</h2>
+        </div>
+        <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <article class="brand-card brand-card--light rounded-2xl p-6"><p class="text-xs tracking-widest">MANAGEMENT</p><h3 class="font-serif text-xl font-bold mt-3">経営数値</h3><p class="text-sm leading-7 mt-3">売上、利益、客単価、来店数、広告費、人件費を整理します。</p></article>
+          <article class="brand-card brand-card--light rounded-2xl p-6"><p class="text-xs tracking-widest">ACQUISITION</p><h3 class="font-serif text-xl font-bold mt-3">新規集客</h3><p class="text-sm leading-7 mt-3">媒体ごとの役割と費用対効果、予約までの導線を確認します。</p></article>
+          <article class="brand-card brand-card--light rounded-2xl p-6"><p class="text-xs tracking-widest">RETENTION</p><h3 class="font-serif text-xl font-bold mt-3">再来・失客対策</h3><p class="text-sm leading-7 mt-3">次回予約、LINE、顧客対応、口コミの流れを整えます。</p></article>
+          <article class="brand-card brand-card--light rounded-2xl p-6"><p class="text-xs tracking-widest">MENU</p><h3 class="font-serif text-xl font-bold mt-3">メニュー・価格</h3><p class="text-sm leading-7 mt-3">客単価、施術時間、クーポン、キャンペーンを見直します。</p></article>
+          <article class="brand-card brand-card--light rounded-2xl p-6"><p class="text-xs tracking-widest">WEB</p><h3 class="font-serif text-xl font-bold mt-3">Web・各媒体</h3><p class="text-sm leading-7 mt-3">ホームページ、Google、SNS、LINE、予約媒体を横断します。</p></article>
+          <article class="brand-card brand-card--light rounded-2xl p-6"><p class="text-xs tracking-widest">OPERATION</p><h3 class="font-serif text-xl font-bold mt-3">店舗運営</h3><p class="text-sm leading-7 mt-3">予約枠、接客、会計、顧客管理、スタッフ体制を確認します。</p></article>
+          <article class="brand-card brand-card--light rounded-2xl p-6"><p class="text-xs tracking-widest">AI</p><h3 class="font-serif text-xl font-bold mt-3">AI活用</h3><p class="text-sm leading-7 mt-3">文章、発信、顧客対応、データ整理への使い方をお伝えします。</p></article>
+          <article class="brand-card brand-card--light rounded-2xl p-6"><p class="text-xs tracking-widest">OPENING</p><h3 class="font-serif text-xl font-bold mt-3">開業準備</h3><p class="text-sm leading-7 mt-3">事業計画、物件、価格、集客、運営の準備を支援します。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="brand-pattern py-20 border-y border-brand-accent">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[0.85fr_1.15fr] gap-8 items-center">
+        <div class="white-card rounded-2xl p-6">
+          <img src="../images/keiei-optimized.webp" alt="サロン経営を数値と現場の両面から支援するイメージ" width="600" height="600" class="w-full max-w-sm mx-auto h-auto">
+        </div>
+        <div>
+          <p class="section-label">OUR APPROACH</p>
+          <h2 class="section-title font-serif text-3xl font-bold mt-3">一般論だけで終わらせず、実行できる形へ</h2>
+          <p class="mt-5 leading-8 text-[#6B7888]">
+            現在の店舗状況や数字を整理し、何が課題なのか、なぜ起きているのか、何から改善すべきかを明確にします。
+            AIについても、単なるツールの紹介ではなく、どの業務に取り入れるべきか、人が担うべき業務は何かを整理します。
+          </p>
+          <div class="mt-7 grid sm:grid-cols-2 gap-4">
+            <div class="white-card rounded-xl p-5"><h3 class="font-bold text-[#465F7E]">実店舗経営の経験</h3><p class="text-sm leading-7 text-[#6B7888] mt-2">現場で実行できる改善方法を重視します。</p></div>
+            <div class="white-card rounded-xl p-5"><h3 class="font-bold text-[#465F7E]">媒体に偏らない支援</h3><p class="text-sm leading-7 text-[#6B7888] mt-2">店舗全体の集客・再来導線を確認します。</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="diagnosis" class="brand-pattern py-20 border-y border-brand-accent">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="section-label">FREE SALON CHECK</p>
+        <h2 class="section-title font-serif text-3xl sm:text-4xl font-bold mt-3">まずは現在のサロンの状態を確認しましょう</h2>
+        <p class="mt-5 text-sm sm:text-base leading-8 text-[#6B7888] max-w-3xl mx-auto">
+          登録不要の詳細診断で、集客、リピート、客単価、メニュー設計、Web導線、Hot Pepper Beauty、Google対策、運営体制を確認できます。
+        </p>
+        <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
+          <span class="light-info-card rounded-xl py-3 text-[#465F7E]">集客</span><span class="light-info-card rounded-xl py-3 text-[#465F7E]">リピート</span>
+          <span class="light-info-card rounded-xl py-3 text-[#465F7E]">客単価</span><span class="light-info-card rounded-xl py-3 text-[#465F7E]">メニュー設計</span>
+          <span class="light-info-card rounded-xl py-3 text-[#465F7E]">Web導線</span><span class="light-info-card rounded-xl py-3 text-[#465F7E]">各種媒体</span>
+          <span class="light-info-card rounded-xl py-3 text-[#465F7E]">Google対策</span><span class="light-info-card rounded-xl py-3 text-[#465F7E]">運営体制</span>
+        </div>
+        <a href="https://will-next1.github.io/salon-hearing-sheet/" target="_blank" rel="noopener noreferrer" class="cta-primary px-9 py-4 text-sm mt-9">登録不要で詳細診断を始める</a>
+      </div>
+    </section>
+
+    <section id="pricing" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto">
+          <p class="section-label">CONSULTING MENU</p>
+          <h2 class="section-title font-serif text-3xl font-bold mt-3">コンサルティング料金</h2>
+          <p class="mt-4 text-sm leading-7 text-[#6B7888]">現在の課題確認から、毎月の改善、制作を含む伴走、開業支援まで対応します。</p>
+        </div>
+        <div class="mt-10 grid md:grid-cols-2 xl:grid-cols-3 gap-5">
+          <article class="white-card price-card">
+            <span class="price-badge self-start">1事業者1回</span>
+            <h3 class="font-serif text-xl font-bold text-[#465F7E] mt-4">初回相談</h3>
+            <p class="text-3xl font-bold text-brand-navy mt-4">無料</p>
+            <p class="text-sm leading-7 text-[#6B7888] mt-4">現在のお悩みと店舗状況を整理し、優先して取り組む改善ポイントを具体的にお伝えします。</p>
+            <ul class="mt-5 space-y-2 text-sm text-[#465F7E]"><li>✓ 電話・対面は60分まで</li><li>✓ メール・LINEは1テーマ</li><li>✓ 今すぐできる改善策をご提案</li></ul>
+          </article>
+          <article class="white-card price-card price-card--featured">
+            <span class="price-badge self-start">現状分析</span>
+            <h3 class="font-serif text-xl font-bold text-[#465F7E] mt-4">サロン診断</h3>
+            <p class="text-3xl font-bold text-brand-navy mt-4">55,000<span class="text-sm ml-1">円（税込）</span></p>
+            <p class="text-sm leading-7 text-[#6B7888] mt-4">経営数値、集客、再来、メニュー、各媒体、運営、AI活用を分析し、PDF診断レポートを作成します。</p>
+            <ul class="mt-5 space-y-2 text-sm text-[#465F7E]"><li>✓ 課題と原因の整理</li><li>✓ 改善の優先順位</li><li>✓ レポート内容のご説明</li></ul>
+          </article>
+          <article class="white-card price-card">
+            <span class="price-badge self-start">相談中心</span>
+            <h3 class="font-serif text-xl font-bold text-[#465F7E] mt-4">月額ライト</h3>
+            <p class="text-3xl font-bold text-brand-navy mt-4">27,500<span class="text-sm ml-1">円（税込）</span></p>
+            <p class="text-sm leading-7 text-[#6B7888] mt-4">月1回・60分までの定期面談と、面談外相談を中心とした継続支援です。</p>
+            <ul class="mt-5 space-y-2 text-sm text-[#465F7E]"><li>✓ 面談 月1回</li><li>✓ 面談外相談 月3回まで</li><li>✓ 対応時間合計 月60分程度</li></ul>
+          </article>
+          <article class="white-card price-card">
+            <span class="price-badge self-start">改善実行</span>
+            <h3 class="font-serif text-xl font-bold text-[#465F7E] mt-4">月額スタンダード</h3>
+            <p class="text-3xl font-bold text-brand-navy mt-4">55,000<span class="text-sm ml-1">円（税込）</span></p>
+            <p class="text-sm leading-7 text-[#6B7888] mt-4">月ごとの課題と優先順位を整理し、施策の実行状況と結果を確認します。</p>
+            <ul class="mt-5 space-y-2 text-sm text-[#465F7E]"><li>✓ 面談 月2回</li><li>✓ 面談外相談 月5回まで</li><li>✓ 簡易的な文案作成・調整</li></ul>
+          </article>
+          <article class="white-card price-card price-card--featured">
+            <span class="price-badge self-start">制作を含む伴走</span>
+            <h3 class="font-serif text-xl font-bold text-[#465F7E] mt-4">月額プレミアム</h3>
+            <p class="text-3xl font-bold text-brand-navy mt-4">110,000<span class="text-sm ml-1">円（税込）</span></p>
+            <p class="text-sm leading-7 text-[#6B7888] mt-4">改善提案に加え、文章、画像、販促物、Webページなどの制作・修正にも対応します。</p>
+            <ul class="mt-5 space-y-2 text-sm text-[#465F7E]"><li>✓ 面談 月3回まで</li><li>✓ 面談外相談 随時</li><li>✓ 画像制作 月5点まで</li><li>✓ ホームページ更新 月1回目安</li></ul>
+          </article>
+          <article class="white-card price-card">
+            <span class="price-badge self-start">開業準備から初期改善</span>
+            <h3 class="font-serif text-xl font-bold text-[#465F7E] mt-4">開業伴走プラン</h3>
+            <p class="text-3xl font-bold mt-4">330,000<span class="text-sm ml-1">円（税込）</span></p>
+            <p class="text-sm leading-7 text-[#6B7888] mt-4">事業計画、物件、必要売上、メニュー、価格、集客、予約導線、店舗運営、AI活用を支援します。</p>
+            <ul class="mt-5 space-y-2 text-sm text-[#465F7E]"><li>✓ 1か月単位</li><li>✓ 開業準備資料を作成</li><li>✓ オープン後の初期改善</li></ul>
+          </article>
+        </div>
+
+        <div class="mt-10 overflow-x-auto white-card rounded-2xl">
+          <table class="comparison-table w-full text-sm text-left">
+            <thead class="bg-[#F7F9FB]">
+              <tr><th>内容</th><th>ライト</th><th>スタンダード</th><th>プレミアム</th></tr>
+            </thead>
+            <tbody class="text-[#6B7888]">
+              <tr><th>月額</th><td>27,500円</td><td>55,000円</td><td>110,000円</td></tr>
+              <tr><th>定期面談</th><td>月1回</td><td>月2回</td><td>月3回まで</td></tr>
+              <tr><th>面談外相談</th><td>月3回</td><td>月5回</td><td>必要に応じて随時</td></tr>
+              <tr><th>媒体横断分析</th><td>簡易確認</td><td>対応</td><td>詳細対応</td></tr>
+              <tr><th>文案作成</th><td>助言中心</td><td>簡易対応</td><td>対応</td></tr>
+              <tr><th>画像制作</th><td>対象外</td><td>原則対象外</td><td>月5点まで</td></tr>
+              <tr><th>Web更新</th><td>別途</td><td>別途</td><td>月1回目安</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mt-5 text-xs leading-6 text-[#6B7888]">月額ライト・スタンダード・プレミアムは原則3か月からのご契約です。大規模な制作、継続的な広告運用、専門的な手続きなどは内容を確認して別途ご案内します。</p>
+      </div>
+    </section>
+
+    <section id="ai-support" class="brand-pattern py-20 border-y border-brand-accent">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 items-center">
+        <div>
+          <p class="section-label">AI SUPPORT</p>
+          <h2 class="section-title font-serif text-3xl font-bold mt-3">美容サロンの実務に合うAIの使い方をご説明します</h2>
+          <p class="mt-5 leading-8 text-[#6B7888]">
+            文章作成、情報発信、顧客対応、販促企画、売上・顧客データの整理など、実際の店舗業務に合わせてご説明します。
+            単に操作方法をお伝えするだけでなく、どの業務に取り入れると効果的か、人が対応すべき業務は何かを整理します。
+          </p>
+          <div class="mt-6 flex flex-wrap gap-2"><span class="price-badge">文章・告知</span><span class="price-badge">SNS発信</span><span class="price-badge">顧客対応</span><span class="price-badge">データ整理</span><span class="price-badge">業務テンプレート</span></div>
+        </div>
+        <div class="white-card rounded-2xl p-6 sm:p-8">
+          <img src="../images/syukyaku-optimized.webp" alt="AIとデジタルツールを使ったサロン集客支援のイメージ" width="600" height="600" class="w-full max-w-sm mx-auto h-auto">
+        </div>
+      </div>
+    </section>
+
+    <section id="area" class="py-20 bg-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-6">
+          <div class="white-card rounded-2xl p-6 sm:p-8">
+            <p class="section-label">VISIT AREA</p>
+            <h2 class="section-title font-serif text-2xl font-bold mt-3">無料訪問対応エリア</h2>
+            <p class="mt-4 text-sm leading-7 text-[#6B7888]">月額プランでは月1回を目安に、追加交通費なしで訪問します。</p>
+            <div class="mt-5 flex flex-wrap gap-2 text-xs text-[#465F7E]">
+              <span class="price-badge">鎌ケ谷市</span><span class="price-badge">松戸市</span><span class="price-badge">船橋市</span><span class="price-badge">市川市</span><span class="price-badge">印西市</span><span class="price-badge">八千代市</span><span class="price-badge">佐倉市</span><span class="price-badge">習志野市</span><span class="price-badge">柏市</span><span class="price-badge">我孫子市</span><span class="price-badge">白井市</span><span class="price-badge">流山市</span><span class="price-badge">浦安市</span>
+            </div>
+            <p class="mt-5 text-xs leading-6 text-[#6B7888]">駐車料金は実費です。その他の地域は、距離・移動時間・交通費を確認して事前にご案内します。遠方はオンライン・電話で対応します。</p>
+          </div>
+          <div class="white-card rounded-2xl p-6 sm:p-8">
+            <p class="section-label">POLICY</p>
+            <h2 class="section-title font-serif text-2xl font-bold mt-3">支援と成果について</h2>
+            <p class="mt-4 text-sm leading-7 text-[#6B7888]">店舗状況を整理し、課題と優先順位を明確にしたうえで、具体的な改善策をご提案・実行支援します。</p>
+            <p class="mt-4 text-sm leading-7 text-[#6B7888]">売上、利益、集客数、再来率は、商圏、競合、施術品質、実施状況などで変動するため、特定の成果を保証するものではありません。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="brand-pattern py-20 border-y border-brand-accent">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <p class="section-label">FAQ</p>
+          <h2 class="section-title font-serif text-3xl font-bold mt-3">よくある質問</h2>
+        </div>
+        <div class="mt-10 space-y-3">
+          <details class="faq-item"><summary>Hot Pepper Beauty以外の媒体も相談できますか</summary><div class="faq-answer">はい。Google、ホームページ、Instagram、TikTok、LINE公式、各種予約媒体、自社予約、口コミ、Web広告など、現在利用している媒体と検討中の媒体を横断して確認します。</div></details>
+          <details class="faq-item"><summary>InstagramやLINEも確認してもらえますか</summary><div class="faq-answer">対応します。投稿内容だけでなく、プロフィール、リンク、予約導線、来店前後の案内、再来につなげる活用方法まで確認します。</div></details>
+          <details class="faq-item"><summary>Googleマップの相談はできますか</summary><div class="faq-answer">Googleビジネスプロフィールの情報、写真、口コミ、ホームページや予約先とのつながりを確認し、改善方法をご提案します。</div></details>
+          <details class="faq-item"><summary>どの媒体を使えばよいか分かりません</summary><div class="faq-answer">店舗規模、商圏、対象顧客、予算、既存客の状況を確認し、必要な媒体と優先順位をご提案します。すべての媒体を導入する必要はありません。</div></details>
+          <details class="faq-item"><summary>広告運用も依頼できますか</summary><div class="faq-answer">広告内容や導線に関するご相談には対応します。継続的な広告運用代行については、媒体、予算、作業内容を確認したうえで対応方法をご案内します。</div></details>
+          <details class="faq-item"><summary>AIの使い方も教えてもらえますか</summary><div class="faq-answer">はい。文章作成、情報発信、顧客対応、販促企画、売上・顧客データの整理など、美容サロンの実務に合わせたAIの使い方をご説明します。どの業務にAIを取り入れると効果的か、人が対応すべき業務は何かも整理し、継続して活用できる形を一緒に作ります。</div></details>
+          <details class="faq-item"><summary>AIを使ったことがなくても大丈夫ですか</summary><div class="faq-answer">問題ありません。基本的な操作から分かりやすくご説明します。店舗の状況やパソコン・スマートフォンの利用状況に合わせて、無理なく始められる方法をご提案します。</div></details>
+          <details class="faq-item"><summary>遠方でも相談できますか</summary><div class="faq-answer">遠方のお客様は、オンラインまたは電話で対応します。共有いただいた資料、ホームページ、各媒体の情報を確認しながら進めます。</div></details>
+          <details class="faq-item"><summary>売上資料がなくても診断できますか</summary><div class="faq-answer">現時点で確認できる情報をもとに診断できます。今後把握しておくべき数値や資料もあわせて整理します。</div></details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="white-card rounded-3xl p-7 sm:p-10 text-center">
+          <p class="section-label">CONTACT</p>
+          <h2 class="section-title font-serif text-3xl font-bold mt-3">店舗全体の集客・再来導線を一緒に整理します</h2>
+          <p class="mt-5 text-sm sm:text-base leading-8 text-[#6B7888]">
+            Hot Pepper Beauty、Google、ホームページ、SNS、LINE、各種予約媒体を個別に考えるのではなく、認知から予約・再来までの1つの流れとして確認します。
+          </p>
+          <div class="mt-8 flex flex-col sm:flex-row justify-center gap-3">
+            <a href="https://will-next1.github.io/salon-hearing-sheet/" target="_blank" rel="noopener noreferrer" class="cta-primary px-8 py-4 text-sm">登録不要の詳細診断</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScLZfYnpM96T7RD3yI2N0w6H2kwIlDajdbn-IFQIEMOA92syA/viewform" target="_blank" rel="noopener noreferrer" class="cta-secondary px-8 py-4 text-sm">初回無料相談</a>
+          </div>
+          <p class="mt-5 text-xs text-[#6B7888]"><a href="tel:09061881722" class="hover:text-[#27769B]">電話 090-6188-1722</a>　／　<a href="mailto:consul.will.next@gmail.com" class="hover:text-[#27769B]">consul.will.next@gmail.com</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-brand-navy text-white/90 py-12 border-t-4 border-brand-gold" style="background-image:url('../images/footer-bg-blue.jpg');background-size:cover;background-position:center;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-8 items-center pb-8 border-b border-white/10">
+        <div class="text-center md:text-left"><span class="font-serif text-2xl font-black tracking-widest text-white">WILL NEXT</span><p class="text-[10px] text-white/60 mt-2">美容サロン専門コンサルティング</p></div>
+        <div class="flex flex-wrap justify-center gap-4 text-xs font-medium text-white/80"><a href="../index.html" class="hover:text-brand-gold">公式トップ</a><a href="#support" class="hover:text-brand-gold">支援内容</a><a href="#pricing" class="hover:text-brand-gold">料金</a><a href="../web-production/index.html" class="hover:text-brand-gold">ホームページ制作</a></div>
+        <div class="text-center md:text-right text-xs space-y-1 text-white/75"><p>千葉県鎌ケ谷市東中沢1-11-36</p><p><a href="tel:09061881722">090-6188-1722</a></p></div>
+      </div>
+      <p class="pt-8 text-center text-xs text-white/50">© <span data-current-year>2026</span> WILL NEXT LLC. All Rights Reserved.</p>
+    </div>
+  </footer>
+</div>
+
+<script src="../assets/lp.js"></script>
+</body>
+</html>
