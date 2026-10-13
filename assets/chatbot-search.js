@@ -46,6 +46,8 @@ function normalizeText(text) {
     normalized = normalized.replace(/作成|構築|開発|立ち上げ/g, "制作");
     normalized = normalized.replace(/修正|変更|更新|直す|直して/g, "修正");
     normalized = normalized.replace(/サイト/g, "ホームページ");
+    normalized = normalized.replace(/ヶ月|ケ月|箇月|カ月/g, "か月");
+    normalized = normalized.replace(/[？?。！!]/g, "");
 
     return normalized;
 }
@@ -74,8 +76,9 @@ function searchAnswer(query, currentCategory = null) {
 
         // 2. キーワードの合致数
         let keywordMatches = 0;
-        for (const kw of faq.keywords) {
-            const normKw = normalizeText(kw);
+        // 「料金・費用・価格」など、正規化後に同じ語は1回だけ数える
+        const normalizedKeywords = new Set(faq.keywords.map(kw => normalizeText(kw)));
+        for (const normKw of normalizedKeywords) {
             // 短すぎるキーワード（1文字）は部分一致を避ける
             if (normKw.length <= 1) continue;
             if (normQuery.includes(normKw)) {
@@ -92,7 +95,10 @@ function searchAnswer(query, currentCategory = null) {
             score += 15; // 3つ以上一致で追加ボーナス
         }
 
-        // 3. カテゴリーボーナス
+        // 質問自体に十分な一致がない回答は、前の話題だけで候補にしない
+        if (!exactMatch && score < 20) continue;
+
+        // 3. 質問に合致した候補だけにカテゴリーボーナスを付ける
         if (currentCategory && faq.category === currentCategory) {
             score += 30;
         }
