@@ -215,6 +215,28 @@
   background: #fff;
 }
 
+#chatbot-toolbar {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.4rem;
+  padding: 0.4rem 0.7rem;
+  border-top: 1px solid rgba(39, 118, 155, 0.18);
+  background: #fff;
+}
+
+#chatbot-toolbar .choice-btn,
+#chatbot-toolbar .action-link {
+  flex: 1;
+  width: auto;
+  margin: 0;
+  text-align: center;
+}
+
+#chatbot-header,
+#chatbot-input-area {
+  flex-shrink: 0;
+}
+
 #chatbot-input {
   min-width: 0;
   flex: 1;
