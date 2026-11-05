@@ -65,7 +65,7 @@ function routeFaqIntent(q) {
         return candidates.length === 1 ? { type: 'found', faq: candidates[0] }
             : { type: 'ambiguous', candidates };
     };
-    const price = /料金|いくら|金額|有料|無料|見積|19,?800/.test(q);
+    const price = /料金|いくら|金額|有料|無料|見積|診断料|19,?800/.test(q);
     const plan = /ライト|スタンダード|プレミアム/.test(q);
     const diagnosis = /診断|レポート/.test(q);
     if (/パスワード|認証コード|顧客名簿/.test(q) || /ログイン情報.*(送|教え|入力)/.test(q)) return result('contact-security');
@@ -87,8 +87,9 @@ function routeFaqIntent(q) {
     if (/振込先/.test(q)) return result('contact-general');
     if (/支払.*方法/.test(q) && !plan && !/月額/.test(q)) return result('payment-method');
     if (/初回相談|相談料/.test(q)) return result('consultation-free');
-    if (/ホームページ.*診断/.test(q) && /サロン.*診断/.test(q)) return result('audit-price','salon-diagnosis-price','consultation-free');
+    if (diagnosis && /ホームページ|裏側|seo|url|19,?800/.test(q) && /(?:サロン|お店|店舗)(?:の|向けの?)?(?:(?:集客|経営)(?:の)?)?診断/.test(q)) return result('audit-price','salon-diagnosis-price','consultation-free');
     if (price && /ホームページ.*制作/.test(q) && /サロン|コンサル/.test(q)) return result('website-price','salon-plan-comparison');
+    if (/aio|aeo/.test(q) && /とは|意味|何です|違い|必ず|保証/.test(q)) return result('website-seo');
     if (/(^|[^a-z])ai(?![a-z])|chatgpt|codex/.test(q) && !/診断|検索|ホームページ/.test(q)) {
         if(price) return result('ai-price');
         if(/初心者|使ったこと|苦手|初めて|難しい/.test(q)) return result('ai-beginner');
@@ -100,7 +101,7 @@ function routeFaqIntent(q) {
     if (/払い|支払|振込|請求/.test(q) && /月額|サブスク/.test(q)) return result('payment-monthly');
     if (/解約/.test(q) && !/ホームページ|制作/.test(q)) return result('salon-meo-cancel');
     if (/交通費|出張費|駐車料金|無料.*訪問|訪問.*無料/.test(q)) return result('salon-visit-cost');
-    if (/セルフ|診断シート|登録不要/.test(q)) return result('salon-self-check');
+    if (/セルフ|診断シート|登録不要/.test(q) || (diagnosis && /自分で|自己/.test(q) && /サロン|お店|店舗/.test(q) && !/ホームページ|裏側|seo|url/.test(q))) return result('salon-self-check');
     if (/無料/.test(q) && /初回|相談|簡易|話せ/.test(q) && !/ホームページ.*診断/.test(q)) return result('consultation-free');
     if (diagnosis) {
         if (/無料|初回|簡易/.test(q) && /19,?800|有料.*診断/.test(q) && /違い|比較|と/.test(q)) {
@@ -109,25 +110,33 @@ function routeFaqIntent(q) {
             return result('consultation-free','salon-self-check','salon-diagnosis-price','audit-price');
         }
         if (/ホームページ|裏側|seo|ai検索|url|表示速度|19,?800|縦型|制作会社/.test(q)) {
-            if (price && /いつ|納期|何日|期間/.test(q)) return result('audit-price','audit-delivery');
-            if (/いつ|納期|何日|期間/.test(q)) return result('audit-delivery');
-            if (/形式|pdf|レポート|制作会社.*(送|渡)/.test(q) && !price) return result('audit-report-format');
+            if (price && /いつ|納期|何日|日数|期間/.test(q)) return result('audit-price','audit-delivery');
+            if (/いつ|納期|何日|日数|期間/.test(q)) return result('audit-delivery');
+            if (/形式|pdf|レポート|制作会社.*(送|渡)|どう.*(もら|受け取)/.test(q) && !price) return result('audit-report-format');
             if (/項目|34|表示速度/.test(q)) return result('audit-items');
-            if (/悪い|悪かった|修正|直し/.test(q)) return result('audit-badresult');
-            if (/申込|申し込|依頼方法/.test(q)) return result('audit-apply');
+            if (/悪い|悪かった|修正|直し|改善|エラー|問題.*見つか/.test(q)) return result('audit-badresult');
+            if (/申込|申し込|依頼/.test(q)) return result('audit-apply');
             return result(price ? 'audit-price' : 'audit-about');
         }
         if (/サロン|お店|店舗/.test(q)) {
             if (/無料|簡易|初回/.test(q)) return result('consultation-free');
-            if (price && /いつ|納期|何日|期間/.test(q)) return result('salon-diagnosis-price','salon-diagnosis-details');
-            if (/いつ|納期|何日|期間|形式|pdf|レポート/.test(q) && !price) return result('salon-diagnosis-details');
+            if (price && /いつ|納期|何日|日数|期間/.test(q)) return result('salon-diagnosis-price','salon-diagnosis-details');
+            if (/いつ|納期|何日|日数|期間|形式|pdf|レポート|項目|内容|どう.*(もら|受け取)/.test(q) && !price) return result('salon-diagnosis-details');
             if (/資料/.test(q)) return result('salon-materials');
+            if (/申込|申し込|依頼|悪い|悪かった|改善|エラー|問題.*見つか/.test(q)) return result('salon-diagnosis-details','contact-general');
             return result('salon-diagnosis-price');
         }
         if (/資料/.test(q)) return result('salon-materials');
         if (/無料|簡易|初回/.test(q)) return result('consultation-free');
-        if (/いつ|納期|何日|期間/.test(q)) return result('audit-delivery','salon-diagnosis-details');
-        if (/形式|pdf|レポート/.test(q) && !price) return result('audit-report-format','salon-diagnosis-details');
+        if (/いつ|納期|何日|日数|期間/.test(q)) return result('audit-delivery','salon-diagnosis-details');
+        // サービス名がない診断の質問は、該当する内容を選択肢に含めて確認する。
+        if (!price) {
+            if (/形式|pdf|レポート|どう.*(もら|受け取)/.test(q)) return result('audit-report-format','salon-diagnosis-details');
+            if (/項目|具体的.*内容|チェック/.test(q)) return result('audit-items','salon-diagnosis-details');
+            if (/悪い|悪かった|修正|直し|改善|エラー|問題.*見つか/.test(q)) return result('audit-badresult','salon-diagnosis-details','contact-general');
+            if (/申込|申し込|依頼/.test(q)) return result('audit-apply','salon-diagnosis-details','contact-general');
+            return result('audit-about','salon-diagnosis-price','consultation-free','salon-self-check');
+        }
         return result('consultation-free','salon-self-check','salon-diagnosis-price','audit-price');
     }
     if (/問い合わせ方法|連絡先|電話番号|受付時間|営業時間|所在地|住所|どこにあります|メールアドレス|どうやって申し込|^お問い合わせ$|^問い合わせ$/.test(q) && !/修正|変え|設置|載せ/.test(q)) return result('contact-general');
@@ -138,7 +147,6 @@ function routeFaqIntent(q) {
     if (/資料.*(なく|ない)|相談.*用意/.test(q)) return result('salon-materials');
     if (/googleマップ|meo/.test(q) && /効果|成果|いつ/.test(q)) return result('salon-meo-effect');
     if (/googleマップ|meo/.test(q) && /上位|対策|順位/.test(q)) return result('salon-meo');
-    if (/aio|aeo/.test(q) && /とは|意味|何です|違い|必ず|保証/.test(q)) return result('website-seo');
     if (/検索.*(必ず|上位)|上位表示|ai検索.*表示/.test(q)) return result('website-seo');
     if (/元データ|ソースファイル|著作権|ホームページのデータ/.test(q)) return result('website-handover');
     if (/制作.*流れ|ホームページ.*流れ|公開まで.*手順/.test(q)) return result('website-flow');
@@ -156,7 +164,9 @@ function routeFaqIntent(q) {
     // 内容不明の料金質問では、いずれかのサービスを勝手に選ばない。
     if (price && !/ホームページ|ページ|制作|サーバー|ドメイン|修正|維持費|更新|レッスン|支払|キャンセル|公開|年間|毎年|有料サービス|変え|メニュー|保守|見積/.test(q)) {
         if (/サロン|コンサル/.test(q)) return result('salon-plan-comparison');
-        if (/月額/.test(q)) return result('website-extra-cost','salon-plan-comparison');
+        if (/追加|ランニング/.test(q)) return result('website-extra-cost','salon-plan-comparison','ai-price');
+        if (/何が含ま|どこまで含ま/.test(q)) return result('website-scope','salon-plan-comparison','audit-items','ai-price');
+        if (/月額/.test(q)) return result('website-price','website-extra-cost','salon-plan-comparison');
         return result('website-price','salon-plan-comparison','audit-price','ai-price');
     }
     return null;
@@ -178,7 +188,19 @@ function routeClarificationIntent(q) {
     if (/電話相談|電話で相談/.test(q) && !/料金|無料|いくら/.test(q)) return 'salon-remote';
     if (/line.*問い合わせ/.test(q)) return 'contact-general';
     if (/女性.*(お客様|お客|客).*(増や|集客)/.test(q)) return 'salon-acquisition';
-    if (/途中で.*(やめ|止め)/.test(q)) return ['salon-meo-cancel','contact-general'];
+    if (/途中.*(やめ|止め)/.test(q)) {
+        if (/ホームページ/.test(q)) return 'payment-estimate-cancel';
+        if (/インスタ|instagram/.test(q)) return 'instagram-management';
+        const aiTool = /chatgpt|codex|(^|[^a-z])(?:dots?|work)(?![a-z])|ドッツ|ドット(?!絵|コム|ネット|ジェイピー)/.test(q);
+        if (aiTool || /(^|[^a-z])ai(?![a-z])/.test(q)) {
+            if (/サポート|相談|講座|導入支援|教わ/.test(q)) return ['ai-price','contact-general'];
+            return aiTool ? 'ai-tool-cost' : ['ai-price','ai-tool-cost','contact-general'];
+        }
+        if (/制作/.test(q)) return 'payment-estimate-cancel';
+        // 「月額」だけでは、サロン専用プランの解約条件を適用しない。
+        if (/サロン|コンサル|ライト|スタンダード|プレミアム|meo/.test(q)) return 'salon-meo-cancel';
+        return ['payment-estimate-cancel','salon-meo-cancel'];
+    }
     return null;
 }
 
@@ -272,7 +294,7 @@ function routeDetailedTopic(q) {
 
 // 製品名だけの質問や具体的な成果物を、一般的なAI案内から分ける。
 function routeAiCapability(q) {
-    const dots = /(^|[^a-z])dots?(?![a-z])|ドッツ|ドット(?!絵)/.test(q);
+    const dots = /(^|[^a-z])dots?(?![a-z])|ドッツ|ドット(?!絵|コム|ネット|ジェイピー)/.test(q);
     const work = /chatgptwork|chatgptワーク|(^|[^a-z])work(?![a-z])|ワークで/.test(q);
     const codex = /codex|コーデックス/.test(q);
     const ai = /(^|[^a-z])ai(?![a-z])|chatgpt|チャットgpt/.test(q) || dots || work || codex;
