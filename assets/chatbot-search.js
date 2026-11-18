@@ -139,7 +139,8 @@ function routeFaqIntent(q) {
         }
         return result('consultation-free','salon-self-check','salon-diagnosis-price','audit-price');
     }
-    if (/問い合わせ方法|連絡先|電話番号|受付時間|営業時間|所在地|住所|どこにあります|メールアドレス|どうやって申し込|^お問い合わせ$|^問い合わせ$/.test(q) && !/修正|変え|設置|載せ/.test(q)) return result('contact-general');
+    if (/^(?:お)?問(?:い)?合わ?せ(?:を?したい(?:です)?|たい(?:です)?|できますか|できる|するには)?$/.test(q)) return result('contact-general');
+    if (/問い合わせ方法|連絡先|電話番号|受付時間|営業時間|所在地|住所|どこにあります|メールアドレス|どうやって申し込/.test(q) && !/修正|変え|設置|載せ/.test(q)) return result('contact-general');
     if (price && /オンライン.*相談|電話で相談/.test(q)) return result('consultation-free','salon-plan-comparison');
     if (/遠方|オンライン.*相談|電話で相談|県外/.test(q)) return result('salon-remote');
     if (/訪問|対応エリア|対応地域|店舗に来|千葉県|埼玉県|東京23区|東京都23区|茨城県/.test(q)) return result('salon-visit-area');

@@ -1895,6 +1895,27 @@ const FAQ_DATA = [
     "lastVerified": "2026-11-01"
   },
   {
+    "id": "service-overview",
+    "category": "お問い合わせ",
+    "title": "主なサービスのご案内",
+    "questions": [
+      "どんな相談ができますか",
+      "どのような相談ができますか",
+      "何を相談できますか",
+      "どんなサービスがありますか",
+      "どんなサービスがある",
+      "どのようなサービスがありますか",
+      "何をしている会社ですか",
+      "どんな会社ですか"
+    ],
+    "keywords": [],
+    "answer": "<strong>ホームページ制作</strong><br>小規模店舗や事業者向けに、サービスが伝わり、予約やお問い合わせに進みやすいホームページを制作します。<br><a href=\"https://will-next1.github.io/will-next/web-production/\" class=\"action-link\">ホームページ制作の詳細</a><br><br><strong>美容サロンの経営・集客相談</strong><br>集客やリピート来店、メニューづくり、日々の運営を一緒に見直します。<br><a href=\"https://will-next1.github.io/will-next/salon-consulting/\" class=\"action-link\">美容サロン経営相談の詳細</a>",
+    "related": [],
+    "priority": 1,
+    "specific": true,
+    "lastVerified": "2026-11-18"
+  },
+  {
     "id": "contact-general",
     "category": "お問い合わせ",
     "title": "お問い合わせ方法・受付時間",
