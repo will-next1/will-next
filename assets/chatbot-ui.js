@@ -1,3 +1,5 @@
+const chatbotSiteRoot = new URL('../', document.currentScript.src);
+
 document.addEventListener('DOMContentLoaded', () => {
     const chatButton = document.getElementById('chatbot-button');
     const chatWindow = document.getElementById('chatbot-window');
@@ -13,6 +15,32 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentCategory = null; // 現在の会話カテゴリーを一時記憶
     let lastFaqId = null; // 直前に表示した回答。タブを閉じれば消える。
     let previousBodyOverflow = '';
+    const publishedSite = 'https://will-next1.github.io/will-next/';
+
+    function configureLink(link, href) {
+        const sameSite = href.startsWith(publishedSite);
+        const destination = new URL(sameSite ? href.slice(publishedSite.length) : href, chatbotSiteRoot);
+        if (sameSite && destination.protocol === 'file:' && destination.pathname.endsWith('/')) {
+            destination.pathname += 'index.html';
+        }
+        link.href = destination.href;
+        const pagePath = url => url.pathname.replace(/index\.html$/, '');
+        if (sameSite && destination.hash && pagePath(destination) === pagePath(window.location)) {
+            link.removeAttribute('target');
+            link.addEventListener('click', () => closeChat());
+        } else if (['http:', 'https:', 'file:'].includes(destination.protocol)) {
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+        }
+    }
+
+    function consultationLink(text = '問い合わせる', href = publishedSite + '#contact') {
+        const link = document.createElement('a');
+        link.className = 'action-link';
+        link.textContent = text;
+        configureLink(link, href);
+        return link;
+    }
 
     // スクロール位置に関係なく、メニューと問い合わせ先へ移動できる。
     const toolbar = document.createElement('div');
@@ -22,12 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     menuButton.className = 'choice-btn';
     menuButton.textContent = '最初のメニュー';
     menuButton.onclick = () => { currentCategory = null; lastFaqId = null; showInitialMenu(); };
-    const contactLink = document.createElement('a');
-    contactLink.className = 'action-link';
-    contactLink.textContent = '問い合わせる';
-    contactLink.href = 'https://will-next1.github.io/will-next/#contact';
-    contactLink.target = '_blank';
-    contactLink.rel = 'noopener noreferrer';
+    const contactLink = consultationLink();
     toolbar.append(menuButton, contactLink);
     chatWindow.insertBefore(toolbar, document.getElementById('chatbot-input-area'));
 
@@ -61,7 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // 初回のみデータ読み込みと初期メッセージ表示
         if (messages.children.length === 0) {
             await loadFaqData();
-            showDisclaimer();
             showInitialMenu();
             messages.scrollTop = 0;
         }
@@ -72,8 +94,21 @@ document.addEventListener('DOMContentLoaded', () => {
     closeBtn.addEventListener('click', closeChat);
 
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && chatWindow.style.display === 'flex') {
+        if (chatWindow.style.display !== 'flex') return;
+        if (e.key === 'Escape') {
             closeChat();
+        }
+        if (e.key !== 'Tab' || chatWindow.getAttribute('aria-modal') !== 'true') return;
+        const controls = Array.from(chatWindow.querySelectorAll('button, a[href], input, summary'))
+            .filter(control => !control.disabled && control.getClientRects().length);
+        const first = controls[0];
+        const last = controls.at(-1);
+        if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
         }
     });
 
@@ -147,16 +182,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const body = document.createElement('p');
         body.innerHTML = faq.answer; // JSONデータ由来（管理者が管理）
+        body.querySelectorAll('a[href]').forEach(link => configureLink(link, link.getAttribute('href')));
         wrapper.appendChild(body);
 
         if (faq.link) {
-            const link = document.createElement('a');
-            link.href = faq.link;
-            link.className = 'action-link';
-            link.target = '_blank';
-            link.rel = 'noopener noreferrer';
-            link.textContent = faq.linkText || '詳細はこちら';
-            wrapper.appendChild(link);
+            wrapper.appendChild(consultationLink(faq.linkText || '詳細はこちら', faq.link));
         }
 
         // 関連する質問（id参照方式）
@@ -217,9 +247,11 @@ document.addEventListener('DOMContentLoaded', () => {
         div.className = 'message bot';
 
         const options = [
-            { text: '質問を言い換える', action: () => input.focus() },
-            { text: 'よくある質問を見る', action: () => { currentCategory = null; lastFaqId = null; showInitialMenu(); } },
-            { text: '問い合わせる', action: () => window.open('https://will-next1.github.io/will-next/#contact', '_blank', 'noopener,noreferrer') }
+            { text: '質問を言い換える', action: () => {
+                appendMessage('bot', '「ホームページの料金」「初回相談は無料？」「納期」など、知りたいことを短く入力してみてください。');
+                input.focus();
+            } },
+            { text: 'よくある質問を見る', action: () => { currentCategory = null; lastFaqId = null; showInitialMenu(); } }
         ];
 
         options.forEach(opt => {
@@ -230,65 +262,80 @@ document.addEventListener('DOMContentLoaded', () => {
             div.appendChild(btn);
         });
 
+        div.appendChild(consultationLink());
         messages.appendChild(div);
         messages.scrollTop = messages.scrollHeight;
-    }
-
-    // 免責事項・注意表示
-    function showDisclaimer() {
-        appendBotMessage(
-            '<span style="font-size:11px; color:#888;">' +
-            'サービス内容や料金について、登録済みの回答をご案内します。AIによる自由な会話ではありません。<br>' +
-            'このチャットでは、お問い合わせ・ご予約の受付は完了しません。個別のご相談は「問い合わせる」からお進みください。<br>' +
-            '※電話番号などの個人情報、パスワード、認証コードは入力しないでください。<br>' +
-            '※表示される料金・条件は変更になる場合があります。正式な内容はお問い合わせください。' +
-            '</span>'
-        );
     }
 
     // 初期メニュー表示
     function showInitialMenu() {
         const div = document.createElement('div');
-        div.className = 'message bot';
+        div.className = 'message bot chatbot-menu';
 
         const p = document.createElement('p');
-        p.textContent = 'ご質問をお選びいただくか、下部のフォームから直接入力してください。';
+        p.textContent = '項目を選ぶか、下の入力欄で質問してください。';
         div.appendChild(p);
 
         const categories = [
-            { label: 'ホームページ制作', category: 'ホームページ制作' },
-            { label: '美容サロンの集客支援', category: '美容サロンの集客支援' },
-            { label: 'ホームページ診断', category: 'ホームページ診断' },
-            { label: '料金・お支払い・契約', category: '契約・料金・支払い' },
-            { label: 'AI活用サポート', category: 'AI活用サポート' },
-            { label: 'お問い合わせ・受付時間', category: 'お問い合わせ' }
+            { label: 'ホームページ制作', category: 'ホームページ制作',
+                featured: ['website-scope', 'website-price', 'website-period', 'website-update-options', 'website-mobile', 'website-renewal'] },
+            { label: '美容サロンの集客支援', category: '美容サロンの集客支援',
+                featured: ['salon-consulting-about', 'salon-plan-comparison', 'salon-sales-growth', 'salon-visit-area', 'salon-acquisition', 'salon-remote'] },
+            { label: 'ホームページ診断', category: 'ホームページ診断',
+                featured: ['audit-about', 'audit-price', 'audit-items', 'audit-delivery', 'audit-limits', 'audit-apply'] },
+            { label: '料金・お支払い・契約', category: '契約・料金・支払い',
+                featured: ['consultation-free', 'payment-method', 'payment-credit', 'payment-estimate-cancel', 'payment-monthly', 'payment-invoice'] },
+            { label: 'AI活用サポート', category: 'AI活用サポート',
+                featured: ['ai-support-about', 'ai-price', 'ai-beginner', 'ai-writing', 'ai-safe-use', 'ai-automation'] },
+            { label: 'AIエージェント活用', category: 'AIエージェント', featured: [] },
+            { label: 'お問い合わせ・受付時間', category: 'お問い合わせ',
+                featured: ['contact-general', 'contact-line', 'consultation-availability', 'service-overview', 'contact-start', 'company-representative'] }
         ];
 
+        const options = document.createElement('div');
+        options.className = 'chatbot-menu-options';
         categories.forEach(item => {
             const btn = document.createElement('button');
+            btn.type = 'button';
             btn.className = 'choice-btn';
             btn.textContent = item.label;
             btn.onclick = () => {
                 currentCategory = item.category;
                 lastFaqId = null;
                 appendMessage('user', item.label);
-                showCategorySubMenu(item.category, item.label);
+                showCategorySubMenu(item);
             };
-            div.appendChild(btn);
+            options.appendChild(btn);
         });
+        div.appendChild(options);
+
+        const notice = document.createElement('p');
+        notice.className = 'chatbot-notice';
+        notice.textContent = '個人情報・パスワード・認証コードは入力しないでください。';
+        div.appendChild(notice);
+        const details = document.createElement('details');
+        details.className = 'chatbot-notice';
+        const summary = document.createElement('summary');
+        summary.textContent = 'チャットのご利用について';
+        const terms = document.createElement('p');
+        terms.textContent = '登録済みの回答をご案内します。個別のご相談・ご予約は「問い合わせる」へ。料金・条件は変更される場合があります。';
+        details.append(summary, terms);
+        div.appendChild(details);
 
         messages.appendChild(div);
         messages.scrollTop = div.offsetTop - messages.offsetTop;
     }
 
     // カテゴリー選択後のサブ選択肢表示
-    function showCategorySubMenu(category, displayLabel = category, offset = 0) {
-        const faqs = getFaqsByCategory(category);
+    function showCategorySubMenu(item, offset = 0) {
+        const { category, label, featured } = item;
+        const primary = featured.map(findFaqById).filter(faq => faq?.category === category);
+        const faqs = [...primary, ...getFaqsByCategory(category).filter(faq => !featured.includes(faq.id))];
         const div = document.createElement('div');
         div.className = 'message bot';
 
         const p = document.createElement('p');
-        p.textContent = `「${displayLabel}」について、どの内容でしょうか？`;
+        p.textContent = `「${label}」について、どの内容でしょうか？`;
         div.appendChild(p);
 
         if (faqs.length > 0) {
@@ -308,7 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const more = document.createElement('button');
                 more.className = 'choice-btn';
                 more.textContent = 'ほかの質問を見る';
-                more.onclick = () => { lastFaqId = null; currentCategory = category; showCategorySubMenu(category, displayLabel, offset + pageSize); };
+                more.onclick = () => { lastFaqId = null; currentCategory = category; showCategorySubMenu(item, offset + pageSize); };
                 div.appendChild(more);
             }
         } else {

@@ -7,6 +7,38 @@ const MAX_INPUT_LENGTH = 200;
 // 最小入力文字数（短すぎる入力を弾く）
 const MIN_INPUT_LENGTH = 2;
 
+// 短い語だけでは対象を特定できない場合は、既存の回答から選んでもらう。
+const SHORT_FAQ_ROUTES = new Map([
+    ['売上', 'salon-sales-growth'],
+    ['売り上げ', 'salon-sales-growth'],
+    ['集客', 'salon-acquisition'],
+    ['予約', ['contact-general', 'salon-acquisition', 'website-connections']],
+    ['予約ボタン', 'website-connections'],
+    ['見積', ['payment-estimate-cancel', 'salon-plan-comparison', 'ai-price']],
+    ['見積もり', ['payment-estimate-cancel', 'salon-plan-comparison', 'ai-price']],
+    ['見積り', ['payment-estimate-cancel', 'salon-plan-comparison', 'ai-price']],
+    ['スマホ', ['website-mobile', 'ai-mobile']],
+    ['スマートフォン', ['website-mobile', 'ai-mobile']],
+    ['領収書', 'payment-invoice'],
+    ['領収証', 'payment-invoice'],
+    ['請求書', ['payment-invoice', 'payment-monthly']],
+    ['支払い', 'payment-method'],
+    ['振込', 'payment-method'],
+    ['オンライン', 'salon-remote'],
+    ['リピート', 'salon-retention'],
+    ['再来', 'salon-retention'],
+    ['客単価', 'salon-menu-pricing'],
+    ['診断結果', ['audit-delivery', 'salon-diagnosis-details']],
+    ['sns', ['salon-sns', 'website-connections']],
+    ['meo', 'salon-meo'],
+    ['seo', ['website-seo', 'audit-about']],
+    ['line', ['contact-line', 'salon-line', 'website-connections']],
+    ['電話', 'contact-general'],
+    ['メール', 'contact-general'],
+    ['文章', ['website-writing', 'ai-writing']],
+    ['相談したい', 'contact-start']
+]);
+
 // データの読み込み（JS変数から直接取得）
 async function loadFaqData() {
     if (faqData.length > 0) return;
@@ -69,10 +101,12 @@ function routeFaqIntent(q) {
     const plan = /ライト|スタンダード|プレミアム/.test(q);
     const diagnosis = /診断|レポート/.test(q);
     if (/パスワード|認証コード|顧客名簿/.test(q) || /ログイン情報.*(送|教え|入力)/.test(q)) return result('contact-security');
-    if (/相談だけ|契約しないと|勝手に契約|契約になります|契約成立/.test(q)) return result('consultation-contract');
+    if (/相談だけ|契約しないと|契約なしで相談|契約せず(?:に)?相談|勝手に契約|契約になります|契約成立/.test(q)) return result('consultation-contract');
     // 管理者が用意した具体的な質問は、広いカテゴリーの案内より優先する。
     const specific = faqData.filter(f => f.specific && f.questions.some(question => normalizeText(question) === q));
     if (specific.length) return result(...specific.map(f=>f.id));
+    const service = routeServiceIntent(q);
+    if (service) return result(...(Array.isArray(service) ? service : [service]));
     const clarification = routeClarificationIntent(q);
     if (clarification) return result(...(Array.isArray(clarification) ? clarification : [clarification]));
     const companyStaff = routeCompanyStaffIntent(q);
@@ -99,7 +133,6 @@ function routeFaqIntent(q) {
     if (/解約|自動更新|最低契約|契約期間|何か月|縛り/.test(q) && (plan || /月額|コンサル|サロン|meo/.test(q))) return result('salon-meo-cancel');
     if (/支払|振込|請求/.test(q) && plan) return result('payment-monthly');
     if (/払い|支払|振込|請求/.test(q) && /月額|サブスク/.test(q)) return result('payment-monthly');
-    if (/解約/.test(q) && !/ホームページ|制作/.test(q)) return result('salon-meo-cancel');
     if (/交通費|出張費|駐車料金|無料.*訪問|訪問.*無料/.test(q)) return result('salon-visit-cost');
     if (/セルフ|診断シート|登録不要/.test(q) || (diagnosis && /自分で|自己/.test(q) && /サロン|お店|店舗/.test(q) && !/ホームページ|裏側|seo|url/.test(q))) return result('salon-self-check');
     if (/無料/.test(q) && /初回|相談|簡易|話せ/.test(q) && !/ホームページ.*診断/.test(q)) return result('consultation-free');
@@ -173,6 +206,69 @@ function routeFaqIntent(q) {
     return null;
 }
 
+function routeServiceIntent(q) {
+    const shortQuestion = SHORT_FAQ_ROUTES.get(q);
+    if (shortQuestion) return shortQuestion;
+
+    // 価格の前に、何を修正するのかを確かめる。
+    const site = /ホームページ|(?:web|ウェブ)ページ|シンプル制作|(?:他社|別の制作会社).*ページ|^(?:今ある|既存の|古い|公開後の|納品後の)?ページ/.test(q);
+    if (site && /修正|更新|手直し|直し/.test(q) && !/診断|制作中|納品前|公開前|修正回数|作り直し|移行/.test(q)) {
+        const existing = /他社|別の制作会社|既存|今ある|古い/.test(q) && !/他社(?:制作)?(?:ではなく|じゃなく)/.test(q);
+        const delivered = /公開後|納品後|公開してから|シンプル制作|作った後|作ってもらった後/.test(q) &&
+            !/シンプル制作(?:ではなく|じゃなく)/.test(q);
+        if (existing && delivered) return 'website-update-options';
+        if (existing) return 'website-renewal';
+        if (delivered && /料金|いくら|無料|有料|金額|費|1か月/.test(q)) return 'website-after-fix';
+        if (/料金|いくら|金額|修正代|更新代|修正費|更新費|見積/.test(q)) return 'website-update-options';
+    }
+    if (/メールアドレス|独自メール|ドメイン.*メール/.test(q) &&
+        /作れ|作り|作る|取得|設定|発行|用意|使え|使いた/.test(q)) return 'website-domain-email';
+
+    // お店のLINE運用と、当社への連絡を分ける。
+    if (site && /line/.test(q) && /載せ|設置|ボタン|埋め込|つな|リンク/.test(q) &&
+        !/診断|修正|更新|他社|既存/.test(q)) return 'website-connections';
+    if (/^line(?:ではなく|じゃなく|でなく)[、,]?(?:メール|電話|フォーム)で.*(?:相談|連絡|問(?:い)?合)/.test(q)) return 'contact-general';
+    if (/line/.test(q) && !/活用|運用|集客|配信|リンク|設置|ボタン|つな|お客様|顧客|自店|店舗の|お店の|うちの|公式を作/.test(q) &&
+        /lineで.*(?:相談|連絡|問(?:い)?合)|(?:相談|連絡|問(?:い)?合).*lineで|公式line.*(?:あります|ある|教え|追加)|line.*(?:連絡先|id|qrコード)/.test(q)) return 'contact-line';
+    if (/サロン以外.*(?:業種|会社|頼|相談)|(?:飲食店|整体院|一般企業).*(?:ホームページ.*(?:制作|作)|でも.*(?:頼|お願い|対応))/.test(q)) return 'service-overview';
+
+    if (/^(?:全国(?:から)?(?:対応|相談)(?:ですか|できますか|してますか|可能ですか)?|(?:zoom|ズーム|オンライン)で(?:打ち合わせ|面談|相談)(?:できますか|できる|したい|は可能ですか)(?:ですか)?)$/.test(q)) return 'salon-remote';
+    if (/来てもら|来てくれ|来られ|来れ|出張|訪問/.test(q) && /東京|北海道|大阪|京都|[都道府県市](?:で|に|は|へ|の)|遠方/.test(q) && !/費|料金|無料|いくら|駐車/.test(q)) return 'salon-visit-area';
+    if (/^[一-龯々]{2,9}(?:都|道|府|県|市)(?:でも|にも|で|は)対応(?:できますか|していますか|可能ですか)$/.test(q)) return 'salon-visit-area';
+    if (/^(?:aiエージェントで[、,]?(?:お店|サロン)の(?:仕事|業務)は何が(?:ラク|楽)になる(?:の|んですか|のですか|ですか)?|aiエージェントを(?:サロン|お店)でどう使(?:う|いますか))$/.test(q)) return 'ai-agent-salon';
+    if (/^(?:どうすれば)?(?:うちの|当店の|サロンの|美容サロンの|お店の|店舗の)?(?:売上|売り上げ)(?:を(?:増やしたい|伸ばしたい|上げたい)(?:です|んです|のですが|と思っています)?|が(?:上がりますか|伸びますか|伸び悩んでいます|伸び悩んでいる)|アップ(?:の方法|したい(?:です)?))$/.test(q)) return 'salon-sales-growth';
+
+    const rules = [
+        [/^(?:公開後(?:に|も)?|公開してから)(?:直せる|直せますか|修正できる|修正できますか)$/, 'website-after-fix'],
+        [/^(?:予約(?:数)?(?:が|は)?(?:増えない|少ない)|(?:新規の)?(?:お客さん|お客様|客)が(?:来ない|増えない))(?:です|んです|のですが)?$/, 'salon-acquisition'],
+        [/^(?:常連(?:さん)?|リピート(?:率)?)(?:を|が)?(?:増やしたい|増えない|増やすには)(?:です)?$/, 'salon-retention'],
+        [/^(?:客単価|単価)を上げたい(?:です)?$/, 'salon-menu-pricing'],
+        [/^(?:売上|売り上げ|集客)(?:は|の|を)?(?:保証(?:してくれる|してもらえる|してくれますか|しますか|(?:は)?(?:ある|ありますか))|保証されますか)$/, 'salon-acquisition'],
+        [/^(?:新規)?予約(?:数)?(?:を増やせる|が増える)(?:保証|確約)(?:は)?(?:ある|ありますか)$/, 'salon-acquisition'],
+        [/^(?:新規|来店)?予約(?:数)?を減らしたくない(?:です)?$/, 'salon-acquisition'],
+        [/^(?:新規)?予約を増やしたい(?:が|けど)[、,]?(?:ai|chatgpt)は使いたくない(?:です)?$/, 'salon-acquisition'],
+        [/^(?:売上|売り上げ)(?:を増やす|を伸ばす|アップ(?:の)?)(?:ための)?(?:料金|見積)(?:はいくら|は|を知りたい|を教えて|はいくらですか)?$/, ['salon-plan-comparison', 'website-price', 'ai-price']],
+        [/^line(?:公式)?で(?:お店の|サロンの)?(?:売上|売り上げ|予約|再来)を(?:伸ばしたい|増やしたい|上げたい)(?:です)?$/, 'salon-line'],
+        [/^(?:ai|chatgpt)で文章を(?:作りたい|作る|制作したい|書きたい)(?:です)?$/, 'ai-writing'],
+        [/^(?:お店|サロン)でaiエージェントを使いたい(?:です)?$/, 'ai-agent-salon'],
+        [/^(?:相談の予約(?:は|を)?(?:できますか|できる|したい)|予約の修正|予約を(?:修正|変更)したい)(?:です)?$/, 'contact-general'],
+        [/^(?:スマホ|スマートフォン|レスポンシブ)対応(?:してる|していますか|してますか|ですか|できますか|できる|は可能ですか)?$/, 'website-mobile'],
+        [/^(?:見積(?:もり|り)?だけでも(?:いい|よい|大丈夫|できますか|いいですか|大丈夫ですか)|見積書(?:が|を)?(?:ほしい|ください))$/, 'payment-estimate-cancel'],
+        [/^(?:(?:カード|クレカ|クレジットカード)(?:で)?(?:払い|支払|払|決済)(?:い|え)?(?:できる|できますか|可能ですか|ますか)|(?:クレカ|カード|クレジットカード)は?(?:使える|使えますか))$/, 'payment-credit'],
+        [/^領収(?:書|証)(?:を|が|は)?(?:ほしい|欲しい|ください|出せる|出せますか|もらえる|発行できる)$/, 'payment-invoice'],
+        [/^(?:土日|土曜日|日曜日|祝日)(?:も|に)(?:やってる|やっていますか|やってますか|営業してる|営業していますか|相談できる)$/, 'consultation-availability'],
+        [/^(?:夜は)?何時まで(?:ですか|やってる|営業していますか)?$/, 'contact-general'],
+        [/^(?:担当|担当者|相談の担当|担当の方)は(?:誰|どなた|どんな人|どんな方)(?:ですか)?$/, 'company-representative'],
+        [/^(?:ホームページ|ページ|サイト)(?:の)?(?:制作)の?(?:納期|制作期間)(?:は|を)?(?:どのくらい|どれくらい|知りたい|教えて|ですか)?$/, 'website-period'],
+        [/^(?:納期(?:は(?:どの|どれ)くらい)?|いつまでにできる(?:んですか|のですか)?)(?:ですか)?$/, ['website-period','audit-delivery','salon-diagnosis-details']],
+        [/^(?:一番|いちばん|最も)安いプラン(?:は|はどれ|はどれですか)?$/, ['website-price','salon-plan-comparison']],
+        [/^(?:途中)?(?:キャンセル|解約)(?:したい(?:です)?|したいのですが|できる|できますか|したらどうなる|(?:の)?(?:条件|料金)(?:を(?:教えて|知りたい))?)?$/, ['payment-estimate-cancel','salon-meo-cancel']],
+        [/^(?:来店|面談|予約|訪問).*(?:キャンセル|取り消し)(?:したい|できますか|たい)$/, 'contact-general'],
+        [/^(?:ホームページ|制作).*(?:キャンセル|解約).*(?:たい|でき|条件|料|どうなる)$/, 'payment-estimate-cancel']
+    ];
+    return rules.find(([pattern]) => pattern.test(q))?.[1] || null;
+}
+
 // 短い悩みの表現を拾う。料金・診断・契約の条件を勝手に変更しない。
 function routeClarificationIntent(q) {
     if (/このチャット|ここのチャット/.test(q) && /ai|人間|自動|予約|申込|申し込|受付/.test(q)) return 'chatbot-about';
@@ -185,9 +281,8 @@ function routeClarificationIntent(q) {
     if (/ai|chatgpt/.test(q) && /一から|いちから|基礎から/.test(q)) return 'ai-beginner';
     if (/パソコン|スマホ/.test(q) && /苦手|初心者/.test(q) && !/ホームページ|料金/.test(q)) return 'ai-beginner';
     if (/今日|明日|今から|日曜日|土日|祝日/.test(q) && /相談|来て|来れ|訪問|対応/.test(q)) return 'consultation-availability';
-    if (/相談に.*(行|伺)|個人でも相談|男性でも相談|サロン以外.*(会社|頼|相談)/.test(q)) return 'consultation-availability';
+    if (/相談に.*(行|伺)|個人でも相談|男性でも相談/.test(q)) return 'consultation-availability';
     if (/電話相談|電話で相談/.test(q) && !/料金|無料|いくら/.test(q)) return 'salon-remote';
-    if (/line.*問い合わせ/.test(q)) return 'contact-general';
     if (/女性.*(お客様|お客|客).*(増や|集客)/.test(q)) return 'salon-acquisition';
     if (/途中.*(やめ|止め)/.test(q)) {
         if (/ホームページ/.test(q)) return 'payment-estimate-cancel';

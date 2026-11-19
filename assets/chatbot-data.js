@@ -1,3 +1,14 @@
+// サロンコンサルティングページの訪問条件を共通で案内する。
+const SALON_VISIT_CITIES = [
+  "鎌ケ谷市", "松戸市", "船橋市", "市川市", "印西市", "八千代市", "佐倉市",
+  "習志野市", "柏市", "我孫子市", "白井市", "流山市", "浦安市"
+];
+const SALON_VISIT_TERMS = [
+  "<strong>月額プランの追加交通費なしの訪問</strong><br>月1回を目安に、次の13市へ訪問します。駐車料金は実費です。",
+  SALON_VISIT_CITIES.map(city => `<span class="chatbot-city">${city}</span>`).join("・"),
+  "<strong>その他の地域</strong><br>所在地を伺い、距離・移動時間・交通費を確認して、訪問の可否と条件を事前にご案内します。遠方からはオンラインまたは電話でご相談いただけます。"
+].join("<br><br>");
+
 // FAQデータ（JS変数として直接定義）
 const FAQ_DATA = [
   {
@@ -119,7 +130,7 @@ const FAQ_DATA = [
       "Jimdoで制作"
     ],
     "keywords": ["ホームページ", "ホームページ制作", "ホームページ作成", "制作内容", "対応範囲", "制作範囲", "サービス内容", "含まれる", "どこまで", "何をしてくれる", "全部", "丸ごと", "お任せ", "企画", "情報整理", "内容整理", "構成", "文章構成", "文章作成", "原稿", "デザイン", "初期設定", "スマホ対応", "スマートフォン対応", "基本SEO", "SEO対策", "AIO", "AEO", "予約導線", "問い合わせ導線", "予約ボタン", "問い合わせボタン", "公開", "公開作業", "自分で更新", "Googleサイト", "Jimdo"],
-    "answer": "ホームページの内容整理から公開まで、一貫して対応します。掲載内容が決まっていない場合も、事業の強みやサービス内容を整理し、文章構成とデザインをご提案します。<br><br><strong>制作料金に含まれる主な内容</strong><br>・初期設定とデザイン制作<br>・スマートフォン対応<br>・基本SEO設定<br>・AIO・AEO基本対応<br>・予約・問い合わせ導線<br>・公開作業<br><br>写真や画像は、基本的にお客様にご用意をお願いしています。公開後に営業時間、料金、文章、写真などを変更する場合は、通常範囲の更新を1回11,000円（税込）で承ります。ご自身で更新したい場合は、GoogleサイトやJimdoなどを利用する制作プランもご案内できます。",
+    "answer": "ホームページの内容整理から公開まで、一貫して対応します。掲載内容が決まっていない場合も、事業の強みやサービス内容を整理し、文章構成とデザインをご提案します。<br><br><strong>制作料金に含まれる主な内容</strong><br>・初期設定とデザイン制作<br>・スマートフォン対応<br>・基本SEO設定<br>・AIO・AEO基本対応<br>・予約・問い合わせ導線<br>・公開作業<br><br>写真や画像は、基本的にお客様にご用意をお願いしています。当社のシンプル制作を公開した後、営業時間、料金、文章、写真などの通常範囲の更新は1回11,000円（税込）です。ご自身で更新したい場合は、GoogleサイトやJimdoなどを利用する制作プランもご案内できます。",
     "related": ["website-pages-features", "website-connections", "website-domain-hosting", "website-renewal", "website-after-management", "website-price"],
     "link": "https://will-next1.github.io/will-next/web-production/#features",
     "linkText": "制作内容を詳しく見る",
@@ -281,7 +292,7 @@ const FAQ_DATA = [
       "ログイン情報",
       "修正だけ"
     ],
-    "answer": "既存ホームページの修正やリニューアルは、対応できる場合があります。まず公開URL、利用中のサービス、契約状況、編集権限の有無、直したい内容を確認します。<br><br>制作サービスの仕様や契約によっては、当社が直接編集できないことがあります。その場合は、現在のサービス内で修正する方法、元の制作会社へ依頼する方法、新しいホームページへ作り直す方法を比較してご提案します。確認前に修正可能とは断定しません。<br><br>パスワードや認証コードは、このチャットに入力しないでください。必要な確認方法は個別にご案内します。",
+    "answer": "他社制作を含む既存ホームページの修正は、公開URL、利用サービス、契約・編集権限、直したい箇所を確認してから、対応の可否と費用をご案内します。<br><br>直接編集が難しい場合は、現在のサービス内での修正、元の制作会社への依頼、作り直しなどを比較してご提案します。<br><br>パスワードや認証コードは、このチャットに入力しないでください。必要な確認方法は個別にご案内します。",
     "related": [
       "audit-about",
       "audit-badresult",
@@ -422,7 +433,7 @@ const FAQ_DATA = [
       "スマホで更新",
       "スマホだけで更新"
     ],
-    "answer": "公開後は、ホームページが正常に表示・動作しているか、当社で定期的に確認しています。確認の頻度や対応範囲は、ご依頼前にご確認ください。更新頻度とご予算に合わせて、内容の管理方法も選べます。<br><br><strong>■ 更新を依頼する場合</strong><br>営業時間、料金、文章、写真など、通常範囲の変更は1回11,000円（税込）で承ります。<br><br><strong>■ ご自身で更新する場合</strong><br>GoogleサイトやJimdoなどを利用し、写真、料金、お知らせなどをお客様自身で更新できる制作プランをご案内できます。ブログ機能は利用するサービスによって異なるため、ブログを更新したい場合は制作前にご希望を確認します。完成したページを使った更新方法の操作レッスンは、最大3時間・22,000円（税込）です。<br><br>基本料金にはSearch Console登録支援が含まれます。アクセス解析の追加設定、継続的な記事作成、大規模な内容追加などは自動的に含まれるものではないため、ご希望の内容を確認してご案内します。",
+    "answer": "公開後は、ホームページが正常に表示・動作しているか、当社で定期的に確認しています。確認の頻度や対応範囲は、ご依頼前にご確認ください。更新頻度とご予算に合わせて、内容の管理方法も選べます。<br><br><strong>■ 更新を依頼する場合</strong><br>当社のシンプル制作を公開した後、営業時間、料金、文章、写真などの通常範囲の更新は1回11,000円（税込）です。<br><br><strong>■ ご自身で更新する場合</strong><br>GoogleサイトやJimdoなどを利用し、写真、料金、お知らせなどをお客様自身で更新できる制作プランをご案内できます。ブログ機能は利用するサービスによって異なるため、ブログを更新したい場合は制作前にご希望を確認します。完成したページを使った更新方法の操作レッスンは、最大3時間・22,000円（税込）です。<br><br>基本料金にはSearch Console登録支援が含まれます。アクセス解析の追加設定、継続的な記事作成、大規模な内容追加などは自動的に含まれるものではないため、ご希望の内容を確認してご案内します。",
     "related": [
       "website-after-fix",
       "website-extra-cost",
@@ -767,7 +778,7 @@ const FAQ_DATA = [
       "更新費用",
       "制作料金以外"
     ],
-    "answer": "条件が合う場合は、無料提供枠を利用してサーバーの維持費をかけずに公開できます。独自ドメインや有料の外部サービスをご希望の場合は、その利用料が別途必要です。<br><br>公開後のお客様都合による文章・写真・料金などの通常範囲の更新は、1回11,000円（税込）で承ります。必要な作業と費用は、事前に確認してご案内します。",
+    "answer": "条件が合う場合は、無料提供枠を利用してサーバーの維持費をかけずに公開できます。独自ドメインや有料の外部サービスをご希望の場合は、その利用料が別途必要です。<br><br>当社のシンプル制作を公開した後、文章・写真・料金などの通常範囲の更新は1回11,000円（税込）です。必要な作業と費用は、事前に確認してご案内します。",
     "related": [
       "website-price",
       "website-domain-hosting",
@@ -839,7 +850,7 @@ const FAQ_DATA = [
       "1か月以内",
       "11,000円"
     ],
-    "answer": "納品した制作物に対するお直し・修正は、納品後1か月以内は無料で対応します。<br><br>ただし、新しい内容の追加や、お客様都合による文章・写真・料金などの変更は、公開後の更新として1回11,000円（税込）で承ります。<br><br>無料修正と有料更新のどちらに当たるかは、変更内容を確認して作業前にご案内します。",
+    "answer": "当社が納品した制作物のお直しは、納品後1か月以内は無料で対応します。<br><br>当社のシンプル制作を公開した後、営業時間・料金・文章・写真などを通常の範囲で更新する場合は<strong>1回11,000円（税込）</strong>です。更新の範囲や費用は、変更内容を確認して作業前にご案内します。<br><br>他社制作など既存サイトの修正は、利用環境とご希望の内容を確認して別途ご案内します。",
     "related": [
       "website-period",
       "website-price"
@@ -915,7 +926,7 @@ const FAQ_DATA = [
       "電話相談",
       "対面相談"
     ],
-    "answer": "ホームページ制作のご相談は無料です。<br><br>美容サロン経営・集客支援の初回相談・簡易診断は、1事業者につき1回無料です。電話・対面は60分まで、メール・LINEは1テーマについてご相談いただけます。<br><br>現在のお悩みと店舗状況を整理し、優先して取り組む改善ポイントをご案内します。<br><br>ホームページ裏側診断（19,800円・税込）や、PDF診断レポートを作成するサロン診断（55,000円・税込）は、初回の無料相談・簡易診断とは別の有料サービスです。",
+    "answer": "ホームページ制作のご相談は無料です。<br><br>美容サロン経営・集客支援の初回相談・簡易診断は、1事業者につき1回無料です。電話・対面は60分まで、メール・LINEは1テーマです。LINEをご希望の場合は、初回のご連絡時に進め方をご確認ください。<br><br>現在のお悩みと店舗状況を整理し、優先して取り組む改善ポイントをご案内します。<br><br>ホームページ裏側診断（19,800円・税込）や、PDF診断レポートを作成するサロン診断（55,000円・税込）は、初回の無料相談・簡易診断とは別の有料サービスです。",
     "related": [
       "salon-self-check",
       "salon-diagnosis-price",
@@ -930,8 +941,9 @@ const FAQ_DATA = [
   {
     "id": "salon-meo-cancel",
     "category": "美容サロンの集客支援",
-    "title": "契約期間と解約条件を教えてください",
+    "title": "サロン月額プランの契約期間・解約条件",
     "questions": [
+      "契約期間と解約条件を教えてください",
       "契約期間は何か月ですか",
       "契約期間を教えてください",
       "契約期間はどのくらいですか",
@@ -984,7 +996,8 @@ const FAQ_DATA = [
     ],
     "answer": "月額ライト・月額スタンダード・月額プレミアムの最低契約期間は、利用開始日から3か月間です。<br><br>最低契約期間の終了後は、解約のお申し出がない限り1か月単位で自動更新します。終了希望月の前月末日までに、メールまたは通常の連絡に使用しているSNSのメッセージでお申し出ください。月の途中での解約はできません。最低契約期間中にお客様都合で解約する場合は、期間満了までの残りの月額料金をご負担いただきます。<br><br>開業伴走プランは1か月単位でご契約できます。",
     "related": [
-      "salon-meo"
+      "salon-plan-comparison",
+      "payment-monthly"
     ],
     "link": "https://will-next1.github.io/will-next/service-terms/",
     "linkText": "サービス利用条件を確認する",
@@ -1009,7 +1022,7 @@ const FAQ_DATA = [
     ],
     "keywords": ["業種", "対応", "美容室", "ネイル", "エステ", "まつげ", "サロン", "ネイルサロン", "エステサロン", "まつげサロン", "アイラッシュ", "まつエク", "美容サロン", "個人サロン"],
     "answer": "美容サロンはいずれもサポート可能です。美容室、ネイルサロン、まつげサロン、エステサロンなど幅広く対応しております。",
-    "related": ["salon-meo"],
+    "related": ["salon-consulting-about", "consultation-free", "service-overview"],
     "link": "https://will-next1.github.io/will-next/#contact",
     "linkText": "相談する",
     "priority": 8,
@@ -1223,8 +1236,9 @@ const FAQ_DATA = [
   {
     "id": "payment-estimate-cancel",
     "category": "契約・料金・支払い",
-    "title": "見積もりやキャンセルについて",
+    "title": "制作の見積もり・キャンセルについて",
     "questions": [
+      "見積もりやキャンセルについて",
       "正式に依頼する前に見積書はもらえますか",
       "契約後のキャンセル料はどうなりますか",
       "途中でやめたらどうなる",
@@ -1521,14 +1535,14 @@ const FAQ_DATA = [
       "茨城",
       "店舗に来て"
     ],
-    "answer": "訪問でのご相談は、次の地域で対応しています。<br><br><strong>訪問対応エリア</strong><br>千葉県・埼玉県・東京都23区・茨城県<br><br>訪問日時や交通費などの条件は、所在地を伺ったうえで事前にご案内します。",
+    "answer": SALON_VISIT_TERMS,
     "related": [
       "salon-visit-cost",
       "salon-remote",
       "consultation-free"
     ],
     "link": "https://will-next1.github.io/will-next/salon-consulting/#contact",
-    "linkText": "訪問相談を申し込む",
+    "linkText": "訪問相談の窓口を見る",
     "priority": 10,
     "lastVerified": "2026-11-01"
   },
@@ -1759,7 +1773,7 @@ const FAQ_DATA = [
       "Zoom相談",
       "ズーム相談"
     ],
-    "answer": "遠方のお客様は、オンラインまたは電話でご相談いただけます。共有いただいた資料や、ホームページ・予約媒体などを確認しながら進めます。<br><br>訪問をご希望の場合は、所在地とご希望日時をお知らせください。",
+    "answer": "遠方のお客様は、オンラインまたは電話でご相談いただけます。共有いただいた資料や、ホームページ・予約媒体などを確認しながら進めます。<br><br>Zoomなどご希望のツールがある場合は、お申し込み時に利用できるかご確認ください。訪問をご希望の場合は、所在地とご希望日時をお知らせください。",
     "related": [
       "salon-visit-area",
       "consultation-free"
@@ -1785,7 +1799,7 @@ const FAQ_DATA = [
       "無料訪問",
       "駐車料金"
     ],
-    "answer": "月額プランでは月1回を目安に、鎌ケ谷市・松戸市・船橋市・市川市・印西市・八千代市・佐倉市・習志野市・柏市・我孫子市・白井市・流山市・浦安市へ、追加交通費なしで訪問します。駐車料金は実費です。<br><br>訪問可能な地域と、追加交通費が不要な地域は異なります。その他の地域は距離・移動時間・交通費を確認し、事前にご案内します。",
+    "answer": SALON_VISIT_TERMS,
     "related": [
       "salon-visit-area"
     ],
@@ -1906,10 +1920,12 @@ const FAQ_DATA = [
       "どんなサービスがある",
       "どのようなサービスがありますか",
       "何をしている会社ですか",
-      "どんな会社ですか"
+      "どんな会社ですか",
+      "飲食店でもホームページ作れますか",
+      "整体院でもお願いできますか"
     ],
     "keywords": [],
-    "answer": "<strong>ホームページ制作</strong><br>小規模店舗や事業者向けに、サービスが伝わり、予約やお問い合わせに進みやすいホームページを制作します。<br><a href=\"https://will-next1.github.io/will-next/web-production/\" class=\"action-link\">ホームページ制作の詳細</a><br><br><strong>美容サロンの経営・集客相談</strong><br>集客やリピート来店、メニューづくり、日々の運営を一緒に見直します。<br><a href=\"https://will-next1.github.io/will-next/salon-consulting/\" class=\"action-link\">美容サロン経営相談の詳細</a>",
+    "answer": "<strong>ホームページ制作</strong><br>美容サロンに限らず、小規模店舗・事業者向けです。飲食店や整体院などの制作サンプルもご覧いただけます。ご希望の内容や機能を伺い、対応範囲をご案内します。<br><a href=\"https://will-next1.github.io/will-next/web-production/\" class=\"action-link\">ホームページ制作の詳細</a><br><br><strong>美容サロンの経営・集客相談</strong><br>美容サロンを対象に、集客、リピート来店、メニューづくり、日々の運営を一緒に見直します。<br><a href=\"https://will-next1.github.io/will-next/salon-consulting/\" class=\"action-link\">美容サロン経営相談の詳細</a>",
     "related": [],
     "priority": 1,
     "specific": true,
@@ -2327,7 +2343,7 @@ const FAQ_DATA = [
   },
   {
     "id": "audit-limits",
-    "category": "ホームページ制作",
+    "category": "ホームページ診断",
     "title": "ホームページ診断に修正作業は含まれますか？",
     "questions": [
       "診断したら修正もしてくれますか",
@@ -2779,8 +2795,6 @@ const FAQ_DATA = [
     "category": "AI活用サポート",
     "title": "Dots（ドッツ）でできること",
     "questions": [
-      "Dotsとは何ですか",
-      "ドッツって何",
       "Dotで何ができますか",
       "ドットを仕事に使いたい",
       "Dotsをサロンで使えますか",
@@ -4146,5 +4160,151 @@ const FAQ_DATA = [
       "instagram-about",
       "contact-general"
     ]
+  },
+  {
+    "id": "ai-agent-overview",
+    "category": "AIエージェント",
+    "title": "AIエージェントとは？",
+    "questions": [
+      "AIエージェント",
+      "AIエージェントとは",
+      "AIエージェントって何",
+      "AIエージェントって何ですか",
+      "AIエージェントとは何ですか",
+      "AIエージェント活用",
+      "AIエージェントで何ができる"
+    ],
+    "keywords": [],
+    "answer": "AIエージェントは、目標を伝えると、情報を調べたり、資料を整理したり、下書きを作ったりと、複数の作業を進められるAIです。<br><br>たとえばサロンなら、『来週の空き枠をもとに、Instagramの告知文を3案作って』と頼めます。サービスや設定によっては、決まった曜日に同じ作業を繰り返すこともできます。",
+    "related": ["ai-agent-comparison", "ai-agent-salon"],
+    "link": "https://will-next1.github.io/will-next/#contact",
+    "linkText": "AI活用を相談する",
+    "specific": true
+  },
+  {
+    "id": "ai-agent-comparison",
+    "category": "AIエージェント",
+    "title": "どのAIが合う？",
+    "questions": [
+      "どのAIが合う",
+      "AIエージェントの比較",
+      "dots",
+      "ドッツ",
+      "Dotsとは",
+      "Dotsとは何ですか",
+      "ドッツとは",
+      "ドッツって何",
+      "ドッツって何ですか",
+      "Grok Bot",
+      "グロックボット",
+      "グロックボットって何",
+      "Muse",
+      "ミューズ",
+      "ミューズって何",
+      "Gemini Spark",
+      "ジェミニスパーク",
+      "Claude Duet",
+      "クロードデュエット"
+    ],
+    "keywords": [],
+    "answer": [
+      "普段使うアプリと任せたい仕事で選べます。<br>2026年11月19日確認",
+      "<strong>dots（OpenAI）</strong><br>ChatGPTで継続的に進めたい仕事に。定期調査や告知文の下書きに使えます。対象のProや法人向けプランなどで提供。<br><a href=\"https://help.openai.com/en/articles/20001530-getting-started-with-your-dot\" target=\"_blank\" rel=\"noopener noreferrer\"><u>OpenAIの公式案内 ↗</u></a>",
+      "<strong>Grok Bot</strong><br>チームで未対応の作業を拾い、SlackやMicrosoft Teamsで進めるのに向いています。チーム共有はTeam・Enterpriseプランが対象。<br><a href=\"https://x.ai/news/grok-bot-1-0\" target=\"_blank\" rel=\"noopener noreferrer\"><u>Grok Botの公式案内 ↗</u></a>",
+      "<strong>Muse（Meta）</strong><br>GmailやGoogleカレンダーでメールや予定を整理。日本では2026年10月23日に提供開始。基本機能の多くを無料で使えます。<br><a href=\"https://about.fb.com/ja/news/2026/10/muse-personal-ai-agent-launches-in-japan/\" target=\"_blank\" rel=\"noopener noreferrer\"><u>Metaの公式案内 ↗</u></a>",
+      "<strong>Gemini Spark（Google）</strong><br>Gmail、Googleドキュメント、スプレッドシートを使う作業に。Googleは日本への提供拡大を発表しています。利用条件は機能によって異なります。<br><a href=\"https://blog.google/intl/ja-jp/company-news/technology/gemini-spark-comes-to-japan/\" target=\"_blank\" rel=\"noopener noreferrer\"><u>Googleの公式案内 ↗</u></a>",
+      "<strong>Claude Duet（Anthropic）</strong><br>メールと予定から今日確認すべきことをまとめ、返信の下書きも作れます。米国の対象者に招待制で試験提供中。<br><a href=\"https://support.claude.com/en/articles/17631495-get-started-with-claude-duet\" target=\"_blank\" rel=\"noopener noreferrer\"><u>Anthropicの公式案内 ↗</u></a>"
+    ].join("<br><br>"),
+    "related": ["ai-agent-overview", "ai-agent-salon"],
+    "link": "https://will-next1.github.io/will-next/#contact",
+    "linkText": "AI活用を相談する",
+    "lastVerified": "2026-11-19",
+    "specific": true
+  },
+  {
+    "id": "ai-agent-salon",
+    "category": "AIエージェント",
+    "title": "サロンでの使い方",
+    "questions": [
+      "サロンでの使い方",
+      "サロンでAIエージェントを使うには",
+      "AIエージェントでお店の仕事は何がラクになる",
+      "AIエージェントで、お店の仕事は何がラクになる"
+    ],
+    "keywords": [],
+    "answer": "まずは、毎週繰り返す仕事をひとつ選びましょう。たとえば『来週の空き枠とメニューを渡すので、Instagramストーリーズ用の告知文を3案作ってください』と頼みます。<br><br>AIに渡すのは日時とメニューだけ。料金や予約リンクをスタッフが確認してから投稿する形なら、始めやすいです。",
+    "related": ["ai-agent-overview", "ai-agent-comparison"],
+    "link": "https://will-next1.github.io/will-next/#contact",
+    "linkText": "AI活用を相談する",
+    "specific": true
+  },
+  {
+    "id": "salon-sales-growth",
+    "category": "美容サロンの集客支援",
+    "title": "売上を伸ばしたい",
+    "questions": [
+      "売上を伸ばしたい",
+      "売上を上げたい",
+      "売上を増やしたい",
+      "売上を伸ばすには",
+      "売り上げを伸ばしたい",
+      "売り上げを上げたい",
+      "売り上げを増やしたい",
+      "サロンの売上を伸ばしたい",
+      "サロンの売上を上げたい",
+      "サロンの売上を増やしたい",
+      "美容サロンの売上を上げたい",
+      "お店の売上を伸ばしたい"
+    ],
+    "keywords": [],
+    "answer": [
+      "いま使っている媒体で新規予約を増やす。今日のお客様の次回予約を取る。よく出るメニューの単価を上げる。まずは、今のお店で一番動かせるところを一つ選びましょう。",
+      "<strong>① 新規予約を増やす｜いま使っている媒体を、予約につなげる</strong><br>今月いちばん予約を取りたいメニューを1つ決めて、いま使っている媒体で前に出しましょう。たとえば「冬の定額ネイル」なら、媒体ごとに役割を決めます。",
+      "・<strong>HOT PEPPER Beauty</strong>では、クーポン名にメニューと料金を入れ、実際の仕上がり写真を載せます。<br>・<strong>Instagram</strong>では、施術例で仕上がりを見せ、ストーリーズで今週の空き枠と予約先を案内します。<br>・<strong>Googleマップ・ホームページ</strong>では、店名を調べたお客様が、メニュー・料金・予約先をすぐ確認できるようにします。",
+      "最後に、各媒体から自分のスマホで予約直前まで進んでみてください。写真で見たメニューが予約画面で見つからない、料金が分かりにくい、予約ボタンまで遠い。見つけた箇所から直して、1週間でそのメニューの新規予約が何件入ったかを確認しましょう。",
+      "<strong>② リピートを増やす｜お会計前に次の候補を2つ出す</strong><br>施術の終わりに、次のお手入れの目安と空いている日時を伝えます。「次は〇日14時か、〇日11時が空いています。ご予定はいかがですか？」まで具体的に聞くと、その場で次の予定を決めやすくなります。",
+      "<strong>③ 客単価を上げる｜一番出るメニューに上位プランを作る</strong><br>たとえば「定額ネイル」と「定額ネイル＋ハンドケア」の2つを用意し、何が加わるか・料金差・所要時間を予約画面に出します。手元の乾燥が気になるお客様など、ケアを求めている方に提案します。",
+      "<strong>最初の1週間は、選んだ施策の数字を一つ追いましょう。</strong><br>案内したメニューの新規予約が何件入ったか、次回予約が何件入ったか、上位プランが何件選ばれたか。数字を見て、翌週に続ける施策を決めます。"
+    ].join("<br><br>"),
+    "related": ["salon-sns", "salon-retention", "salon-menu-pricing", "contact-start"],
+    "link": "https://will-next1.github.io/will-next/salon-consulting/#contact",
+    "linkText": "サロンの初回無料相談を見る",
+    "specific": true
+  },
+  {
+    "id": "website-update-options",
+    "category": "ホームページ制作",
+    "title": "ホームページの修正料金",
+    "questions": ["ホームページの修正はいくら", "ホームページの修正料金"],
+    "keywords": [],
+    "answer": "<strong>当社のシンプル制作を公開した後の通常更新</strong><br>営業時間・料金・文章・写真などの更新は、<strong class=\"chatbot-price\">1回11,000円（税込）</strong>です。<br><br><strong>他社制作などの既存サイトの修正</strong><br>公開URL、利用サービス、編集権限、修正箇所を確認して、対応の可否と費用をご案内します。<br><br>当社納品後のお直しは、無料修正に当たる場合があります。下の関連質問で条件をご確認ください。",
+    "related": ["website-after-fix", "website-renewal"],
+    "link": "https://will-next1.github.io/will-next/web-production/#contact",
+    "linkText": "修正内容を相談する",
+    "specific": true
+  },
+  {
+    "id": "contact-line",
+    "category": "お問い合わせ",
+    "title": "LINEで相談したい方へ",
+    "questions": ["LINEで相談したい", "ウィルネクストへLINEで問い合わせ", "公式LINEはありますか"],
+    "keywords": [],
+    "answer": "初回は、<strong>初回無料相談フォーム・電話・メール</strong>のいずれかからご連絡ください。LINEをご希望の場合は、その際に相談の進め方をご確認ください。<br><br>美容サロンの初回無料相談は、メール・LINEの場合は1テーマです。<br><br>電話：<a href=\"tel:09061881722\">090-6188-1722</a><br>メール：<a href=\"mailto:consul.will.next@gmail.com\">consul.will.next@gmail.com</a>",
+    "related": ["consultation-free", "contact-general"],
+    "link": "https://will-next1.github.io/will-next/salon-consulting/#contact",
+    "linkText": "初回無料相談の窓口を見る",
+    "specific": true
+  },
+  {
+    "id": "website-domain-email",
+    "category": "ホームページ制作",
+    "title": "独自ドメインのメールアドレスについて",
+    "questions": ["メールアドレスも作れますか"],
+    "keywords": [],
+    "answer": "独自ドメインのメールアドレスの取得・設定をご希望の場合は、使いたいドメインと、現在契約しているサービスをお知らせください。対応の可否と費用を個別に確認します。",
+    "related": ["website-domain-hosting"],
+    "link": "https://will-next1.github.io/will-next/web-production/#contact",
+    "linkText": "設定について相談する",
+    "specific": true
   }
 ];
